@@ -1,3 +1,4 @@
 People who have setup GitHub so far:
 Daniel
 chris
+Tyler
