@@ -1,18 +1,12 @@
 package GUI;
 
-import java.awt.BorderLayout;
+
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 /*
@@ -22,9 +16,10 @@ import javax.swing.border.Border;
  *  is here to show that it works
  *  
  */
-public class GamePanel extends JPanel implements ActionListener
+
+public class GamePanel extends JPanel
 {
-	private JButton btn;
+	
 	private JTextArea textArea;
 	
 	
@@ -35,18 +30,10 @@ public class GamePanel extends JPanel implements ActionListener
 			dim.width = 300; 
 			setPreferredSize(dim);
 			
-			btn = new JButton("hello");
 			textArea = new JTextArea("edit me");
 			textArea.setEditable(true);
 			
-			
-			
-			
-			
-			
-			
-			
-			
+		
 			
 			
 			Border innerBorder = BorderFactory.createTitledBorder("Game Play: ");		//creates the title
@@ -57,11 +44,4 @@ public class GamePanel extends JPanel implements ActionListener
 			setMaximumSize(new Dimension(500,920));
 			
 		}
-
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 }

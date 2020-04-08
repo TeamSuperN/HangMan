@@ -10,7 +10,6 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -54,7 +53,6 @@ public class MainFrame extends JFrame
 		submitPanel = new JPanel();
 		
 		
-		
 		setJMenuBar(createMenuBar());
 		submitPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		submitPanel.add(submitButton);
@@ -72,9 +70,10 @@ public class MainFrame extends JFrame
 		
 		
 		
-		userNamePanel.setSize(400,500);																	
+		userNamePanel.setSize(400,500);	
+		
 		userNamePanel.setMinimumSize(new Dimension(500, 300));
-		userNamePanel.setMaximumSize(new Dimension(500,300));
+		userNamePanel.setMaximumSize(new Dimension(600,400));
 		userNamePanel.setBackground(Color.lightGray);
 		toolbar.setBackground(Color.lightGray);
 		
@@ -118,13 +117,13 @@ public class MainFrame extends JFrame
 			//*******addToShowMenu*******//														//
 			showMenu.add(usersLoggedInPanel);													//
 			usersLoggedInPanel.addActionListener(new ActionListener()							//
-			{																					//
-			public void actionPerformed(ActionEvent ev)											//
-			{																					//
-			JCheckBoxMenuItem menuItem = (JCheckBoxMenuItem)ev.getSource(); 					//
-			userNamePanel.setVisible(menuItem.isSelected());										//
-			}																					//
-			});																					//
+				{																				//
+					public void actionPerformed(ActionEvent ev)									//
+					{																			//
+						JCheckBoxMenuItem menuItem = (JCheckBoxMenuItem)ev.getSource(); 		//
+						userNamePanel.setVisible(menuItem.isSelected());						//
+					}																			//
+				});																				//
 																								//
 			//		addtoWindowMenu		//														//
 			windowMenu.add(newWindow);															//
@@ -204,7 +203,9 @@ public class MainFrame extends JFrame
 						    		    JOptionPane.QUESTION_MESSAGE,								//
 						    		    null,														//
 						    		    options,													//
-						    		    options[1]);												//
+						    		    options[1]);	
+						    																		//
+						    		
 						    																		//
 						    }																		//
 						    																		//

@@ -55,13 +55,10 @@ public class NewGameOrJoinGame
 		 */
 	    	System.out.println("DO YOU WANT TO JOIN A "
 	    			+ "GAME OR START A NEW GAME");			
-	    	SwingUtilities.invokeLater(new Runnable()
-			{
-				public void run() 
-				{		
-						new MainFrame();
-				}
-			});		
+	    	
+	    	
+	    	App.main(arg);				//initiates the App which starts the game
+	    		
 	    	
 	    }
 	/*
@@ -74,7 +71,7 @@ public class NewGameOrJoinGame
 				{
 					public void run() 
 					{
-							new MainFrame();			
+						App.main(arg);				//initiates the App which starts the game			
 					}
 		
 			});		

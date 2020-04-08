@@ -43,7 +43,7 @@ public class UserName
 		 */
 		else
 		{
-			NewGameOrJoinGame.main(args);
+			NewGameOrJoinGame.main(args);		//initiates the New Game or Join Game popup
 		}
 	}
 }
