@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 import GUI.MainFrame;
+import GUI.NewGameOrJoinGame;
 
 public class Main 
 {
@@ -25,25 +26,21 @@ public class Main
 		System.out.print(gitSetupList);
 		writeGitSetupList(gitSetupList, fileName);
 		
-		/*
-		 * This is used to run through the Gui
-		 * interface package to run the MainFrame
-		 * Application to start the whole interface
-		 * 
-		 */
-		//////////////////////////////////////////////////////
-			SwingUtilities.invokeLater(new Runnable()
-				{
-
-				@Override
-				public void run() 
-				{
-					
-				new MainFrame();
-				
-				}
 		
-			});	
+		//////////////////////////////////////////////////////
+			/*
+			 *   SwingUtilities.invokeLater(new Runnable()
+			 *	 
+			 *	{
+			 *
+			 *		@Override
+			 *		public void run() 
+			 *		{
+			 *			new NewGameOrJoinGame(); 
+			 *		}
+			 *
+			 *	});	
+			 */
 			///////////////////////////////////////////////
 	}
 	

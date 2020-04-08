@@ -28,3 +28,15 @@ public class App
 
 
 }
+/*
+Object result = JOptionPane.showInputDialog(frame, "Enter printer name:");
+
+int i = JOptionPane.OK_CANCEL_OPTION;
+
+if(i == JOptionPane.OK_OPTION)
+{
+	new MainFrame();
+}
+else
+	System.exit(0);
+*/

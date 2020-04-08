@@ -45,6 +45,7 @@ public class MainFrame extends JFrame
 		
 		
 		setLayout(new BorderLayout());
+		
 		toolbar = new Toolbar();
 		formPanel = new FormPanel();
 		gamePanel = new GamePanel();
@@ -75,7 +76,7 @@ public class MainFrame extends JFrame
 		formPanel.setMinimumSize(new Dimension(500, 300));
 		formPanel.setMaximumSize(new Dimension(500,300));
 		formPanel.setBackground(Color.lightGray);
-		//formPanel.setOpaque(true);
+		toolbar.setBackground(Color.lightGray);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);										
 		setVisible(true);
@@ -110,13 +111,13 @@ public class MainFrame extends JFrame
 			JMenu windowMenu = new JMenu("Window");												//
 			JMenuItem newWindow = new JMenuItem("New Window");									//
 			JMenu showMenu = new JMenu("Show");													//
-			JCheckBoxMenuItem usersLoggedInPanel = new JCheckBoxMenuItem("Users In Game");				//
-			usersLoggedInPanel.setSelected(true);														//
+			JCheckBoxMenuItem usersLoggedInPanel = new JCheckBoxMenuItem("Users In Game");		//
+			usersLoggedInPanel.setSelected(true);												//
 			JMenuItem PreferrencesItem = new JMenuItem("Preferrences");							//
 					//
 			//*******addToShowMenu*******//														//
-			showMenu.add(usersLoggedInPanel);															//
-			usersLoggedInPanel.addActionListener(new ActionListener()									//
+			showMenu.add(usersLoggedInPanel);													//
+			usersLoggedInPanel.addActionListener(new ActionListener()							//
 			{																					//
 			public void actionPerformed(ActionEvent ev)											//
 			{																					//
@@ -162,9 +163,9 @@ public class MainFrame extends JFrame
 						    }																		//
 						    																		//
 						    else if (action == JOptionPane.CANCEL_OPTION )							//
-						            {																//
+						    {																		//
 						    	System.out.println("User did not leave the Game");					//
-						            }																//
+						    }																		//
 						            																//
 					 }																				//
 				});																					//
@@ -208,9 +209,9 @@ public class MainFrame extends JFrame
 						    }																		//
 						    																		//
 						    else if (action == JOptionPane.CANCEL_OPTION )							//
-						            {																//
+						    {																		//
 						    	System.out.println("User did not Initiated Vote To Quit The Game");	//
-						            }																//
+						    }																//
 						            																//
 					 }																				//
 				});																					//
@@ -287,7 +288,7 @@ public class MainFrame extends JFrame
 					    																		//
 					    else if (action == JOptionPane.CANCEL_OPTION && text != null)			//
 					            {																//
-					    																		//
+					    			System.exit(0);														//
 					            }																//
 					            																//
 				 }																				//
