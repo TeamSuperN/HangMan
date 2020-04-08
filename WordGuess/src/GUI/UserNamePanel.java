@@ -7,6 +7,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 import javax.swing.border.Border;
+
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
@@ -15,7 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class FormPanel extends JPanel implements ActionListener
+public class UserNamePanel extends JPanel implements ActionListener
 {
 	private JLabel userOnline;
 	private JLabel userHost;
@@ -43,7 +45,7 @@ public class FormPanel extends JPanel implements ActionListener
 	 *  I have put a spot that is in the menu panel  that 
 	 *  will hide this panel.
 	 */
-	public FormPanel()
+	public UserNamePanel()
 	{
 		Dimension dim = getPreferredSize();	
 		dim.width = 300; 
@@ -120,8 +122,8 @@ public class FormPanel extends JPanel implements ActionListener
 			GridBagConstraints gc =new GridBagConstraints();
 			gc.gridx = 0;
 			gc.gridy = 0;
-			gc.weightx = 0; 									//how much space it takes up relative to the other cells
-			gc.weighty = 0;										//how much space it takes up relative to the other cells
+			gc.weightx = 1; 									//how much space it takes up relative to the other cells
+			gc.weighty = 1;										//how much space it takes up relative to the other cells
 			gc.fill = GridBagConstraints.HORIZONTAL;					//do you want up all the space in a cell or not
 			gc.anchor = GridBagConstraints.LINE_END;
 			
@@ -253,6 +255,15 @@ gc.gridy = 0;
 			
 			
 			
+			
+		}
+
+
+
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
 			
 		}
 }

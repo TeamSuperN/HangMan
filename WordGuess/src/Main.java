@@ -26,22 +26,6 @@ public class Main
 		System.out.print(gitSetupList);
 		writeGitSetupList(gitSetupList, fileName);
 		
-		
-		//////////////////////////////////////////////////////
-			/*
-			 *   SwingUtilities.invokeLater(new Runnable()
-			 *	 
-			 *	{
-			 *
-			 *		@Override
-			 *		public void run() 
-			 *		{
-			 *			new NewGameOrJoinGame(); 
-			 *		}
-			 *
-			 *	});	
-			 */
-			///////////////////////////////////////////////
 	}
 	
 	public static String queryName() 

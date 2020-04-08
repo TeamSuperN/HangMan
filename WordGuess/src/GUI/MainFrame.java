@@ -29,7 +29,7 @@ import javax.swing.KeyStroke;
  */
 public class MainFrame extends JFrame
 {
-	private FormPanel formPanel;
+	private UserNamePanel userNamePanel;
 	private Toolbar toolbar;
 	private GamePanel gamePanel;
 	private JButton submitButton;
@@ -47,7 +47,7 @@ public class MainFrame extends JFrame
 		setLayout(new BorderLayout());
 		
 		toolbar = new Toolbar();
-		formPanel = new FormPanel();
+		userNamePanel = new UserNamePanel();
 		gamePanel = new GamePanel();
 		submitButton = new JButton("Submit Answer");
 		textField = new JTextField("Input Answer");
@@ -60,7 +60,7 @@ public class MainFrame extends JFrame
 		submitPanel.add(submitButton);
 		submitPanel.add(textField);
 		
-		add(formPanel, BorderLayout.WEST);
+		add(userNamePanel, BorderLayout.WEST);
 		add(gamePanel, BorderLayout.CENTER);
 		add(toolbar, BorderLayout.NORTH);
 		add(submitPanel, BorderLayout.SOUTH);
@@ -72,10 +72,10 @@ public class MainFrame extends JFrame
 		
 		
 		
-		formPanel.setSize(400,500);																	
-		formPanel.setMinimumSize(new Dimension(500, 300));
-		formPanel.setMaximumSize(new Dimension(500,300));
-		formPanel.setBackground(Color.lightGray);
+		userNamePanel.setSize(400,500);																	
+		userNamePanel.setMinimumSize(new Dimension(500, 300));
+		userNamePanel.setMaximumSize(new Dimension(500,300));
+		userNamePanel.setBackground(Color.lightGray);
 		toolbar.setBackground(Color.lightGray);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);										
@@ -122,7 +122,7 @@ public class MainFrame extends JFrame
 			public void actionPerformed(ActionEvent ev)											//
 			{																					//
 			JCheckBoxMenuItem menuItem = (JCheckBoxMenuItem)ev.getSource(); 					//
-			formPanel.setVisible(menuItem.isSelected());										//
+			userNamePanel.setVisible(menuItem.isSelected());										//
 			}																					//
 			});																					//
 																								//

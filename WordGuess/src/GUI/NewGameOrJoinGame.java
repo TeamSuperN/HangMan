@@ -1,3 +1,5 @@
+package GUI;
+
 import java.awt.Component;
 
 import javax.swing.JOptionPane;
@@ -16,7 +18,7 @@ public class NewGameOrJoinGame
 {
 	private static final Component NewGameOrJoinGame = null;
 
-	public static void main(String[] args)
+	public static void main(String[] arg)
 	{
 		
 		JFrame userNamePopup = new JFrame();
@@ -46,7 +48,11 @@ public class NewGameOrJoinGame
 		  * 										 *
 		  ****************************************** */
 	if(n == JOptionPane.YES_OPTION) 									
-	    {																		
+	{
+		/*
+		 * This section will 
+		 * be for new game
+		 */
 	    	System.out.println("DO YOU WANT TO JOIN A "
 	    			+ "GAME OR START A NEW GAME");			
 	    	SwingUtilities.invokeLater(new Runnable()
@@ -56,7 +62,12 @@ public class NewGameOrJoinGame
 						new MainFrame();
 				}
 			});		
+	    	
 	    }
+	/*
+	 * This section will be 
+	 * for joining a game
+	 */
     	else if(n == JOptionPane.NO_OPTION)
     	{
 	    		SwingUtilities.invokeLater(new Runnable()
@@ -79,4 +90,3 @@ public class NewGameOrJoinGame
 	    
 
 }
-
