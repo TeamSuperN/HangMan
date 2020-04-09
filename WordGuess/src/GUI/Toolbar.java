@@ -6,17 +6,14 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 
 /*
  * 	This i a holder for the tool bar and when the 
  *  time comes this can be the tool bar class that 
  *  will be in the app
  */
+@SuppressWarnings("serial")
 public class Toolbar extends JPanel implements ActionListener
 {
 	private JButton toBeDetermined;

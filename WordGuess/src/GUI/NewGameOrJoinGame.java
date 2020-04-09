@@ -6,9 +6,6 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.JFrame;
 
-import GUI.App;
-import GUI.MainFrame;
-
 /*
  * 	This class will be able to be updated with the ability
  *  to join a game or start a new game. right now it opens
@@ -16,18 +13,11 @@ import GUI.MainFrame;
  */
 public class NewGameOrJoinGame 
 {
+	
 	private static final Component NewGameOrJoinGame = null;
 
 	public static void main(String[] arg)
 	{
-		
-		JFrame userNamePopup = new JFrame();
-		JFrame newGamePopup = new JFrame();
-	    
-
-	    
-		
-		
 		Object[] options = {"New Game",
                     "Join Game",
                     "Cancel"};	
@@ -53,13 +43,7 @@ public class NewGameOrJoinGame
 		 * This section will 
 		 * be for new game
 		 */
-	    	System.out.println("DO YOU WANT TO JOIN A "
-	    			+ "GAME OR START A NEW GAME");			
-	    	
-	    	
 	    	App.main(arg);				//initiates the App which starts the game
-	    		
-	    	
 	    }
 	/*
 	 * This section will be 
@@ -73,7 +57,6 @@ public class NewGameOrJoinGame
 					{
 						App.main(arg);				//initiates the App which starts the game			
 					}
-		
 			});		
     	}
     	

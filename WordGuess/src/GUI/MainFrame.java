@@ -3,20 +3,16 @@ package GUI;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
-import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 
 /*
@@ -26,17 +22,15 @@ import javax.swing.KeyStroke;
  * 	everything to initial all
  * 	the different pieces.
  */
+@SuppressWarnings("serial")
 public class MainFrame extends JFrame
 {
+//**create private classes to be used as panel components***//
 	private UserNamePanel userNamePanel;
 	private Toolbar toolbar;
 	private GamePanel gamePanel;
-	private JButton submitButton;
-	private JTextField textField;
-	private JPanel submitPanel;
-	
-	
-	
+	private SubmitPanel submitPanel;
+	private LettersUsedInGame lettersUsedPanel;
 	
 	public MainFrame()
 	{
@@ -45,57 +39,60 @@ public class MainFrame extends JFrame
 		
 		setLayout(new BorderLayout());
 		
+//******Initialize all the panels*****//
 		toolbar = new Toolbar();
 		userNamePanel = new UserNamePanel();
 		gamePanel = new GamePanel();
-		submitButton = new JButton("Submit Answer");
-		textField = new JTextField("Input Answer");
-		submitPanel = new JPanel();
-		
-		
+		submitPanel = new SubmitPanel();
+		lettersUsedPanel = new LettersUsedInGame();
 		setJMenuBar(createMenuBar());
-		submitPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
-		submitPanel.add(submitButton);
-		submitPanel.add(textField);
 		
+		
+		
+//******add all panels to the MainFrame component*****//
 		add(userNamePanel, BorderLayout.WEST);
+		add(lettersUsedPanel, BorderLayout.EAST);
 		add(gamePanel, BorderLayout.CENTER);
 		add(toolbar, BorderLayout.NORTH);
 		add(submitPanel, BorderLayout.SOUTH);
 		
+//******sets the MainFrame Size Components*********//
+		setSize(1800,625);																	
+		setMinimumSize(new Dimension(1800, 300));
 		
-		
-		setSize(600,300);																	
-		setMinimumSize(new Dimension(500, 300));
-		
-		
-		
-		userNamePanel.setSize(400,500);	
-		
-		userNamePanel.setMinimumSize(new Dimension(500, 300));
-		userNamePanel.setMaximumSize(new Dimension(600,400));
+//******Sets the colors for the panels **************//
 		userNamePanel.setBackground(Color.lightGray);
 		toolbar.setBackground(Color.lightGray);
+		lettersUsedPanel.setBackground(Color.lightGray);
+		gamePanel.setBackground(Color.DARK_GRAY);
+		submitPanel.setBackground(Color.lightGray);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);										
 		setVisible(true);
 		
-		
 	}
-		//////////////////////////////////////////////////////////////////////////////////////////
-		private JMenuBar createMenuBar()														//
+		
+	/*
+	 * 	This creates the custom MenuBar 
+	 * 	In the Future it would probably 
+	 * 	be smart to find a way to 
+	 * 	seperate this into its own class
+	 */
+	private JMenuBar createMenuBar()														//
 		{																						//
 			JMenuBar menuBar = new JMenuBar();													//
 																								//
 			/////////////////////////FileMenuTab///////////////									//
-			JMenu fileMenu = new JMenu("File");													//
-			JMenuItem personalQuit =new JMenuItem("Quit Game");									//
-			JMenuItem voteToQuit = new JMenuItem("Vote To Quit...");											//
+			JMenu fileMenu = new JMenu("File");		
+			JMenuItem newGame = new JMenuItem("New Game");										//
+			JMenuItem personalQuit = new JMenuItem("Quit Game");								//
+			JMenuItem voteToQuit = new JMenuItem("Vote To Quit...");							//
 			JMenuItem passHost = new JMenuItem("Pass Host");									//
-			
 			JMenuItem exitItem = new JMenuItem("Exit");											//
 																								//
 			//*******addtoFileMenu*********//													//
+			fileMenu.add(newGame);
+			fileMenu.addSeparator();
 			fileMenu.add(personalQuit);															//
 			fileMenu.add(voteToQuit);															//
 			fileMenu.addSeparator();
@@ -113,9 +110,12 @@ public class MainFrame extends JFrame
 			JCheckBoxMenuItem usersLoggedInPanel = new JCheckBoxMenuItem("Users In Game");		//
 			usersLoggedInPanel.setSelected(true);												//
 			JMenuItem PreferrencesItem = new JMenuItem("Preferrences");							//
-					//
+																								//
 			//*******addToShowMenu*******//														//
 			showMenu.add(usersLoggedInPanel);													//
+
+//******this shows and unshows the panel****************************// 
+//******that holds the users logged on*****************************// 
 			usersLoggedInPanel.addActionListener(new ActionListener()							//
 				{																				//
 					public void actionPerformed(ActionEvent ev)									//
@@ -134,7 +134,33 @@ public class MainFrame extends JFrame
 			menuBar.add(windowMenu);															//
 		//////////////////////////////////////////////////////////////////////////////////////
 		
-
+			/*
+			 * 	Creates a dialog to Start a new
+			 * 	This doesn't create anything other
+			 *  than the dialog.
+			 */
+			//////////////////////////////////////////////////////////////////////////////////////////
+			newGame.addActionListener (new ActionListener ()										//
+				{																					//
+					 public void actionPerformed (ActionEvent e) 									//
+					 {																				//
+						    int action = JOptionPane.showConfirmDialog( MainFrame.this,				//
+						    		"Confirm If You Want To Start A New Game","New Game",			//
+						    		JOptionPane.OK_CANCEL_OPTION);									//
+						            																//
+						    if(action == JOptionPane.OK_OPTION ) 									//
+						    {																		//
+						    																		//
+						    																		//
+						    }																		//
+						    																		//
+						    else if (action == JOptionPane.CANCEL_OPTION )							//
+						    {																		//
+						    						
+						    }																		//
+					 }																				//
+				});																					//
+				//////////////////////////////////////////////////////////////////////////////////////
 			
 			
 			/*
@@ -156,22 +182,21 @@ public class MainFrame extends JFrame
 						            																//
 						    if(action == JOptionPane.OK_OPTION ) 									//
 						    {																		//
-						    	System.out.println("User Has left Game");							//
+						    								
 						    	System.exit(0);														//
 						    																		//
 						    }																		//
 						    																		//
 						    else if (action == JOptionPane.CANCEL_OPTION )							//
 						    {																		//
-						    	System.out.println("User did not leave the Game");					//
-						    }																		//
-						            																//
+						    						       											//
+						    }																		// 
 					 }																				//
 				});																					//
 				//////////////////////////////////////////////////////////////////////////////////////
 			
 			/*
-			 * 	Creates a dialog to quit the game
+			 * 	Creates a dialog to vote to quit the game
 			 * 	This doesn't create anything other
 			 *  than the dialog and exit(yet)
 			 */
@@ -180,9 +205,6 @@ public class MainFrame extends JFrame
 				{																					//
 					 public void actionPerformed (ActionEvent e) 									//
 					 {																				//
-						 //JFrame Frame = new JFrame("Exit");										//	
-						 																			//	
-						 																			//
 						    int action = JOptionPane.showConfirmDialog( MainFrame.this,				//
 						    		"Confirm If You Want To Vote To Quit The Game",					//
 						    		"Confirm Vote To Quit",											//
@@ -190,12 +212,13 @@ public class MainFrame extends JFrame
 						            																//
 						    if(action == JOptionPane.OK_OPTION) 									//
 						    {																		//
-						    	System.out.println("User Initiated Vote To Quit The Game");			//
+						    	
 						    																		//
 						    	Object[] options = {"Yes",											//
 					                    "No"};														//
 						    																		//
-						    	int n = JOptionPane.showOptionDialog(MainFrame.this,				//
+						    	@SuppressWarnings("unused")
+								int n = JOptionPane.showOptionDialog(MainFrame.this,				//
 						    		    "Would you like To Quit This Game?",						//
 						    		    "Vote To Quit",												//
 						    		    															//
@@ -204,22 +227,15 @@ public class MainFrame extends JFrame
 						    		    null,														//
 						    		    options,													//
 						    		    options[1]);	
-						    																		//
-						    		
-						    																		//
 						    }																		//
 						    																		//
 						    else if (action == JOptionPane.CANCEL_OPTION )							//
 						    {																		//
-						    	System.out.println("User did not Initiated Vote To Quit The Game");	//
-						    }																//
-						            																//
+						    	
+						    }																		//
 					 }																				//
 				});																					//
 				//////////////////////////////////////////////////////////////////////////////////////
-			
-			
-			
 			
 			/*
 			 * 	creates a pass host to next in 
@@ -240,23 +256,17 @@ public class MainFrame extends JFrame
 							            														//
 							    if(action == JOptionPane.OK_OPTION ) 							//
 							    {																//
-							    	System.out.println("User Has Passed Host");					//
-							    	System.exit(0);												//
+								    															//
 							    																//
 							    }																//
 							    																//
 							    else if (action == JOptionPane.CANCEL_OPTION )					//
 							            {														//
-							    	System.out.println("User did not Passed Host");				//
+							    	
 							            }														//
-							            														//
 						 }																		//
 					});																			//
 					//////////////////////////////////////////////////////////////////////////////
-			
-			
-			
-			
 			
 			/* **************************
 			 * 	This is a built in Exit *
@@ -284,42 +294,23 @@ public class MainFrame extends JFrame
 					    {																		//
 					    																		//
 					    	System.exit(0);														//
-					    	//textPanel = new JTextPane();										//
 					    }																		//
 					    																		//
 					    else if (action == JOptionPane.CANCEL_OPTION && text != null)			//
-					            {																//
-					    			System.exit(0);														//
-					            }																//
-					            																//
+					    {																		//
+					    	System.exit(0);														//
+					    }																		//
 				 }																				//
 			});																					//
 			//////////////////////////////////////////////////////////////////////////////////////
 			
-			
-			
-			
-			/*
-			 * 	saveFile set up and
-			 * 	ActionListener
-			 */
-			//////////////////////////////////////////////////////////////////////////////////////
-			voteToQuit.addActionListener(new ActionListener()										//
-				{																				//
-					public void actionPerformed(ActionEvent e)									//
-					{																			//
-																		//
-					}																			//
-				});																				//
-			//////////////////////////////////////////////////////////////////////////////////////
-			
+						
 			//******setMnemonicsKeys********//
 			fileMenu.setMnemonic(KeyEvent.VK_F);
-			exitItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, ActionEvent.CTRL_MASK));
-			//voteToQuit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
-			//openData.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, ActionEvent.CTRL_MASK));
+			exitItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, ActionEvent.CTRL_MASK));		//CTRL+X
+			voteToQuit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));	//ctlr+Q
+			passHost.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, ActionEvent.CTRL_MASK));		//ctrl+H
 			
 			return menuBar;
-		}
-				
+		}		
 }
