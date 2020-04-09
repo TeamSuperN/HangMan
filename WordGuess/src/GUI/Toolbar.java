@@ -1,8 +1,7 @@
 package GUI;
 
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -14,29 +13,23 @@ import javax.swing.JPanel;
  *  will be in the app
  */
 @SuppressWarnings("serial")
-public class Toolbar extends JPanel implements ActionListener
+public class Toolbar extends JPanel
 {
+//**** initializes the components*****//
 	private JButton toBeDetermined;
 	
-	
-	
+	/*
+	 * Creates a tool Bar on 
+	 * the Main Frame Class
+	 */
 	public Toolbar()
 	{
+//******creates a random buttom add a holding space here********//
 		toBeDetermined = new JButton("To Be Determined!");
 		setLayout(new FlowLayout(FlowLayout.LEFT));	//makes a new flowlayout
-		
-		
+
+//******sets a popout trim for the tool bar ***************//
 		setBorder(BorderFactory.createRaisedBevelBorder());
 		add(toBeDetermined);							//adds hellobutton to toolbar
 	}
-
-
-	@Override
-	public void actionPerformed(ActionEvent e) 
-	{
-		
-		
-	}
-	
-	
 }

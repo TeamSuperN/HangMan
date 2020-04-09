@@ -14,9 +14,9 @@ import javax.swing.JTable;
 @SuppressWarnings("serial")
 public class UserNamePanel extends JPanel
 {
+//**** initializes the components*****//
 	private JTable userTableData;
-	
-	
+		
 	/*
 	 * 	This is temporarily holding these user labels and 
 	 *  TextFields later when we have actual  users  this 
@@ -37,8 +37,7 @@ public class UserNamePanel extends JPanel
 		
 		setPreferredSize(dim);
 		//////////////////////////
-		
-		
+				
 		/* ********************************************
 		 * 		creates all the new JLabels and
 		 * 		TextFields to input the usernames
@@ -52,20 +51,10 @@ public class UserNamePanel extends JPanel
 				{"User 4", "User 4 Name", "User 4 Points"},
 				{"User 5", "User 5 Name", "User 5 Points"},
 		};
-		
-		userTableData = new JTable(usersStored, columnNames);
 				
-		int columnWidths[] = {25, 25, 25};
-		int i = 0;
-		for(int width : columnWidths)
-		{
-			TableColumn column = userTableData.getColumnModel().getColumn(i++);
-			column.setMinWidth(width);
-			column.setPreferredWidth(width);
-		}
-		JScrollPane scrollPane = new JScrollPane(userTableData);
-				
-		
+		userTableData = new JTable(usersStored, columnNames);			//Initializes the table
+		JScrollPane scrollPane = new JScrollPane(userTableData);		//need for the title row
+					
 		/* ********************************************
 		 * This area is how to create a custom border *
 		 * with labels and make the border uniform on *
@@ -76,12 +65,8 @@ public class UserNamePanel extends JPanel
 		
 		setSize(300,300);
 		setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));	//combines the two bits of border information
-		
-		userTableData.setSize(100, 100);
+				
 		userTableData.disable();
 		add(scrollPane);	
-		
-		
-		
 	}
 }

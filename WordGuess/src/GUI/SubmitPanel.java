@@ -19,9 +19,14 @@ import javax.swing.border.Border;
 @SuppressWarnings("serial")
 public class SubmitPanel extends JPanel
 {
+//**** initializes the components*****//
 	private JButton submitButton;
 	private JTextField textField;
 	
+	/*
+	 * This Submit panel will appear 
+	 * at the bottom of the MainFrame
+	 */
 	public SubmitPanel()
 	{
 		submitButton = new JButton("Submit Answer");
@@ -37,10 +42,12 @@ public class SubmitPanel extends JPanel
 		setPreferredSize(dim);
 		/////////////////////////
 		
+//******sets the layout for the panel***************//
 		setLayout(new FlowLayout(FlowLayout.CENTER));
 		add(submitButton);
 		add(textField);
 		
+//******sets the text panel to change from the original text to blank text********//
 		textField.addFocusListener(new FocusListener() 
 		{
 			public void focusLost(FocusEvent e) 
@@ -55,14 +62,10 @@ public class SubmitPanel extends JPanel
 				textField.setOpaque(true);
 			}
 		});
+		
+//******creates a trim around the bottom panel*********************************//
 		Border innerBorder = BorderFactory.createTitledBorder("Submit Panel: ");		//creates the title
 		Border outerBorder = BorderFactory.createEmptyBorder(5,5,5,5);				//creates the exterior dimensions
-		
 		setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));	//combines the two bits of border information
-		
-		
-		setSize(90,900);
-		
 	}
-
 }
