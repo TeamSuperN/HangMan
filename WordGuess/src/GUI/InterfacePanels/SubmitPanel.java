@@ -1,4 +1,4 @@
-package GUI;
+package GUI.InterfacePanels;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -29,8 +29,8 @@ public class SubmitPanel extends JPanel
 	 */
 	public SubmitPanel()
 	{
-		submitButton = new JButton("Submit Answer");
-		textField = new JTextField("Input Answer");
+		submitButton = new JButton("Submit Answer  ");
+		textField = new JTextField("Input Answer              ");
 		
 		/*
 		 * This sets the dimension that the MainFrame
@@ -52,6 +52,7 @@ public class SubmitPanel extends JPanel
 		{
 			public void focusLost(FocusEvent e) 
 			{
+				textField.setText("Input Answer");
 				
 			}
 
@@ -59,7 +60,7 @@ public class SubmitPanel extends JPanel
 			public void focusGained(FocusEvent e) 
 			{
 				textField.setText(null);			//makes the text go away when clicked
-				textField.setOpaque(true);
+				
 			}
 		});
 		

@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 import GUI.MainFrame;
-import GUI.NewGameOrJoinGame;
+
 
 public class Main 
 {

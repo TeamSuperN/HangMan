@@ -15,6 +15,12 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
+import GUI.InterfacePanels.GamePanel;
+import GUI.InterfacePanels.LettersUsedInGame;
+import GUI.InterfacePanels.SubmitPanel;
+import GUI.InterfacePanels.Toolbar;
+import GUI.InterfacePanels.UserNamePanel;
+
 /*
  * 	This runs the entire app 
  * 	protocols. It goes to the 
