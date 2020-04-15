@@ -20,6 +20,10 @@ import GUI.InterfacePanels.LettersUsedInGame;
 import GUI.InterfacePanels.SubmitPanel;
 import GUI.InterfacePanels.Toolbar;
 import GUI.InterfacePanels.UserNamePanel;
+import GUI.PopupWindows.ConfirmQuitPopup;
+import GUI.PopupWindows.ExitGame;
+import GUI.PopupWindows.GameIDGenerated;
+import GUI.PopupWindows.JoinGame;
 
 /*
  * 	This runs the entire app 
@@ -86,28 +90,26 @@ public class MainFrame extends JFrame
 	 */
 	private JMenuBar createMenuBar()														//
 		{																						//
-			JMenuBar menuBar = new JMenuBar();													//
+			JMenuBar mainMenuBar = new JMenuBar();													//
 																								//
-			/////////////////////////FileMenuTab///////////////									//
-			JMenu fileMenu = new JMenu("File");		
-			JMenuItem newGame = new JMenuItem("New Game");										//
-			JMenuItem personalQuit = new JMenuItem("Quit Game");								//
+																	//
+			JMenu gameMenu = new JMenu("Game Menu");
+			JMenuItem newGame = new JMenuItem("New Game");	
+			JMenuItem joinGame = new JMenuItem("Join Game");
+			JMenuItem quitGame = new JMenuItem("Quit Game");								//
 			JMenuItem voteToQuit = new JMenuItem("Vote To Quit...");							//
-			JMenuItem passHost = new JMenuItem("Pass Host");									//
-			JMenuItem exitItem = new JMenuItem("Exit");											//
+			JMenuItem exitGame = new JMenuItem("Exit");											//
 																								//
 			//*******addtoFileMenu*********//													//
-			fileMenu.add(newGame);
-			fileMenu.addSeparator();
-			fileMenu.add(personalQuit);															//
-			fileMenu.add(voteToQuit);															//
-			fileMenu.addSeparator();
-			fileMenu.add(passHost);																//
-			fileMenu.addSeparator();															//
-			fileMenu.add(exitItem);																//
-																								//
+			gameMenu.add(newGame);
+			gameMenu.add(joinGame);
+			gameMenu.addSeparator();
+			gameMenu.add(quitGame);															//
+			gameMenu.add(voteToQuit);															//
+			gameMenu.addSeparator();
+			gameMenu.add(exitGame);																					//
 			//******addtoMenuBar*********//														//
-			menuBar.add(fileMenu);																//
+			mainMenuBar.add(gameMenu);																//
 					
 			////////////////////////WindowMenuTab//////////////									//	
 			JMenu windowMenu = new JMenu("Window");												//
@@ -137,36 +139,36 @@ public class MainFrame extends JFrame
 			windowMenu.add(PreferrencesItem);													//
 																								//
 			//******addtoMenuBar*******//														//
-			menuBar.add(windowMenu);															//
+			mainMenuBar.add(windowMenu);															//
 		//////////////////////////////////////////////////////////////////////////////////////
 		
+			
 			/*
 			 * 	Creates a dialog to Start a new
 			 * 	This doesn't create anything other
 			 *  than the dialog.
 			 */
-			//////////////////////////////////////////////////////////////////////////////////////////
-			newGame.addActionListener (new ActionListener ()										//
-				{																					//
-					 public void actionPerformed (ActionEvent e) 									//
-					 {																				//
-						    int action = JOptionPane.showConfirmDialog( MainFrame.this,				//
-						    		"Confirm If You Want To Start A New Game","New Game",			//
-						    		JOptionPane.OK_CANCEL_OPTION);									//
-						            																//
-						    if(action == JOptionPane.OK_OPTION ) 									//
-						    {																		//
-						    																		//
-						    																		//
-						    }																		//
-						    																		//
-						    else if (action == JOptionPane.CANCEL_OPTION )							//
-						    {																		//
-						    						
-						    }																		//
-					 }																				//
-				});																					//
-				//////////////////////////////////////////////////////////////////////////////////////
+			newGame.addActionListener (new ActionListener ()										
+			{																					
+				 public void actionPerformed (ActionEvent e) 											
+				 {																				
+						   new GameIDGenerated();													
+				 }																				
+			});																			
+				
+			/* **************************
+			 * 	This is a built in Exit *
+			 *  button for the menu bar *
+			 *  to  close  the   entire *
+			 *  application.			*
+			 *************************  */                 										  
+			joinGame.addActionListener (new ActionListener ()									
+			{																					
+				 public void actionPerformed (ActionEvent e) 									
+				 {																				
+					 new JoinGame();																	
+				 }																				
+			});	
 			
 			
 			/*
@@ -174,32 +176,14 @@ public class MainFrame extends JFrame
 			 * 	This doesn't create anything other
 			 *  than the dialog and exit(yet)
 			 */
-			//////////////////////////////////////////////////////////////////////////////////////////
-			personalQuit.addActionListener (new ActionListener ()									//
-				{																					//
-					 public void actionPerformed (ActionEvent e) 									//
-					 {																				//
-						 //JFrame Frame = new JFrame("Exit");										//	
-						 																			//	
-						 																			//
-						    int action = JOptionPane.showConfirmDialog( MainFrame.this,				//
-						    		"Confirm If You Want To Quit","Confirm Quit",					//
-						    		JOptionPane.OK_CANCEL_OPTION);									//
-						            																//
-						    if(action == JOptionPane.OK_OPTION ) 									//
-						    {																		//
-						    								
-						    	System.exit(0);														//
-						    																		//
-						    }																		//
-						    																		//
-						    else if (action == JOptionPane.CANCEL_OPTION )							//
-						    {																		//
-						    						       											//
-						    }																		// 
-					 }																				//
-				});																					//
-				//////////////////////////////////////////////////////////////////////////////////////
+			quitGame.addActionListener (new ActionListener ()									
+				{																					
+					 public void actionPerformed (ActionEvent e) 									
+					 {																				
+						 new ConfirmQuitPopup();																		// 
+					 }																				
+				});																					
+				
 			
 			/*
 			 * 	Creates a dialog to vote to quit the game
@@ -243,36 +227,7 @@ public class MainFrame extends JFrame
 				});																					//
 				//////////////////////////////////////////////////////////////////////////////////////
 			
-			/*
-			 * 	creates a pass host to next in 
-			 *  game line dialog, but doesn't 
-			 *  do anything else yet 
-			 */
-			//////////////////////////////////////////////////////////////////////////////////////
-			passHost.addActionListener (new ActionListener ()									//
-					{																			//
-						 public void actionPerformed (ActionEvent e) 							//
-						 {																		//
-							 //JFrame Frame = new JFrame("Exit");								//	
-							 																	//	
-							 																	//
-							    int action = JOptionPane.showConfirmDialog( MainFrame.this,		//
-							    		"Confirm If You Want Pass Host","Confirm Pass Host",	//
-							    		JOptionPane.OK_CANCEL_OPTION);							//
-							            														//
-							    if(action == JOptionPane.OK_OPTION ) 							//
-							    {																//
-								    															//
-							    																//
-							    }																//
-							    																//
-							    else if (action == JOptionPane.CANCEL_OPTION )					//
-							            {														//
-							    	
-							            }														//
-						 }																		//
-					});																			//
-					//////////////////////////////////////////////////////////////////////////////
+			
 			
 			/* **************************
 			 * 	This is a built in Exit *
@@ -280,43 +235,22 @@ public class MainFrame extends JFrame
 			 *  to  close  the   entire *
 			 *  application.			*
 			 *************************  */                 										  
-			//////////////////////////////////////////////////////////////////////////////////////
-			exitItem.addActionListener (new ActionListener ()									//
-			{																					//
-				 public void actionPerformed (ActionEvent e) 									//
-				 {																				//
-					 //JFrame Frame = new JFrame("Exit");										//	
-					 																			//	
-					 String text = JOptionPane.showInputDialog( MainFrame.this,					//
-					    		"Input Your User Name.","Enter User Name",						//
-					    		JOptionPane.OK_OPTION|JOptionPane.INFORMATION_MESSAGE);			//
-					 																			//
-					 																			//
-					    int action = JOptionPane.showConfirmDialog( MainFrame.this,				//
-					    		"Confirm If You Want To Exit","Confirm Quit",					//
-					    		JOptionPane.OK_CANCEL_OPTION);									//
-					            																//
-					    if(text != null && action == JOptionPane.OK_OPTION ) 					//
-					    {																		//
-					    																		//
-					    	System.exit(0);														//
-					    }																		//
-					    																		//
-					    else if (action == JOptionPane.CANCEL_OPTION && text != null)			//
-					    {																		//
-					    	System.exit(0);														//
-					    }																		//
-				 }																				//
-			});																					//
-			//////////////////////////////////////////////////////////////////////////////////////
+			exitGame.addActionListener (new ActionListener ()									
+			{																					
+				 public void actionPerformed (ActionEvent e) 									
+				 {																				
+					 new ExitGame();																	
+				 }																				
+			});																					
+	
 			
 						
 			//******setMnemonicsKeys********//
-			fileMenu.setMnemonic(KeyEvent.VK_F);
-			exitItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, ActionEvent.CTRL_MASK));		//CTRL+X
+			gameMenu.setMnemonic(KeyEvent.VK_F);
+			exitGame.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, ActionEvent.CTRL_MASK));		//CTRL+X
 			voteToQuit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));	//ctlr+Q
-			passHost.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, ActionEvent.CTRL_MASK));		//ctrl+H
 			
-			return menuBar;
+			
+			return mainMenuBar;
 		}		
 }

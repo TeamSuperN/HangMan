@@ -1,6 +1,6 @@
 package GUI.MainMenuBar;
 
-public class GameMenuTab 
+public class WindowMenu 
 {
 
 }
