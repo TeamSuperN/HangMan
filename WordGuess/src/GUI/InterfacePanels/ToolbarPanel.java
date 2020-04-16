@@ -6,12 +6,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import GUI.PopupWindows.ConfirmQuitPopup;
-import GUI.PopupWindows.GameIDGenerated;
-import GUI.PopupWindows.JoinGame;
-import GUI.PopupWindows.UserNamePopup;
+import tools.Actions;
+import tools.GameIDGenerator;
+import tools.UserInteraction;
 
 /*
  * 	This i a holder for the tool bar and when the 
@@ -19,7 +20,7 @@ import GUI.PopupWindows.UserNamePopup;
  *  will be in the app
  */
 @SuppressWarnings("serial")
-public class Toolbar extends JPanel
+public class ToolbarPanel extends JPanel
 {
 //**** initializes the components*****//
 	private JButton newGame;
@@ -32,7 +33,7 @@ public class Toolbar extends JPanel
 	 * Creates a tool Bar on 
 	 * the Main Frame Class
 	 */
-	public Toolbar()
+	public ToolbarPanel()
 	{
 //******creates a random buttom add a holding space here********//
 		newGame = new JButton("New Game");
@@ -61,7 +62,7 @@ public class Toolbar extends JPanel
 
 			public void actionPerformed(ActionEvent e) 
 			{
-				new GameIDGenerated();				
+				new GameIDGenerator();				
 			}
 			
 		});
@@ -76,7 +77,7 @@ public class Toolbar extends JPanel
 
 			public void actionPerformed(ActionEvent e) 
 			{
-				new JoinGame();				
+				Actions.joinGame();			
 			}
 			
 		});
@@ -90,7 +91,7 @@ public class Toolbar extends JPanel
 
 			public void actionPerformed(ActionEvent e) 
 			{
-				new ConfirmQuitPopup();				
+				UserInteraction.confirmQuitGame();		
 			}
 			
 		});
@@ -104,7 +105,7 @@ public class Toolbar extends JPanel
 
 			public void actionPerformed(ActionEvent e) 
 			{
-				new ConfirmQuitPopup();				
+				UserInteraction.confirmExitGame();		
 			}
 			
 		});

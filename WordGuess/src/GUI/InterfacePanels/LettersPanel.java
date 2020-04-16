@@ -10,12 +10,12 @@ import javax.swing.JTable;
 import javax.swing.border.Border;
 
 @SuppressWarnings("serial")
-public class LettersUsedInGame extends JPanel
+public class LettersPanel extends JPanel
 {
 //****initializes the variable in the LettersUsedInGamePanel*****//
 	private JTable lettersUsedInGame;
 	
-	public LettersUsedInGame()
+	public LettersPanel()
 	{
 		setLayout( new BorderLayout());
 		/*

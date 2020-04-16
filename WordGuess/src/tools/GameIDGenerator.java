@@ -1,4 +1,4 @@
-package GUI.PopupWindows;
+package tools;
 
 import java.security.SecureRandom;
 import javax.swing.JFrame;
@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class GameIDGenerated 
+public class GameIDGenerator 
 {			
 	private static final String CHAR_LOWER = "abcdefghijklmnopqrstuvwxyz";
     private static final String CHAR_UPPER = CHAR_LOWER.toUpperCase();
@@ -15,28 +15,26 @@ public class GameIDGenerated
     private static final String DATA_FOR_RANDOM_STRING = CHAR_LOWER + CHAR_UPPER + NUMBER;
     private static SecureRandom random = new SecureRandom();
 	
-    public GameIDGenerated()
+    public static void displayNewGameID()
 	{
-    	JFrame newGameID = new JFrame();
 	        
 
 	        for (int i = 0; i < 5; i++) 
 	        {
 	        	
-	            System.out.println("result : " + generateRandomString(8));
+	            System.out.println("result : " + generateGameID(8));
 	            System.out.println("\n");
 	        }
 	        
 	        
-	        JOptionPane.showMessageDialog(newGameID,
-	        		    "New Game Id Is:  " + generateRandomString(8));
+	        JOptionPane.showMessageDialog(new JFrame(), "New Game Id Is:  " + generateGameID(8));
 	}
 
     
     /*
      * Generates random Code
      */
-    public static String generateRandomString(int length) 
+    public static String generateGameID(int length) 
     {
         if (length < 1) throw new IllegalArgumentException();
 
@@ -56,13 +54,5 @@ public class GameIDGenerated
         }
 
 	return sb.toString();
-		        
-	
-	
-		        
-
-		    
-
 	}
-
 }

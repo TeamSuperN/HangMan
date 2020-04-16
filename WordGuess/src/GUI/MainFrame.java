@@ -16,14 +16,13 @@ import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 import GUI.InterfacePanels.GamePanel;
-import GUI.InterfacePanels.LettersUsedInGame;
+import GUI.InterfacePanels.LettersPanel;
 import GUI.InterfacePanels.SubmitPanel;
-import GUI.InterfacePanels.Toolbar;
+import GUI.InterfacePanels.ToolbarPanel;
 import GUI.InterfacePanels.UserNamePanel;
-import GUI.PopupWindows.ConfirmQuitPopup;
-import GUI.PopupWindows.ExitGame;
-import GUI.PopupWindows.GameIDGenerated;
-import GUI.PopupWindows.JoinGame;
+import tools.UserInteraction;
+import tools.Actions;
+import tools.GameIDGenerator;
 
 /*
  * 	This runs the entire app 
@@ -37,27 +36,26 @@ public class MainFrame extends JFrame
 {
 //**create private classes to be used as panel components***//
 	private UserNamePanel userNamePanel;
-	private Toolbar toolbar;
+	private ToolbarPanel toolbar;
 	private GamePanel gamePanel;
 	private SubmitPanel submitPanel;
-	private LettersUsedInGame lettersUsedPanel;
+	private LettersPanel lettersUsedPanel;
+	
+	private String userName;
 	
 	public MainFrame()
 	{
 		super ("HangMan!");
 		
-		
 		setLayout(new BorderLayout());
 		
 //******Initialize all the panels*****//
-		toolbar = new Toolbar();
+		toolbar = new ToolbarPanel();
 		userNamePanel = new UserNamePanel();
 		gamePanel = new GamePanel();
 		submitPanel = new SubmitPanel();
-		lettersUsedPanel = new LettersUsedInGame();
+		lettersUsedPanel = new LettersPanel();
 		setJMenuBar(createMenuBar());
-		
-		
 		
 //******add all panels to the MainFrame component*****//
 		add(userNamePanel, BorderLayout.WEST);
@@ -80,6 +78,8 @@ public class MainFrame extends JFrame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);										
 		setVisible(true);
 		
+		//Get User Name
+		userName = UserInteraction.queryUserName();
 	}
 		
 	/*
@@ -88,15 +88,15 @@ public class MainFrame extends JFrame
 	 * 	be smart to find a way to 
 	 * 	seperate this into its own class
 	 */
-	private JMenuBar createMenuBar()														//
+	private JMenuBar createMenuBar()															//
 		{																						//
-			JMenuBar mainMenuBar = new JMenuBar();													//
+			JMenuBar mainMenuBar = new JMenuBar();												//
 																								//
-																	//
+																								//
 			JMenu gameMenu = new JMenu("Game Menu");
 			JMenuItem newGame = new JMenuItem("New Game");	
 			JMenuItem joinGame = new JMenuItem("Join Game");
-			JMenuItem quitGame = new JMenuItem("Quit Game");								//
+			JMenuItem quitGame = new JMenuItem("Quit Game");									//
 			JMenuItem voteToQuit = new JMenuItem("Vote To Quit...");							//
 			JMenuItem exitGame = new JMenuItem("Exit");											//
 																								//
@@ -104,12 +104,12 @@ public class MainFrame extends JFrame
 			gameMenu.add(newGame);
 			gameMenu.add(joinGame);
 			gameMenu.addSeparator();
-			gameMenu.add(quitGame);															//
+			gameMenu.add(quitGame);																//
 			gameMenu.add(voteToQuit);															//
 			gameMenu.addSeparator();
-			gameMenu.add(exitGame);																					//
+			gameMenu.add(exitGame);																//
 			//******addtoMenuBar*********//														//
-			mainMenuBar.add(gameMenu);																//
+			mainMenuBar.add(gameMenu);															//
 					
 			////////////////////////WindowMenuTab//////////////									//	
 			JMenu windowMenu = new JMenu("Window");												//
@@ -152,7 +152,7 @@ public class MainFrame extends JFrame
 			{																					
 				 public void actionPerformed (ActionEvent e) 											
 				 {																				
-						   new GameIDGenerated();													
+						   GameIDGenerator.displayNewGameID();		
 				 }																				
 			});																			
 				
@@ -166,7 +166,7 @@ public class MainFrame extends JFrame
 			{																					
 				 public void actionPerformed (ActionEvent e) 									
 				 {																				
-					 new JoinGame();																	
+					 Actions.joinGame();																
 				 }																				
 			});	
 			
@@ -180,7 +180,7 @@ public class MainFrame extends JFrame
 				{																					
 					 public void actionPerformed (ActionEvent e) 									
 					 {																				
-						 new ConfirmQuitPopup();																		// 
+						 UserInteraction.confirmQuitGame();
 					 }																				
 				});																					
 				
@@ -239,7 +239,14 @@ public class MainFrame extends JFrame
 			{																					
 				 public void actionPerformed (ActionEvent e) 									
 				 {																				
-					 new ExitGame();																	
+						int exit = JOptionPane.showConfirmDialog(new JFrame(),
+								"Are You Sure You Wish To" + "\n"  +
+								"Quit This Game and Exit" + "\n" +
+								"The Program?");
+						if(exit  == JOptionPane.YES_OPTION)
+						{
+							System.exit(0);
+						}																	
 				 }																				
 			});																					
 	
