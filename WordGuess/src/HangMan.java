@@ -1,10 +1,6 @@
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-import GUI.MainFrame;
-import GUI.InterfacePanels.UserNamePanel;
-import tools.UserInteraction;
+import gui.MainFrame;
 
 public class HangMan  
 {

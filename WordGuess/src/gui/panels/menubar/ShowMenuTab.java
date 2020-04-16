@@ -1,4 +1,4 @@
-package GUI.MainMenuBar;
+package gui.panels.menubar;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
 
-import GUI.InterfacePanels.UserNamePanel;
+import gui.panels.UserNamePanel;
 
 public class ShowMenuTab extends JMenu{
 	

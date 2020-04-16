@@ -1,4 +1,4 @@
-package GUI.MainMenuBar;
+package gui.panels.menubar;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,7 +10,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
-import GUI.MainFrame;
+import gui.MainFrame;
+import tools.Actions;
+import tools.GameIDGenerator;
+import tools.UserInteraction;
 
 public class GameMenu extends JMenu
 {
@@ -60,51 +63,40 @@ public class GameMenu extends JMenu
 		 * 	This doesn't create anything other
 		 *  than the dialog.
 		 */
-		//////////////////////////////////////////////////////////////////////////////////////////
-		newGame.addActionListener (new ActionListener ()										//
-			{																					//
-				 public void actionPerformed (ActionEvent e) 									//
-				 {																				//
-					    int action = JOptionPane.showConfirmDialog(new JFrame(),				//
-					    		"Confirm If You Want To Start A New Game","New Game",			//
-					    		JOptionPane.OK_CANCEL_OPTION);									//
-					            																//
-					    if(action == JOptionPane.OK_OPTION ) 									//
-					    {																		//
-					    																		//
-					    																		//
-					    }																		//
-					    																		//
-					    else if (action == JOptionPane.CANCEL_OPTION )							//
-					    {																		//
-					    						
-					    }																		//
-				 }																				//
-			});																					//
-			//////////////////////////////////////////////////////////////////////////////////////
+		newGame.addActionListener (new ActionListener ()										
+		{																					
+			 public void actionPerformed (ActionEvent e) 											
+			 {																				
+					   GameIDGenerator.displayNewGameID();		
+			 }																				
+		});
+		
+		/* **************************
+		 * 	This is a built in Exit *
+		 *  button for the menu bar *
+		 *  to  close  the   entire *
+		 *  application.			*
+		 *************************  */                 										  
+		joinGame.addActionListener (new ActionListener ()									
+		{																					
+			 public void actionPerformed (ActionEvent e) 									
+			 {																				
+				 Actions.joinGame();																
+			 }																	
+		});	
 		
 		/*
 		 * 	Creates a dialog to quit the game
 		 * 	This doesn't create anything other
 		 *  than the dialog and exit(yet)
 		 */
-		//////////////////////////////////////////////////////////////////////////////////////////
-		quitGame.addActionListener (new ActionListener ()									    //
-			{																					//
-				 public void actionPerformed (ActionEvent e) 									//
-				 {																				//														//
-					    int action = JOptionPane.showConfirmDialog(new JFrame(),				//
-					    		"Confirm If You Want To Quit","Confirm Quit",					//
-					    		JOptionPane.OK_CANCEL_OPTION);									//
-					            																//
-					    if(action == JOptionPane.OK_OPTION ) 									//
-					    {																		//						
-					    	System.exit(0);														//																//
-					    }																		//
-					    																		//															// 
-				 }																				//
-			});																					//
-			//////////////////////////////////////////////////////////////////////////////////////
+		quitGame.addActionListener (new ActionListener ()									
+			{																					
+				 public void actionPerformed (ActionEvent e) 									
+				 {																				
+					 UserInteraction.confirmQuitGame();
+				 }																				
+			});						
 		
 		/*
 		 * 	Creates a dialog to vote to quit the game
@@ -149,34 +141,12 @@ public class GameMenu extends JMenu
 		 *  to  close  the   entire *
 		 *  application.			*
 		 *************************  */                 										  
-		//////////////////////////////////////////////////////////////////////////////////////
-		exitItem.addActionListener (new ActionListener ()									//
-		{																					//
-			 public void actionPerformed (ActionEvent e) 									//
-			 {																				//
-				 //JFrame Frame = new JFrame("Exit");										//	
-				 																			//	
-				 String text = JOptionPane.showInputDialog(new JFrame(),					//
-				    		"Input Your User Name.","Enter User Name",						//
-				    		JOptionPane.OK_OPTION|JOptionPane.INFORMATION_MESSAGE);			//
-				 																			//
-				 																			//
-				    int action = JOptionPane.showConfirmDialog(new JFrame(),				//
-				    		"Confirm If You Want To Exit","Confirm Quit",					//
-				    		JOptionPane.OK_CANCEL_OPTION);									//
-				            																//
-				    if(text != null && action == JOptionPane.OK_OPTION ) 					//
-				    {																		//
-				    																		//
-				    	System.exit(0);														//
-				    }																		//
-				    																		//
-				    else if (action == JOptionPane.CANCEL_OPTION && text != null)			//
-				    {																		//
-				    	System.exit(0);														//
-				    }																		//
-			 }																				//
-		});																					//
-		//////////////////////////////////////////////////////////////////////////////////////
+		exitItem.addActionListener (new ActionListener ()									
+		{																					
+			 public void actionPerformed (ActionEvent e) 									
+			 {																				
+				 UserInteraction.confirmExitGame();
+			 }																				
+		});		
 	}
 }

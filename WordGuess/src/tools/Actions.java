@@ -3,7 +3,7 @@ package tools;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import GUI.MainFrame;
+import gui.MainFrame;
 
 public class Actions {
 	public static void joinGame()

@@ -1,4 +1,4 @@
-package GUI.InterfacePanels;
+package gui.panels;
 
 
 import java.awt.Dimension;

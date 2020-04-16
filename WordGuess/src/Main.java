@@ -8,7 +8,7 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-import GUI.MainFrame;
+import gui.MainFrame;
 
 
 public class Main 
