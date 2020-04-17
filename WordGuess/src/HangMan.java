@@ -1,3 +1,7 @@
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -8,6 +12,7 @@ import gui.StartGameFrame;
 public class HangMan  
 {
 	private static StartGameFrame startGameFrame;
+	private static String userName;
 	private static GameFrame gameFrame;
 	
 	public static void main(String args[])
@@ -22,9 +27,26 @@ public class HangMan
 			public void run() 
 			{
 				startGameFrame = new StartGameFrame();
-			
+				userName = startGameFrame.getUserName();
+				startGameFrame.addWindowListener(new WindowListener()
+				{
+					public void windowClosing(WindowEvent e) {
+						startGameFrame.dispose();
+						initGameFrame();
+					}
+					public void windowIconified(WindowEvent e) {}
+					public void windowDeiconified(WindowEvent e) {}
+					public void windowActivated(WindowEvent e) {}
+					public void windowDeactivated(WindowEvent e) {}
+					public void windowClosed(WindowEvent e) {}
+					public void windowOpened(WindowEvent e) {}
+				});
 			}
-		});	
+		});
+		
+		
+
+
 	}
 	
 	public static void initGameFrame()
@@ -33,15 +55,10 @@ public class HangMan
 		{
 			public void run() 
 			{
-				gameFrame = new GameFrame();
-				startGameFrame.dispose();
-			
+				gameFrame = new GameFrame(userName);
 			}
 		});	
 	}
-	
-	
-	
 }
 
 

@@ -6,11 +6,15 @@ import java.awt.GridLayout;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -22,17 +26,12 @@ import tools.UserInteraction;
 
 public class StartPanel extends JPanel
 {
-	private static StartGameFrame startGameFrame;
-	
-	private static GameFrame gameFrame;
-	private JPanel startGamePanel;
 	private JLabel userName;
 	private JButton newGame;
 	private JButton joinGame;
-	
 	private JButton exitGame;
-	protected Window disposeOnCloseStartGameFrame;
 	
+	private String newGameID;
 	
 	public StartPanel()
 	{
@@ -75,9 +74,8 @@ public class StartPanel extends JPanel
 
 					public void actionPerformed(ActionEvent e) 
 					{
-						//startGameFrame.setVisible(false);
-						initGameFrame();
-						GameIDGenerator.displayNewGameID();				
+						GameIDGenerator.displayGameID(GameIDGenerator.generateGameID());
+						closeFrame(e);
 					}
 					
 				});
@@ -93,9 +91,8 @@ public class StartPanel extends JPanel
 					public void actionPerformed(ActionEvent e) 
 					{
 						
-						StartGameFrame.initGameFrame();
 						Actions.joinGame();
-						startGameFrame.dispose();		
+						closeFrame(e);	
 					}
 					
 				});
@@ -117,8 +114,11 @@ public class StartPanel extends JPanel
 				});
 		}
 	
-	
-	
+	private void closeFrame(ActionEvent e) {
+		JButton thisBTN = (JButton)e.getSource();
+		StartGameFrame thisFrame = (StartGameFrame)thisBTN.getTopLevelAncestor();
+		thisFrame.dispatchEvent(new WindowEvent(thisFrame, WindowEvent.WINDOW_CLOSING));
+	}
 }
 
 	

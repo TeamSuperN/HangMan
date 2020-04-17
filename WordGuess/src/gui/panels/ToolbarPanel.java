@@ -60,7 +60,7 @@ public class ToolbarPanel extends JPanel
 
 			public void actionPerformed(ActionEvent e) 
 			{
-				GameIDGenerator.displayNewGameID();				
+				GameIDGenerator.displayGameID(GameIDGenerator.generateGameID());			
 			}
 			
 		});

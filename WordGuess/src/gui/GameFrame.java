@@ -33,9 +33,11 @@ public class GameFrame extends JFrame
 	
 	private String userName;
 	
-	public GameFrame()
+	public GameFrame(String userName)
 	{
 		super ("HangMan!");
+		
+		this.userName = userName;
 		
 		setLayout(new BorderLayout());
 		
@@ -70,9 +72,7 @@ public class GameFrame extends JFrame
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);										
 		setVisible(true);
-		
-		//Get User Name
-		//userName = UserInteraction.queryUserName();
+		toFront();
 	}
 }
 

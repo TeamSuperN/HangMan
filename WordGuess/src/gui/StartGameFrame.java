@@ -17,9 +17,6 @@ import tools.UserInteraction;
  */
 public class StartGameFrame extends JFrame
 {
-	
-	
-	private MenuBar mainMenuBar;
 	private StartPanel startPanel;
 	private JLabel welcomeToHangMan;
 	private String userName;
@@ -32,7 +29,6 @@ public class StartGameFrame extends JFrame
 		setLayout(new BorderLayout());
 		welcomeToHangMan = new JLabel("WELCOME TO THE NEW AND IMPROVED HANGMAN!!!!");
 		//hangManImage = new Image(Put a hang man picture here);
-		mainMenuBar = new MenuBar();
 		startPanel = new StartPanel();
 		
 		Dimension dim = getPreferredSize();	
@@ -43,18 +39,21 @@ public class StartGameFrame extends JFrame
 		add(startPanel, BorderLayout.WEST);
 		//add(hangManImage, BorderLayout.CENTER);
 		add(welcomeToHangMan, BorderLayout.SOUTH);
-		setJMenuBar(mainMenuBar);
 		
 		//Set The Frame In The Center Of The Screen
 		pack();
 		setLocationRelativeTo(null);
 		setVisible(true);
-		
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);	
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setMinimumSize(new Dimension(600, 600));
 		setVisible(true);
 		
 		userName = UserInteraction.queryUserName();
+
+	}
+	
+	public String getUserName() {
+		return userName;
 	}
 	
 	

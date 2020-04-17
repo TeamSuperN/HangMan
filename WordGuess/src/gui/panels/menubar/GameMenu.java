@@ -67,7 +67,7 @@ public class GameMenu extends JMenu
 		{																					
 			 public void actionPerformed (ActionEvent e) 											
 			 {																				
-					   GameIDGenerator.displayNewGameID();		
+				 GameIDGenerator.displayGameID(GameIDGenerator.generateGameID());		
 			 }																				
 		});
 		
