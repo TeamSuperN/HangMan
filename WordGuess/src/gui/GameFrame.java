@@ -1,5 +1,6 @@
 package gui;
 
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -20,7 +21,7 @@ import tools.UserInteraction;
  * 	the different pieces.
  */
 @SuppressWarnings("serial")
-public class MainFrame extends JFrame
+public class GameFrame extends JFrame
 {
 //**create private classes to be used as components of the main frame***//
 	private UserNamePanel userNamePanel;
@@ -32,7 +33,7 @@ public class MainFrame extends JFrame
 	
 	private String userName;
 	
-	public MainFrame()
+	public GameFrame()
 	{
 		super ("HangMan!");
 		
@@ -71,6 +72,7 @@ public class MainFrame extends JFrame
 		setVisible(true);
 		
 		//Get User Name
-		userName = UserInteraction.queryUserName();
+		//userName = UserInteraction.queryUserName();
 	}
 }
+

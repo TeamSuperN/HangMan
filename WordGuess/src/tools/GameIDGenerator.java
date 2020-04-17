@@ -2,9 +2,7 @@ package tools;
 
 import java.security.SecureRandom;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 public class GameIDGenerator 
 {			
@@ -21,13 +19,13 @@ public class GameIDGenerator
 
 	        for (int i = 0; i < 5; i++) 
 	        {
-	        	
 	            System.out.println("result : " + generateGameID(8));
 	            System.out.println("\n");
 	        }
 	        
 	        
-	        JOptionPane.showMessageDialog(new JFrame(), "New Game Id Is:  " + generateGameID(8));
+	        JOptionPane.showMessageDialog(new JFrame(), "New Game Id Is:  " + "\n" + generateGameID(8));
+	
 	}
 
     
