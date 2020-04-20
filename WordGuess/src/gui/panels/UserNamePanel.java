@@ -15,6 +15,7 @@ public class UserNamePanel extends JPanel
 {
 //**** initializes the components*****//
 	private JTable userTableData;
+	
 		
 	/*
 	 * 	This is temporarily holding these user labels and 
@@ -26,7 +27,8 @@ public class UserNamePanel extends JPanel
 	 */
 	@SuppressWarnings("deprecation")	//Don't know what this does?
 	public UserNamePanel()
-	{
+	{		
+		
 		/*
 		 * This sets the dimension that the MainFrame
 		 *  sees the UserNamePanel to look like
@@ -43,7 +45,7 @@ public class UserNamePanel extends JPanel
 		 *		in their log in order of the user then 
 		 * 		finally create the buttons
 		 ******************************************** */
-		String[] columnNames = {"User", "User Name", "Points"};
+		String[] columnNames = {"User", "Host Name", "Points"};
 		Object[][] usersStored = {{"Host", "Host Name", "HostPoints"},
 				{"User 2", "User 2 Name", "User 2 Points"},
 				{"User 3", "User 3 Name", "User 3 Points"},

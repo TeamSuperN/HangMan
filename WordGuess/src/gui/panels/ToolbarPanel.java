@@ -8,6 +8,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import gui.GameFrame;
 import gui.StartGameFrame;
 import gui.panels.menubar.GameMenu;
 import tools.Actions;
@@ -22,6 +23,7 @@ import tools.UserInteraction;
 @SuppressWarnings("serial")
 public class ToolbarPanel extends JPanel
 {
+	private static GameFrame gameFrame;
 //**** initializes the components*****//
 	private JButton newGame;
 	private JButton joinGame;
@@ -59,12 +61,10 @@ public class ToolbarPanel extends JPanel
 		 */
 		newGame.addActionListener(new ActionListener()
 		{
-
 			public void actionPerformed(ActionEvent e) 
 			{
 				GameIDGenerator.displayGameID(GameIDGenerator.generateGameID());			
-			}
-			
+			}			
 		});
 		
 		/*
@@ -74,12 +74,10 @@ public class ToolbarPanel extends JPanel
 		 */
 		joinGame.addActionListener(new ActionListener()
 		{
-
 			public void actionPerformed(ActionEvent e) 
 			{
 				Actions.joinGame();			
-			}
-			
+			}			
 		});
 		
 		/*
@@ -88,15 +86,10 @@ public class ToolbarPanel extends JPanel
 		 */
 		quitGame.addActionListener(new ActionListener()
 		{
-
 			public void actionPerformed(ActionEvent e) 
 			{
-				UserInteraction.confirmQuitGame();	
-				new StartGameFrame();
-				//TODO: make gameFrame Close
-				//GameMenu.dispose();
-			}
-			
+				UserInteraction.confirmQuitGame();
+			}			
 		});
 		
 		/*
@@ -105,12 +98,10 @@ public class ToolbarPanel extends JPanel
 		 */
 		exitGame.addActionListener(new ActionListener()
 		{
-
 			public void actionPerformed(ActionEvent e) 
 			{
 				UserInteraction.confirmExitGame();		
-			}
-			
+			}			
 		});
 		
 		/*
@@ -119,12 +110,10 @@ public class ToolbarPanel extends JPanel
 		 */
 		guessWord.addActionListener(new ActionListener()
 		{
-
 			public void actionPerformed(ActionEvent e) 
 			{
-				//new UserNamePopup();				
+								
 			}
-			
 		});
 	}
 	

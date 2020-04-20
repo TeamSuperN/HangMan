@@ -18,11 +18,12 @@ import tools.UserInteraction;
 
 public class StartPanel extends JPanel
 {
-	private JLabel userName;
+	private static Object userName;
+	private JLabel userNameLabel;
 	private JButton newGame;
 	private JButton joinGame;
 	private JButton exitGame;
-	
+	//https://image.shutterstock.com/image-vector/hangman-game-600w-623194223.jpg
 	public StartPanel()
 	{
 		/*
@@ -38,7 +39,7 @@ public class StartPanel extends JPanel
 		
 		//******creates a random buttom add a holding space here********//
 				//startGamePanel = new JPanel();
-				userName = new JLabel("User Name Goes Here!!");
+				userNameLabel = new JLabel((String) userName);
 				newGame = new JButton("New Game");
 				joinGame = new JButton("Join Game");
 				exitGame = new JButton("Exit Game");
@@ -47,7 +48,7 @@ public class StartPanel extends JPanel
 				
 				//******sets a popout trim for the tool bar ***************//
 				setBorder(BorderFactory.createRaisedBevelBorder());
-				add(userName);
+				add(userNameLabel);
 				add(newGame);							//adds hellobutton to toolbar
 				add(joinGame);
 			
@@ -61,7 +62,6 @@ public class StartPanel extends JPanel
 				 */
 				newGame.addActionListener(new ActionListener()
 				{
-
 					public void actionPerformed(ActionEvent e) 
 					{
 						GameIDGenerator.displayGameID(GameIDGenerator.generateGameID());
@@ -77,14 +77,11 @@ public class StartPanel extends JPanel
 				 */
 				joinGame.addActionListener(new ActionListener()
 				{
-
 					public void actionPerformed(ActionEvent e) 
-					{
-						
+					{						
 						Actions.joinGame();
 						closeFrame(e);	
-					}
-					
+					}					
 				});
 				
 				
@@ -95,16 +92,15 @@ public class StartPanel extends JPanel
 				 */
 				exitGame.addActionListener(new ActionListener()
 				{
-
 					public void actionPerformed(ActionEvent e) 
 					{
 						UserInteraction.confirmExitGame();		
-					}
-					
+					}					
 				});
 		}
 	
-	private void closeFrame(ActionEvent e) {
+	private void closeFrame(ActionEvent e) 
+	{
 		JButton thisBTN = (JButton)e.getSource();
 		StartGameFrame thisFrame = (StartGameFrame)thisBTN.getTopLevelAncestor();
 		thisFrame.dispatchEvent(new WindowEvent(thisFrame, WindowEvent.WINDOW_CLOSING));

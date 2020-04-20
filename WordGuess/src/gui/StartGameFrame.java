@@ -1,10 +1,12 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -26,35 +28,25 @@ public class StartGameFrame extends JFrame
 	{
 		super ("Hang Man");
 		
-		 //Set the required look and feel
-		try 
-		{
-			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-			
 		//******Could use any of these look and feels*********************//
-				//com.sun.java.swing.plaf.motif.MotifLookAndFeel
-				//com.sun.java.swing.plaf.windows.WindowsLookAndFeel
-				//com.sun.java.swing.plaf.motif.MotifLookAndFeel
+						//com.sun.java.swing.plaf.motif.MotifLookAndFeel
+						//com.sun.java.swing.plaf.windows.WindowsLookAndFeel
+						//com.sun.java.swing.plaf.motif.MotifLookAndFeel
+		 //Set the required look and feel
+		try {
+		UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");		
 		} 	
-			catch (ClassNotFoundException e) 
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		catch (ClassNotFoundException e) {
+		e.printStackTrace();
 		} 
-			catch (InstantiationException e) 
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		catch (InstantiationException e) {
+		e.printStackTrace();
 		} 
-			catch (IllegalAccessException e) 
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		catch (IllegalAccessException e) {
+		e.printStackTrace();
 		} 
-			catch (UnsupportedLookAndFeelException e) 
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		catch (UnsupportedLookAndFeelException e) {
+		e.printStackTrace();
 		}
 		
 		setLayout(new BorderLayout());
@@ -66,6 +58,8 @@ public class StartGameFrame extends JFrame
 		dim.height = 50; 
 		
 		welcomeToHangMan.setPreferredSize(dim);
+		
+		Container content = getContentPane();
 		
 		add(startPanel, BorderLayout.WEST);
 		//add(hangManImage, BorderLayout.CENTER);
@@ -80,7 +74,12 @@ public class StartGameFrame extends JFrame
 		setLocationRelativeTo(null);
 		setVisible(true);
 		
+		//This is a condition if no user name input run this
+		if(UserInteraction.userName == null)
+		{
 		userName = UserInteraction.queryUserName();
+		}
+		repaint();
 	}
 	
 	public String getUserName() 
@@ -89,4 +88,12 @@ public class StartGameFrame extends JFrame
 	}
 	
 	
+	/*
+	 * wanted to make a method that refreshes the UserName
+	 * after the user inputs their UserName
+	 */
+	public static void refreshMethod()
+	{
+		
+	}
 }

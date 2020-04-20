@@ -22,6 +22,7 @@ import gui.panels.MenuBar;
 @SuppressWarnings("serial")
 public class GameFrame extends JFrame
 {
+	private static StartGameFrame startGameFrame;
 //**create private classes to be used as components of the main frame***//
 	private UserNamePanel userNamePanel;
 	private ToolbarPanel toolbar;
@@ -30,7 +31,7 @@ public class GameFrame extends JFrame
 	private LettersPanel lettersUsedPanel;
 	private MenuBar mainMenuBar;
 	
-	public GameFrame(String userName)
+	public GameFrame()
 	{
 		super ("HangMan!");
 		
@@ -65,9 +66,10 @@ public class GameFrame extends JFrame
 		gamePanel.setBackground(Color.DARK_GRAY);
 		submitPanel.setBackground(Color.lightGray);
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);										
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);										
 		setVisible(true);
 		toFront();
 	}
+	
 }
 

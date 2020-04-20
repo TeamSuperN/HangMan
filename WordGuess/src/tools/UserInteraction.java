@@ -4,12 +4,17 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import gui.GameFrame;
+import gui.StartGameFrame;
+
 public class UserInteraction 
 {
-	
+	private static GameFrame gameFrame;
+	public static Object userName;
+
 	public static String queryUserName() 
 	{
-		String userName = "";
+		
 		int userNameCorrectPopup = 0;
 		
 		//Loop until valid user name is provided and confirmed
@@ -28,8 +33,8 @@ public class UserInteraction
 				
 			{
 				userNameCorrectPopup = JOptionPane.showConfirmDialog(new JPanel(),
-						"Is The User Name Correct." +
-						"\n" + " Here Is THe User Name Location!!!!" + "\n",					// We need to make the username get called here in the blanks
+						"Is The User Name Correct?" +
+						"\n" + "\"" + userName +  "\"" + "\n",					// We need to make the username get called here in the blanks
 						"User Name",
 						JOptionPane.YES_NO_OPTION);
 			}
@@ -37,13 +42,14 @@ public class UserInteraction
 			//User name must be blank, which is invalid
 			else 
 			{
-				JOptionPane.showMessageDialog(new JFrame(), "No input provided for user name. Please try again.");
+				JOptionPane.showMessageDialog(new JFrame(), "No input provided for user name."  
+						+ "\n" + "Please try again.");
 			}
 		}
 		
 		while (userName == null || userName.equals("") || userNameCorrectPopup != JOptionPane.YES_OPTION);
 		
-		return userName;
+		return (String) userName;
 	}
 	
 	public static void confirmExitGame()
@@ -62,7 +68,11 @@ public class UserInteraction
 		
 		if (quit == JOptionPane.YES_OPTION) 
 		{
-			JOptionPane.showMessageDialog(new JFrame(), "TODO: Implement quitting the current game (must be joined to an existing game)");
+			JOptionPane.showMessageDialog(new JFrame(), "TODO: Implement quitting the current game "
+					+ "(must be joined to an existing game)");
+			
+					//add a close GameFrame
+			gameFrame.dispose();
 		}
 	}
 }
