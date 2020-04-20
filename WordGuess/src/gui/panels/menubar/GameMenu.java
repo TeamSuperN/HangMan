@@ -10,7 +10,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
-import gui.MainFrame;
+import gui.StartGameFrame;
 import tools.Actions;
 import tools.GameIDGenerator;
 import tools.UserInteraction;
@@ -95,6 +95,9 @@ public class GameMenu extends JMenu
 				 public void actionPerformed (ActionEvent e) 									
 				 {																				
 					 UserInteraction.confirmQuitGame();
+					 new StartGameFrame();
+					//TODO: make gameFrame Close
+					//GameMenu.dispose();
 				 }																				
 			});						
 		

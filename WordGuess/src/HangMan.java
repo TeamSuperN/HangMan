@@ -1,19 +1,15 @@
-import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 import gui.GameFrame;
-import gui.MainFrame;
 import gui.StartGameFrame;
 
 public class HangMan  
 {
 	private static StartGameFrame startGameFrame;
 	private static String userName;
-	private static GameFrame gameFrame;
 	
 	public static void main(String args[])
 	{
@@ -55,7 +51,7 @@ public class HangMan
 		{
 			public void run() 
 			{
-				gameFrame = new GameFrame(userName);
+				new GameFrame(userName);
 			}
 		});	
 	}

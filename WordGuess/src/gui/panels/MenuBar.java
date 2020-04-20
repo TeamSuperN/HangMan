@@ -1,8 +1,6 @@
 package gui.panels;
 
 import javax.swing.JMenuBar;
-import javax.swing.KeyStroke;
-
 import gui.panels.menubar.GameMenu;
 import gui.panels.menubar.WindowMenu;
 

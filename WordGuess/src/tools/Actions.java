@@ -3,8 +3,6 @@ package tools;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import gui.MainFrame;
-
 public class Actions 
 {
 	public static void joinGame()

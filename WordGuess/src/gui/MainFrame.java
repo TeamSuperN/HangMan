@@ -30,8 +30,6 @@ public class MainFrame extends JFrame
 	private LettersPanel lettersUsedPanel;
 	private MenuBar mainMenuBar;
 	
-	private String userName;
-	
 	public MainFrame()
 	{
 		super ("HangMan!");
@@ -70,7 +68,6 @@ public class MainFrame extends JFrame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);										
 		setVisible(true);
 		
-		//Get User Name
-		userName = UserInteraction.queryUserName();
+		UserInteraction.queryUserName();
 	}
 }

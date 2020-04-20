@@ -8,6 +8,8 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import gui.StartGameFrame;
+import gui.panels.menubar.GameMenu;
 import tools.Actions;
 import tools.GameIDGenerator;
 import tools.UserInteraction;
@@ -89,7 +91,10 @@ public class ToolbarPanel extends JPanel
 
 			public void actionPerformed(ActionEvent e) 
 			{
-				UserInteraction.confirmQuitGame();		
+				UserInteraction.confirmQuitGame();	
+				new StartGameFrame();
+				//TODO: make gameFrame Close
+				//GameMenu.dispose();
 			}
 			
 		});

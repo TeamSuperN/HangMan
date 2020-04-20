@@ -11,7 +11,6 @@ import gui.panels.SubmitPanel;
 import gui.panels.ToolbarPanel;
 import gui.panels.UserNamePanel;
 import gui.panels.MenuBar;
-import tools.UserInteraction;
 
 /*
  * 	This runs the entire app 
@@ -31,13 +30,9 @@ public class GameFrame extends JFrame
 	private LettersPanel lettersUsedPanel;
 	private MenuBar mainMenuBar;
 	
-	private String userName;
-	
 	public GameFrame(String userName)
 	{
 		super ("HangMan!");
-		
-		this.userName = userName;
 		
 		setLayout(new BorderLayout());
 		

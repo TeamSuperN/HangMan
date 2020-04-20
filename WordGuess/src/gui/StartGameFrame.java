@@ -5,9 +5,9 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
-import gui.panels.MenuBar;
 import gui.startpanels.StartPanel;
 import tools.UserInteraction;
 
@@ -26,6 +26,37 @@ public class StartGameFrame extends JFrame
 	{
 		super ("Hang Man");
 		
+		 //Set the required look and feel
+		try 
+		{
+			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+			
+		//******Could use any of these look and feels*********************//
+				//com.sun.java.swing.plaf.motif.MotifLookAndFeel
+				//com.sun.java.swing.plaf.windows.WindowsLookAndFeel
+				//com.sun.java.swing.plaf.motif.MotifLookAndFeel
+		} 	
+			catch (ClassNotFoundException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+			catch (InstantiationException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+			catch (IllegalAccessException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+			catch (UnsupportedLookAndFeelException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		setLayout(new BorderLayout());
 		welcomeToHangMan = new JLabel("WELCOME TO THE NEW AND IMPROVED HANGMAN!!!!");
 		//hangManImage = new Image(Put a hang man picture here);
@@ -42,17 +73,18 @@ public class StartGameFrame extends JFrame
 		
 		//Set The Frame In The Center Of The Screen
 		pack();
-		setLocationRelativeTo(null);
+		
 		setVisible(true);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setMinimumSize(new Dimension(600, 600));
+		setLocationRelativeTo(null);
 		setVisible(true);
 		
 		userName = UserInteraction.queryUserName();
-
 	}
 	
-	public String getUserName() {
+	public String getUserName() 
+	{
 		return userName;
 	}
 	
