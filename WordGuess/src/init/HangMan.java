@@ -3,6 +3,8 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 import tools.UserInteraction;
 import view.game.frame.GameFrame;
@@ -15,6 +17,7 @@ public class HangMan
 	
 	public static void main(String args[])
 	{
+		addLookAndFeel();
 		initStartGameFrame();
 	}
 	
@@ -104,6 +107,22 @@ public class HangMan
 		}
 	}
 	*/
+	public static void addLookAndFeel()
+	{
+		//******Could use any of these look and feels*********************//
+		//com.sun.java.swing.plaf.motif.MotifLookAndFeel
+		//com.sun.java.swing.plaf.windows.WindowsLookAndFeel
+		//com.sun.java.swing.plaf.motif.MotifLookAndFeel
+		 //Set the required look and feel
+		try 
+		{
+			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+		} 	
+			catch (ClassNotFoundException e){} 
+			catch (InstantiationException e){} 
+			catch (IllegalAccessException e){} 
+			catch (UnsupportedLookAndFeelException e){}
+	}
 }
 
 

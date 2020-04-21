@@ -27,38 +27,7 @@ public class LobbyFrame extends JFrame
 	public LobbyFrame()
 	{
 		super ("Hang Man");
-		
-
-			
-		//******Could use any of these look and feels*********************//
-				//com.sun.java.swing.plaf.motif.MotifLookAndFeel
-				//com.sun.java.swing.plaf.windows.WindowsLookAndFeel
-				//com.sun.java.swing.plaf.motif.MotifLookAndFeel
-		 //Set the required look and feel
-		try 
-		{
-			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-		} 	
-			catch (ClassNotFoundException e) 
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-			catch (InstantiationException e) 
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-			catch (IllegalAccessException e) 
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-			catch (UnsupportedLookAndFeelException e) 
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
 		
 		setLayout(new BorderLayout());
 		welcomeToHangMan = new JLabel("WELCOME TO THE NEW AND IMPROVED HANGMAN!!!!");
@@ -105,6 +74,4 @@ public class LobbyFrame extends JFrame
 	{
 
 	}
-	
-	
 }
