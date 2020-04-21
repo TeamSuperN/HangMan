@@ -3,6 +3,7 @@ package view.lobby.frame;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -11,6 +12,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import tools.UserInteraction;
+import view.lobby.panels.HangManPicturePanel;
 import view.lobby.panels.LobbyPanel;
 
 /*
@@ -19,6 +21,7 @@ import view.lobby.panels.LobbyPanel;
  */
 public class LobbyFrame extends JFrame
 {
+	private HangManPicturePanel hangManPicturePanel;
 	private LobbyPanel lobbyPanel;
 	private JLabel welcomeToHangMan;
 	private String userName;
@@ -31,7 +34,12 @@ public class LobbyFrame extends JFrame
 		
 		setLayout(new BorderLayout());
 		welcomeToHangMan = new JLabel("WELCOME TO THE NEW AND IMPROVED HANGMAN!!!!");
-		//hangManImage = new Image(Put a hang man picture here);
+		
+		try {
+			hangManPicturePanel = new HangManPicturePanel();
+		} 
+		catch (IOException e) {}
+
 		lobbyPanel = new LobbyPanel();
 		
 		Dimension dim = getPreferredSize();	
@@ -40,7 +48,7 @@ public class LobbyFrame extends JFrame
 		welcomeToHangMan.setPreferredSize(dim);
 		
 		add(lobbyPanel, BorderLayout.WEST);
-		//add(hangManImage, BorderLayout.CENTER);
+		add(hangManPicturePanel, BorderLayout.CENTER);
 		add(welcomeToHangMan, BorderLayout.SOUTH);
 		
 		//Set The Frame In The Center Of The Screen
@@ -48,7 +56,7 @@ public class LobbyFrame extends JFrame
 		
 		setVisible(true);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		setMinimumSize(new Dimension(600, 600));
+		setMinimumSize(new Dimension(500, 475));
 		setLocationRelativeTo(null);
 		setVisible(true);
 		

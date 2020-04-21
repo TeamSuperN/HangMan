@@ -1,5 +1,6 @@
 package view.lobby.panels;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Window;
@@ -20,7 +21,7 @@ import view.lobby.frame.LobbyFrame;
 public class LobbyPanel extends JPanel
 {
 	private static Object userName;
-	private JLabel userNameLabel;
+	private JButton userNameLabel;
 	private JButton newGame;
 	private JButton joinGame;
 	private JButton exitGame;
@@ -41,8 +42,7 @@ public class LobbyPanel extends JPanel
 		
 		//******creates a random buttom add a holding space here********//
 				//startGamePanel = new JPanel();
-				userNameLabel = new JLabel((String) userName);
-				userName = new JLabel("User Name Goes Here!!");
+				userNameLabel = new JButton("User Name");
 				newGame = new JButton("New Game");
 				joinGame = new JButton("Join Game");
 				exitGame = new JButton("Exit Game");
@@ -51,7 +51,7 @@ public class LobbyPanel extends JPanel
 				
 				//******sets a popout trim for the tool bar ***************//
 				setBorder(BorderFactory.createRaisedBevelBorder());
-				add(userNameLabel);
+				add(userNameLabel, BorderLayout.EAST);
 				add(newGame);							//adds hellobutton to toolbar
 				add(joinGame);
 			
