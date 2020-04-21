@@ -1,3 +1,4 @@
+package init;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -8,7 +9,7 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-import gui.MainFrame;
+import view.MainFrame;
 
 
 public class Main 

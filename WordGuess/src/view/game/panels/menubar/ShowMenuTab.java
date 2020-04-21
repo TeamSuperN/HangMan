@@ -1,4 +1,4 @@
-package gui.panels.menubar;
+package view.game.panels.menubar;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

@@ -1,4 +1,4 @@
-package gui;
+package view.lobby.frame;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -8,21 +8,21 @@ import javax.swing.JLabel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import gui.startpanels.StartPanel;
-import tools.UserInteraction;
+import view.lobby.panels.LobbyPanel;
+import view.tools.UserInteraction;
 
 /*
  * 	In the Future we could find a way to put a 
  * 	Chat Menu On this Page in The East maybe
  */
-public class StartGameFrame extends JFrame
+public class LobbyFrame extends JFrame
 {
-	private StartPanel startPanel;
+	private LobbyPanel lobbyPanel;
 	private JLabel welcomeToHangMan;
 	private String userName;
 	//private IMAGE hangManImage;
 	
-	public StartGameFrame()
+	public LobbyFrame()
 	{
 		super ("Hang Man");
 		
@@ -60,14 +60,14 @@ public class StartGameFrame extends JFrame
 		setLayout(new BorderLayout());
 		welcomeToHangMan = new JLabel("WELCOME TO THE NEW AND IMPROVED HANGMAN!!!!");
 		//hangManImage = new Image(Put a hang man picture here);
-		startPanel = new StartPanel();
+		lobbyPanel = new LobbyPanel();
 		
 		Dimension dim = getPreferredSize();	
 		dim.height = 50; 
 		
 		welcomeToHangMan.setPreferredSize(dim);
 		
-		add(startPanel, BorderLayout.WEST);
+		add(lobbyPanel, BorderLayout.WEST);
 		//add(hangManImage, BorderLayout.CENTER);
 		add(welcomeToHangMan, BorderLayout.SOUTH);
 		
@@ -86,6 +86,10 @@ public class StartGameFrame extends JFrame
 	public String getUserName() 
 	{
 		return userName;
+	}
+	
+	public boolean newOrJoinGameChosen() {
+		return lobbyPanel.newOrJoinGameChosen();
 	}
 	
 	

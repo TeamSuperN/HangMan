@@ -1,14 +1,16 @@
+package init;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import javax.swing.SwingUtilities;
 
-import gui.GameFrame;
-import gui.StartGameFrame;
+import view.game.frame.GameFrame;
+import view.lobby.frame.LobbyFrame;
+import view.tools.UserInteraction;
 
 public class HangMan  
 {
-	private static StartGameFrame startGameFrame;
+	private static LobbyFrame lobbyFrame;
 	private static String userName;
 	
 	public static void main(String args[])
@@ -22,13 +24,18 @@ public class HangMan
 		{
 			public void run() 
 			{
-				startGameFrame = new StartGameFrame();
-				userName = startGameFrame.getUserName();
-				startGameFrame.addWindowListener(new WindowListener()
+				lobbyFrame = new LobbyFrame();
+				userName = lobbyFrame.getUserName();
+				lobbyFrame.addWindowListener(new WindowListener()
 				{
 					public void windowClosing(WindowEvent e) {
-						startGameFrame.dispose();
-						initGameFrame();
+						if (lobbyFrame.newOrJoinGameChosen() == true) {
+							lobbyFrame.dispose();
+							initGameFrame();
+						}
+						else {
+							System.exit(0);
+						}
 					}
 					public void windowIconified(WindowEvent e) {}
 					public void windowDeiconified(WindowEvent e) {}

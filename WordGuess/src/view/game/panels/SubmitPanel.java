@@ -1,4 +1,4 @@
-package gui.panels;
+package view.game.panels;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -29,8 +29,9 @@ public class SubmitPanel extends JPanel
 	 */
 	public SubmitPanel()
 	{
+		textField = new JTextField("Guess a letter or word: ");
 		submitButton = new JButton("Submit Answer  ");
-		textField = new JTextField("Input Answer              ");
+		
 		
 		/*
 		 * This sets the dimension that the MainFrame
@@ -44,15 +45,15 @@ public class SubmitPanel extends JPanel
 		
 //******sets the layout for the panel***************//
 		setLayout(new FlowLayout(FlowLayout.CENTER));
-		add(submitButton);
 		add(textField);
+		add(submitButton);
 		
 //******sets the text panel to change from the original text to blank text********//
 		textField.addFocusListener(new FocusListener() 
 		{
 			public void focusLost(FocusEvent e) 
 			{
-				textField.setText("Input Answer");
+				textField.setText("Guess a letter or word: ");
 				
 			}
 

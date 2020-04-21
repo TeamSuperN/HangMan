@@ -1,16 +1,17 @@
-package gui;
-
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JFrame;
-import gui.panels.GamePanel;
-import gui.panels.LettersPanel;
-import gui.panels.SubmitPanel;
-import gui.panels.ToolbarPanel;
-import gui.panels.UserNamePanel;
-import gui.panels.MenuBar;
+
+import view.game.panels.GamePanel;
+import view.game.panels.LettersPanel;
+import view.game.panels.MenuBar;
+import view.game.panels.SubmitPanel;
+import view.game.panels.ToolbarPanel;
+import view.game.panels.UserNamePanel;
+import view.tools.UserInteraction;
 
 /*
  * 	This runs the entire app 
@@ -20,7 +21,7 @@ import gui.panels.MenuBar;
  * 	the different pieces.
  */
 @SuppressWarnings("serial")
-public class GameFrame extends JFrame
+public class MainFrame extends JFrame
 {
 //**create private classes to be used as components of the main frame***//
 	private UserNamePanel userNamePanel;
@@ -30,7 +31,7 @@ public class GameFrame extends JFrame
 	private LettersPanel lettersUsedPanel;
 	private MenuBar mainMenuBar;
 	
-	public GameFrame(String userName)
+	public MainFrame()
 	{
 		super ("HangMan!");
 		
@@ -67,7 +68,7 @@ public class GameFrame extends JFrame
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);										
 		setVisible(true);
-		toFront();
+		
+		UserInteraction.queryUserName();
 	}
 }
-

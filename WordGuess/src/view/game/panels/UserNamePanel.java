@@ -1,4 +1,4 @@
-package gui.panels;
+package view.game.panels;
 
 
 import java.awt.Dimension;

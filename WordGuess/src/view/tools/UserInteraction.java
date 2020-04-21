@@ -1,4 +1,4 @@
-package tools;
+package view.tools;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;

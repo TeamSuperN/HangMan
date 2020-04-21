@@ -1,4 +1,4 @@
-package gui.panels.menubar;
+package view.game.panels.menubar;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;

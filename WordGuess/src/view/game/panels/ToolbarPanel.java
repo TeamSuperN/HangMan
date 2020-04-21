@@ -1,4 +1,4 @@
-package gui.panels;
+package view.game.panels;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -8,11 +8,11 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import gui.StartGameFrame;
-import gui.panels.menubar.GameMenu;
-import tools.Actions;
-import tools.GameIDGenerator;
-import tools.UserInteraction;
+import actions.Actions;
+import view.game.panels.menubar.GameMenu;
+import view.lobby.frame.LobbyFrame;
+import view.tools.GameIDGenerator;
+import view.tools.UserInteraction;
 
 /*
  * 	This i a holder for the tool bar and when the 
@@ -92,7 +92,7 @@ public class ToolbarPanel extends JPanel
 			public void actionPerformed(ActionEvent e) 
 			{
 				UserInteraction.confirmQuitGame();	
-				new StartGameFrame();
+				new LobbyFrame();
 				//TODO: make gameFrame Close
 				//GameMenu.dispose();
 			}

@@ -1,7 +1,8 @@
-package gui.startpanels;
+package view.lobby.panels;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -11,19 +12,20 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import gui.StartGameFrame;
-import tools.Actions;
-import tools.GameIDGenerator;
-import tools.UserInteraction;
+import actions.Actions;
+import view.lobby.frame.LobbyFrame;
+import view.tools.GameIDGenerator;
+import view.tools.UserInteraction;
 
-public class StartPanel extends JPanel
+public class LobbyPanel extends JPanel
 {
 	private JLabel userName;
 	private JButton newGame;
 	private JButton joinGame;
 	private JButton exitGame;
+	private boolean newOrJoinGameChosen = false;
 	
-	public StartPanel()
+	public LobbyPanel()
 	{
 		/*
 		 * This sets the dimension that the MainFrame
@@ -65,6 +67,7 @@ public class StartPanel extends JPanel
 					public void actionPerformed(ActionEvent e) 
 					{
 						GameIDGenerator.displayGameID(GameIDGenerator.generateGameID());
+						setNewOrJoinGameChosenFlag(true);
 						closeFrame(e);
 					}
 					
@@ -82,6 +85,7 @@ public class StartPanel extends JPanel
 					{
 						
 						Actions.joinGame();
+						setNewOrJoinGameChosenFlag(true);
 						closeFrame(e);	
 					}
 					
@@ -104,10 +108,28 @@ public class StartPanel extends JPanel
 				});
 		}
 	
+	public void setNewOrJoinGameChosenFlag(boolean flag) {
+		this.newOrJoinGameChosen = flag;
+	}
+	
+	public boolean newOrJoinGameChosen() {
+		return newOrJoinGameChosen;
+	}
+	
 	private void closeFrame(ActionEvent e) {
 		JButton thisBTN = (JButton)e.getSource();
-		StartGameFrame thisFrame = (StartGameFrame)thisBTN.getTopLevelAncestor();
+		LobbyFrame thisFrame = (LobbyFrame)thisBTN.getTopLevelAncestor();
 		thisFrame.dispatchEvent(new WindowEvent(thisFrame, WindowEvent.WINDOW_CLOSING));
+	}
+	
+	private class NewGameEvent extends WindowEvent {
+		
+		
+
+		public NewGameEvent(Window source, int id) {
+			super(source, id);
+		}
+		
 	}
 }
 
