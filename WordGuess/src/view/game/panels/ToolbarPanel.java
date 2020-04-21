@@ -91,10 +91,7 @@ public class ToolbarPanel extends JPanel
 
 			public void actionPerformed(ActionEvent e) 
 			{
-				UserInteraction.confirmQuitGame();	
-				new LobbyFrame();
-				//TODO: make gameFrame Close
-				//GameMenu.dispose();
+				UserInteraction.confirmQuitGame();
 			}
 			
 		});
@@ -122,7 +119,7 @@ public class ToolbarPanel extends JPanel
 
 			public void actionPerformed(ActionEvent e) 
 			{
-				//new UserNamePopup();				
+					
 			}
 			
 		});

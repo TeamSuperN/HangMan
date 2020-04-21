@@ -19,12 +19,13 @@ import view.tools.UserInteraction;
 
 public class LobbyPanel extends JPanel
 {
-	private JLabel userName;
+	private static Object userName;
+	private JLabel userNameLabel;
 	private JButton newGame;
 	private JButton joinGame;
 	private JButton exitGame;
 	private boolean newOrJoinGameChosen = false;
-	
+	//https://image.shutterstock.com/image-vector/hangman-game-600w-623194223.jpg
 	public LobbyPanel()
 	{
 		/*
@@ -40,6 +41,7 @@ public class LobbyPanel extends JPanel
 		
 		//******creates a random buttom add a holding space here********//
 				//startGamePanel = new JPanel();
+				userNameLabel = new JLabel((String) userName);
 				userName = new JLabel("User Name Goes Here!!");
 				newGame = new JButton("New Game");
 				joinGame = new JButton("Join Game");
@@ -49,7 +51,7 @@ public class LobbyPanel extends JPanel
 				
 				//******sets a popout trim for the tool bar ***************//
 				setBorder(BorderFactory.createRaisedBevelBorder());
-				add(userName);
+				add(userNameLabel);
 				add(newGame);							//adds hellobutton to toolbar
 				add(joinGame);
 			

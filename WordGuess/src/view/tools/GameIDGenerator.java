@@ -39,7 +39,8 @@ public class GameIDGenerator
 	return sb.toString();
 	}
     
-    public static void displayGameID(String gameID) {
+    public static void displayGameID(String gameID) 
+    {
     	JOptionPane.showMessageDialog(new JFrame(), "New Game Id Is:  " + "\n" + gameID);
     }
 }

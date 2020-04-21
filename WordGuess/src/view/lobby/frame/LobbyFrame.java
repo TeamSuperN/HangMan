@@ -1,10 +1,12 @@
 package view.lobby.frame;
 
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -26,15 +28,16 @@ public class LobbyFrame extends JFrame
 	{
 		super ("Hang Man");
 		
-		 //Set the required look and feel
-		try 
-		{
-			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+
 			
 		//******Could use any of these look and feels*********************//
 				//com.sun.java.swing.plaf.motif.MotifLookAndFeel
 				//com.sun.java.swing.plaf.windows.WindowsLookAndFeel
 				//com.sun.java.swing.plaf.motif.MotifLookAndFeel
+		 //Set the required look and feel
+		try 
+		{
+			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 		} 	
 			catch (ClassNotFoundException e) 
 		{
@@ -81,6 +84,8 @@ public class LobbyFrame extends JFrame
 		setVisible(true);
 		
 		userName = UserInteraction.queryUserName();
+		
+		repaint();
 	}
 	
 	public String getUserName() 
@@ -90,6 +95,15 @@ public class LobbyFrame extends JFrame
 	
 	public boolean newOrJoinGameChosen() {
 		return lobbyPanel.newOrJoinGameChosen();
+	}
+	
+	/*
+	 * wanted to make a method that refreshes the UserName
+	 * after the user inputs their UserName
+	 */
+	public static void refreshMethod()
+	{
+
 	}
 	
 	

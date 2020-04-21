@@ -43,7 +43,7 @@ public class UserNamePanel extends JPanel
 		 *		in their log in order of the user then 
 		 * 		finally create the buttons
 		 ******************************************** */
-		String[] columnNames = {"User", "User Name", "Points"};
+		String[] columnNames = {"User", "Host Name", "Points"};
 		Object[][] usersStored = {{"Host", "Host Name", "HostPoints"},
 				{"User 2", "User 2 Name", "User 2 Points"},
 				{"User 3", "User 3 Name", "User 3 Points"},
