@@ -16,8 +16,6 @@ public class Actions
 			gameID = JOptionPane.showInputDialog(new JFrame(), 
 					"Enter Game Id:");
 			
-			System.out.println(gameID);
-			
 			if (gameID == null) {
 				break;
 			}
