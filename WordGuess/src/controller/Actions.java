@@ -1,4 +1,4 @@
-package actions;
+package controller;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;

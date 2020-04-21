@@ -12,10 +12,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import actions.Actions;
+import controller.Actions;
+import tools.GameIDGenerator;
+import tools.UserInteraction;
 import view.lobby.frame.LobbyFrame;
-import view.tools.GameIDGenerator;
-import view.tools.UserInteraction;
 
 public class LobbyPanel extends JPanel
 {

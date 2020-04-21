@@ -1,4 +1,4 @@
-package view.tools;
+package tools;
 
 import java.security.SecureRandom;
 import javax.swing.JFrame;

@@ -8,11 +8,11 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import actions.Actions;
+import controller.Actions;
+import tools.GameIDGenerator;
+import tools.UserInteraction;
 import view.game.panels.menubar.GameMenu;
 import view.lobby.frame.LobbyFrame;
-import view.tools.GameIDGenerator;
-import view.tools.UserInteraction;
 
 /*
  * 	This i a holder for the tool bar and when the 

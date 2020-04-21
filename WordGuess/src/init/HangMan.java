@@ -4,9 +4,9 @@ import java.awt.event.WindowListener;
 
 import javax.swing.SwingUtilities;
 
+import tools.UserInteraction;
 import view.game.frame.GameFrame;
 import view.lobby.frame.LobbyFrame;
-import view.tools.UserInteraction;
 
 public class HangMan  
 {

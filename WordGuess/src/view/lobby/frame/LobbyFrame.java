@@ -10,8 +10,8 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import tools.UserInteraction;
 import view.lobby.panels.LobbyPanel;
-import view.tools.UserInteraction;
 
 /*
  * 	In the Future we could find a way to put a 

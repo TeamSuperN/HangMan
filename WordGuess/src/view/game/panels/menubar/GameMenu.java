@@ -10,10 +10,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
-import actions.Actions;
+import controller.Actions;
+import tools.GameIDGenerator;
+import tools.UserInteraction;
 import view.lobby.frame.LobbyFrame;
-import view.tools.GameIDGenerator;
-import view.tools.UserInteraction;
 
 public class GameMenu extends JMenu
 {
