@@ -16,8 +16,6 @@ public class Actions
 			gameID = JOptionPane.showInputDialog(new JFrame(), 
 					"Enter Game Id:");
 			
-			System.out.println(gameID);
-			
 			if (gameID == null) {
 				break;
 			}
@@ -33,6 +31,7 @@ public class Actions
 				
 				if(confirmGameIDFlag == JOptionPane.CANCEL_OPTION || confirmGameIDFlag == JOptionPane.CLOSED_OPTION)
 				{
+					gameID = null;
 					break;
 				}
 			}
