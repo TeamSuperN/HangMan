@@ -1,4 +1,4 @@
-package gui.panels;
+package view.game.panels;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -8,9 +8,11 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import tools.Actions;
+import controller.Actions;
 import tools.GameIDGenerator;
 import tools.UserInteraction;
+import view.game.panels.menubar.GameMenu;
+import view.lobby.frame.LobbyFrame;
 
 /*
  * 	This i a holder for the tool bar and when the 
@@ -60,7 +62,7 @@ public class ToolbarPanel extends JPanel
 
 			public void actionPerformed(ActionEvent e) 
 			{
-				new GameIDGenerator();				
+				GameIDGenerator.displayGameID(GameIDGenerator.generateGameID());			
 			}
 			
 		});
@@ -89,7 +91,7 @@ public class ToolbarPanel extends JPanel
 
 			public void actionPerformed(ActionEvent e) 
 			{
-				UserInteraction.confirmQuitGame();		
+				UserInteraction.confirmQuitGame();
 			}
 			
 		});
@@ -117,7 +119,7 @@ public class ToolbarPanel extends JPanel
 
 			public void actionPerformed(ActionEvent e) 
 			{
-				//new UserNamePopup();				
+					
 			}
 			
 		});

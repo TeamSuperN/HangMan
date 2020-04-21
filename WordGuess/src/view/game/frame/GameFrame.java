@@ -1,16 +1,17 @@
-package gui;
+package view.game.frame;
+
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JFrame;
-import gui.panels.GamePanel;
-import gui.panels.LettersPanel;
-import gui.panels.SubmitPanel;
-import gui.panels.ToolbarPanel;
-import gui.panels.UserNamePanel;
-import gui.panels.MenuBar;
-import tools.UserInteraction;
+
+import view.game.panels.GamePanel;
+import view.game.panels.LettersPanel;
+import view.game.panels.MenuBar;
+import view.game.panels.SubmitPanel;
+import view.game.panels.ToolbarPanel;
+import view.game.panels.UserNamePanel;
 
 /*
  * 	This runs the entire app 
@@ -20,7 +21,7 @@ import tools.UserInteraction;
  * 	the different pieces.
  */
 @SuppressWarnings("serial")
-public class MainFrame extends JFrame
+public class GameFrame extends JFrame
 {
 //**create private classes to be used as components of the main frame***//
 	private UserNamePanel userNamePanel;
@@ -30,9 +31,7 @@ public class MainFrame extends JFrame
 	private LettersPanel lettersUsedPanel;
 	private MenuBar mainMenuBar;
 	
-	private String userName;
-	
-	public MainFrame()
+	public GameFrame(String userName)
 	{
 		super ("HangMan!");
 		
@@ -55,8 +54,10 @@ public class MainFrame extends JFrame
 		setJMenuBar(mainMenuBar);
 		
 //******sets the MainFrame Size Components*********//
-		setSize(1800,625);																	
-		setMinimumSize(new Dimension(1800, 300));
+		setExtendedState(JFrame.MAXIMIZED_BOTH); 											
+		setUndecorated(false);																
+		setVisible(true);															
+		setMinimumSize(new Dimension(1400, 500));
 		
 //******Sets the colors for the panels **************//
 		userNamePanel.setBackground(Color.lightGray);
@@ -67,8 +68,7 @@ public class MainFrame extends JFrame
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);										
 		setVisible(true);
-		
-		//Get User Name
-		userName = UserInteraction.queryUserName();
+		toFront();
 	}
 }
+

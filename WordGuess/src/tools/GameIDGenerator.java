@@ -2,9 +2,7 @@ package tools;
 
 import java.security.SecureRandom;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 public class GameIDGenerator 
 {			
@@ -14,32 +12,17 @@ public class GameIDGenerator
 
     private static final String DATA_FOR_RANDOM_STRING = CHAR_LOWER + CHAR_UPPER + NUMBER;
     private static SecureRandom random = new SecureRandom();
-	
-    public static void displayNewGameID()
-	{
-	        
-
-	        for (int i = 0; i < 5; i++) 
-	        {
-	        	
-	            System.out.println("result : " + generateGameID(8));
-	            System.out.println("\n");
-	        }
-	        
-	        
-	        JOptionPane.showMessageDialog(new JFrame(), "New Game Id Is:  " + generateGameID(8));
-	}
-
     
+    private static int ID_LENGTH = 8;
+	
     /*
      * Generates random Code
      */
-    public static String generateGameID(int length) 
+    public static String generateGameID() 
     {
-        if (length < 1) throw new IllegalArgumentException();
 
-        StringBuilder sb = new StringBuilder(length);
-        for (int i = 0; i < length; i++) 
+        StringBuilder sb = new StringBuilder(ID_LENGTH);
+        for (int i = 0; i < ID_LENGTH; i++) 
         {
 
 			// 0-62 (exclusive), random returns 0-61
@@ -55,4 +38,9 @@ public class GameIDGenerator
 
 	return sb.toString();
 	}
+    
+    public static void displayGameID(String gameID) 
+    {
+    	JOptionPane.showMessageDialog(new JFrame(), "New Game Id Is:  " + "\n" + gameID);
+    }
 }

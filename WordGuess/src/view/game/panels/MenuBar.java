@@ -1,10 +1,9 @@
-package gui.panels;
+package view.game.panels;
 
 import javax.swing.JMenuBar;
-import javax.swing.KeyStroke;
 
-import gui.panels.menubar.GameMenu;
-import gui.panels.menubar.WindowMenu;
+import view.game.panels.menubar.GameMenu;
+import view.game.panels.menubar.WindowMenu;
 
 public class MenuBar extends JMenuBar
 {

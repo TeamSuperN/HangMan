@@ -1,4 +1,4 @@
-package gui.panels.menubar;
+package view.game.panels.menubar;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,10 +10,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
-import gui.MainFrame;
-import tools.Actions;
+import controller.Actions;
 import tools.GameIDGenerator;
 import tools.UserInteraction;
+import view.lobby.frame.LobbyFrame;
 
 public class GameMenu extends JMenu
 {
@@ -67,7 +67,7 @@ public class GameMenu extends JMenu
 		{																					
 			 public void actionPerformed (ActionEvent e) 											
 			 {																				
-					   GameIDGenerator.displayNewGameID();		
+				 GameIDGenerator.displayGameID(GameIDGenerator.generateGameID());		
 			 }																				
 		});
 		
@@ -95,6 +95,9 @@ public class GameMenu extends JMenu
 				 public void actionPerformed (ActionEvent e) 									
 				 {																				
 					 UserInteraction.confirmQuitGame();
+					 new LobbyFrame();
+					//TODO: make gameFrame Close
+					//GameMenu.dispose();
 				 }																				
 			});						
 		

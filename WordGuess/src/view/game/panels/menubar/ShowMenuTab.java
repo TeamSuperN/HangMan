@@ -1,12 +1,10 @@
-package gui.panels.menubar;
+package view.game.panels.menubar;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
-
-import gui.panels.UserNamePanel;
 
 public class ShowMenuTab extends JMenu{
 	
