@@ -86,9 +86,10 @@ public class LobbyPanel extends JPanel
 					public void actionPerformed(ActionEvent e) 
 					{
 						
-						Actions.joinGame();
-						setNewOrJoinGameChosenFlag(true);
-						closeFrame(e);	
+						if (Actions.joinGame() != null) {
+							setNewOrJoinGameChosenFlag(true);
+							closeFrame(e);	
+						}
 					}
 					
 				});

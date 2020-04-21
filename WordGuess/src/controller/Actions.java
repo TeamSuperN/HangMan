@@ -31,6 +31,7 @@ public class Actions
 				
 				if(confirmGameIDFlag == JOptionPane.CANCEL_OPTION || confirmGameIDFlag == JOptionPane.CLOSED_OPTION)
 				{
+					gameID = null;
 					break;
 				}
 			}
