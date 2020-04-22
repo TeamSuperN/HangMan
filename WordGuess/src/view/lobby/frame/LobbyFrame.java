@@ -33,12 +33,16 @@ public class LobbyFrame extends JFrame
 	
 		
 		setLayout(new BorderLayout());
-		welcomeToHangMan = new JLabel("WELCOME TO THE NEW AND IMPROVED HANGMAN!!!!");
+		welcomeToHangMan = new JLabel("                               "
+				+ "                                                   "
+				+ "WELCOME TO THE NEW AND IMPROVED HANGMAN!!!!");
 		
 		try {
 			hangManPicturePanel = new HangManPicturePanel();
+			
 		} 
 		catch (IOException e) {}
+		
 
 		lobbyPanel = new LobbyPanel();
 		
@@ -57,6 +61,7 @@ public class LobbyFrame extends JFrame
 		setVisible(true);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setMinimumSize(new Dimension(500, 475));
+		//setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(true);
 		
