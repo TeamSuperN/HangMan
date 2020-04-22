@@ -2,6 +2,7 @@ package view.game.panels;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -9,11 +10,17 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.Border;
 
+import model.RemainingLetterList;
+
 @SuppressWarnings("serial")
 public class LettersPanel extends JPanel
 {
 //****initializes the variable in the LettersUsedInGamePanel*****//
 	private JTable lettersUsedInGame;
+	
+	//TODO: Implement these variables
+	private RemainingLetterList rll;
+	private ArrayList<String> incorrectWordList;
 	
 	public LettersPanel()
 	{
