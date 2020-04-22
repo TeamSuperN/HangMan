@@ -2,6 +2,7 @@ package view.game.panels;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -10,12 +11,18 @@ import view.game.panels.lettersandwordsguessed.LettersGuessedPanel;
 import view.game.panels.lettersandwordsguessed.WordsGuessedPanel;
 import java.awt.GridLayout;
 
+import model.RemainingLetterList;
+
 @SuppressWarnings("serial")
 public class LettersPanel extends JPanel
 {
 //****initializes the variable in the LettersUsedInGamePanel*****//
 	private LettersGuessedPanel lettersGuessedPanel;
 	private WordsGuessedPanel wordsGuessedPanel;
+	
+	//TODO: Implement these variables
+	private RemainingLetterList rll;
+	private ArrayList<String> incorrectWordList;
 	
 	public LettersPanel()
 	{

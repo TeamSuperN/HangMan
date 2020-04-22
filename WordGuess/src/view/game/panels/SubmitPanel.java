@@ -7,6 +7,7 @@ import java.awt.event.FocusListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
@@ -20,7 +21,7 @@ import java.awt.Color;
 @SuppressWarnings("serial")
 public class SubmitPanel extends JPanel
 {
-//**** initializes the components*****//
+	private JLabel answerLabel;
 	private JButton submitButton;
 	private JTextField textField;
 	
@@ -30,11 +31,15 @@ public class SubmitPanel extends JPanel
 	 */
 	public SubmitPanel()
 	{
-		setBackground(new Color(112, 128, 144));
-		textField = new JTextField("Guess a letter or word: ");
-		submitButton = new JButton("Submit Answer  ");
-		submitButton.setBackground(new Color(240, 255, 255));
+
+		int labelLength = 10;
 		
+		//initialize components
+    setBackground(new Color(112, 128, 144));
+		answerLabel = new JLabel("Guess a letter or word:");
+		textField = new JTextField(labelLength);
+		submitButton = new JButton("Submit Answer");
+    submitButton.setBackground(new Color(240, 255, 255));
 		
 		/*
 		 * This sets the dimension that the MainFrame
@@ -48,25 +53,11 @@ public class SubmitPanel extends JPanel
 		
 //******sets the layout for the panel***************//
 		setLayout(new FlowLayout(FlowLayout.CENTER));
+		add(answerLabel);
 		add(textField);
 		add(submitButton);
 		
-//******sets the text panel to change from the original text to blank text********//
-		textField.addFocusListener(new FocusListener() 
-		{
-			public void focusLost(FocusEvent e) 
-			{
-				textField.setText("Guess a letter or word: ");
-				
-			}
 
-			@Override
-			public void focusGained(FocusEvent e) 
-			{
-				textField.setText(null);			//makes the text go away when clicked
-				
-			}
-		});
 		
 //******creates a trim around the bottom panel*********************************//
 		Border innerBorder = BorderFactory.createTitledBorder("Submit Panel: ");		//creates the title
