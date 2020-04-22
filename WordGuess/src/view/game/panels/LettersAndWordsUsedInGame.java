@@ -1,29 +1,46 @@
 package view.game.panels;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.border.Border;
 
 import view.game.panels.lettersandwordsguessed.LettersGuessedPanel;
+import view.game.panels.lettersandwordsguessed.UsersHangManPicturePanel;
 import view.game.panels.lettersandwordsguessed.WordsGuessedPanel;
+import view.lobby.panels.HangManPicturePanel;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.io.IOException;
 
 @SuppressWarnings("serial")
-public class LettersPanel extends JPanel
+public class LettersAndWordsUsedInGame extends JPanel
 {
 //****initializes the variable in the LettersUsedInGamePanel*****//
 	private LettersGuessedPanel lettersGuessedPanel;
+	private UsersHangManPicturePanel usersHangManPicturePanel;
 	private WordsGuessedPanel wordsGuessedPanel;
 	
-	public LettersPanel()
+	public LettersAndWordsUsedInGame()
 	{
 		
 		
 		setLayout( new BorderLayout());
 		
 		lettersGuessedPanel = new LettersGuessedPanel();
+		try {
+			usersHangManPicturePanel = new UsersHangManPicturePanel();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		wordsGuessedPanel = new WordsGuessedPanel();
 		
 		
@@ -35,13 +52,17 @@ public class LettersPanel extends JPanel
 		Dimension dim = getPreferredSize();	
 		dim.width = 400; 
 		
-		setPreferredSize(new Dimension(555, 379));
+		setPreferredSize(new Dimension(555, 800));
 		
 		setBorder(BorderFactory.createBevelBorder(5));
 		
 		add(lettersGuessedPanel, BorderLayout.NORTH);
+		add(usersHangManPicturePanel, BorderLayout.CENTER);
 		add(wordsGuessedPanel, BorderLayout.SOUTH);
 		wordsGuessedPanel.setLayout(new GridLayout(1, 0, 0, 0));
 	}
 }
+
+
+
 

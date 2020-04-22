@@ -4,6 +4,7 @@ import javax.swing.JMenuBar;
 
 import view.game.panels.menubar.GameMenu;
 import view.game.panels.menubar.WindowMenu;
+import java.awt.Color;
 
 public class MenuBar extends JMenuBar
 {
@@ -17,6 +18,8 @@ public class MenuBar extends JMenuBar
 	 */
 	public MenuBar()														
 	{
+		setBackground(new Color(112, 128, 144));
+		setForeground(new Color(112, 128, 144));
 		//Initialize main menu bar objects
 		gameMenu = new GameMenu("Game");
 		windowMenu = new WindowMenu("Window");
