@@ -8,6 +8,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.Border;
+import java.awt.Color;
 
 /*
  * 	This will be Were the 
@@ -23,13 +24,15 @@ public class GamePanel extends JPanel
 	
 		public GamePanel()
 		{
+			setForeground(new Color(255, 255, 255));
+			setBackground(new Color(119, 136, 153));
 			/*
 			 * This sets the dimension that the MainFrame
 			 *  sees the GamePanel to look like
 			 */
 			Dimension dim = getPreferredSize();	
 			dim.width = 300; 
-			setPreferredSize(dim);
+			setPreferredSize(new Dimension(515, 381));
 			
 	//*****	Initializes the variables in the game area******//
 			textArea = new JTextArea("edit me");

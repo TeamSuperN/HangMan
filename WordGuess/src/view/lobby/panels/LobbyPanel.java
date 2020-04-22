@@ -1,13 +1,18 @@
 package view.lobby.panels;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import javax.swing.BorderFactory;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,7 +25,7 @@ import view.lobby.frame.LobbyFrame;
 public class LobbyPanel extends JPanel
 {
 	private static Object userName;
-	private JLabel userNameLabel;
+	private JButton userNameLabel;
 	private JButton newGame;
 	private JButton joinGame;
 	private JButton exitGame;
@@ -39,19 +44,27 @@ public class LobbyPanel extends JPanel
 		setPreferredSize(dim);
 		//////////////////////////
 		
+		String imageExitButton = "cancelButtonImage.jpg";
+		
+		// this uses the local path in the repo for the picture  //
+		Path relativeCurrentPath = Paths.get("");
+		String absoluteCurrentPath = relativeCurrentPath.toAbsolutePath().toString();
+		String imageExitIconPath = absoluteCurrentPath + "/images/" + imageExitButton;
+		
+		Icon exitIcon = new ImageIcon(imageExitIconPath);
+		
 		//******creates a random buttom add a holding space here********//
-				//startGamePanel = new JPanel();
-				userNameLabel = new JLabel((String) userName);
-				userName = new JLabel("User Name Goes Here!!");
+				userNameLabel = new JButton("User Name");
 				newGame = new JButton("New Game");
 				joinGame = new JButton("Join Game");
 				exitGame = new JButton("Exit Game");
+				exitGame.setText("Exit Game");
 				//BoxLayout boxlayout = new BoxLayout(startGamePanel, BoxLayout.Y_AXIS);
 				setLayout(new GridLayout(5,1, 15, 15));	//makes a new flowlayout
 				
 				//******sets a popout trim for the tool bar ***************//
 				setBorder(BorderFactory.createRaisedBevelBorder());
-				add(userNameLabel);
+				add(userNameLabel, BorderLayout.EAST);
 				add(newGame);							//adds hellobutton to toolbar
 				add(joinGame);
 			

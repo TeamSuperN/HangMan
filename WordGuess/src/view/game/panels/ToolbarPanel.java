@@ -15,6 +15,7 @@ import tools.GameIDGenerator;
 import tools.UserInteraction;
 import view.game.panels.menubar.GameMenu;
 import view.lobby.frame.LobbyFrame;
+import java.awt.Color;
 
 /*
  * 	This i a holder for the tool bar and when the 
@@ -37,8 +38,11 @@ public class ToolbarPanel extends JPanel
 	 */
 	public ToolbarPanel()
 	{
+		setBackground(new Color(112, 128, 144));
+		setForeground(new Color(176, 224, 230));
 //******creates a random buttom add a holding space here********//
 		newGame = new JButton("New Game");
+		newGame.setBackground(new Color(240, 255, 255));
 		joinGame = new JButton("Join Game");
 		quitGame = new JButton("Quit Game");
 		exitGame = new JButton("Exit Game");

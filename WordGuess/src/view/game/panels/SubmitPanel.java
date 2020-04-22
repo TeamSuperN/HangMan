@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+import java.awt.Color;
 
 /*
  * This is where the text input and 
@@ -30,13 +31,15 @@ public class SubmitPanel extends JPanel
 	 */
 	public SubmitPanel()
 	{
+
 		int labelLength = 10;
 		
 		//initialize components
+    setBackground(new Color(112, 128, 144));
 		answerLabel = new JLabel("Guess a letter or word:");
 		textField = new JTextField(labelLength);
 		submitButton = new JButton("Submit Answer");
-		
+    submitButton.setBackground(new Color(240, 255, 255));
 		
 		/*
 		 * This sets the dimension that the MainFrame
@@ -45,7 +48,7 @@ public class SubmitPanel extends JPanel
 		Dimension dim = getPreferredSize();	
 		dim.width = 300; 
 		dim.height = 75;
-		setPreferredSize(dim);
+		setPreferredSize(new Dimension(528, 88));
 		/////////////////////////
 		
 //******sets the layout for the panel***************//

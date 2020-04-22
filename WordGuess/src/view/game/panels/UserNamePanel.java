@@ -8,6 +8,9 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import java.awt.Color;
+import javax.swing.border.EtchedBorder;
+import java.awt.Component;
 
 
 @SuppressWarnings("serial")
@@ -27,14 +30,16 @@ public class UserNamePanel extends JPanel
 	@SuppressWarnings("deprecation")	//Don't know what this does?
 	public UserNamePanel()
 	{
+		setBackground(new Color(112, 128, 144));
 		/*
 		 * This sets the dimension that the MainFrame
 		 *  sees the UserNamePanel to look like
 		 */
 		Dimension dim = getPreferredSize();	
-		dim.width = 500; 
+		dim.width = 500;
+		dim.height = 200;
 		
-		setPreferredSize(dim);
+		setPreferredSize(new Dimension(545, 495));
 		//////////////////////////
 				
 		/* ********************************************
@@ -52,7 +57,9 @@ public class UserNamePanel extends JPanel
 		};
 				
 		userTableData = new JTable(usersStored, columnNames);			//Initializes the table
+		userTableData.setBackground(new Color(255, 255, 255));
 		JScrollPane scrollPane = new JScrollPane(userTableData);		//need for the title row
+		scrollPane.setViewportBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(240, 255, 255), new Color(240, 255, 255)));
 					
 		/* ********************************************
 		 * This area is how to create a custom border *
@@ -62,7 +69,7 @@ public class UserNamePanel extends JPanel
 		Border innerBorder = BorderFactory.createTitledBorder("Players in Game: ");		//creates the title
 		Border outerBorder = BorderFactory.createEmptyBorder(5,5,5,5);				//creates the exterior dimensions
 		
-		setSize(300,300);
+		scrollPane.setSize(300,200);
 		setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));	//combines the two bits of border information
 				
 		userTableData.disable();

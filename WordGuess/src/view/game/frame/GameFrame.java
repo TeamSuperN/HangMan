@@ -7,7 +7,7 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 
 import view.game.panels.GamePanel;
-import view.game.panels.LettersPanel;
+import view.game.panels.LettersAndWordsUsedInGame;
 import view.game.panels.MenuBar;
 import view.game.panels.SubmitPanel;
 import view.game.panels.ToolbarPanel;
@@ -28,7 +28,7 @@ public class GameFrame extends JFrame
 	private ToolbarPanel toolbar;
 	private GamePanel gamePanel;
 	private SubmitPanel submitPanel;
-	private LettersPanel lettersUsedPanel;
+	private LettersAndWordsUsedInGame lettersAndWordsUsedInGame;
 	private MenuBar mainMenuBar;
 	
 	public GameFrame(String userName)
@@ -42,12 +42,12 @@ public class GameFrame extends JFrame
 		userNamePanel = new UserNamePanel();
 		gamePanel = new GamePanel();
 		submitPanel = new SubmitPanel();
-		lettersUsedPanel = new LettersPanel();
+		lettersAndWordsUsedInGame = new LettersAndWordsUsedInGame();
 		mainMenuBar = new MenuBar();
 		
 //******add all panels to the MainFrame component*****//
 		add(userNamePanel, BorderLayout.WEST);
-		add(lettersUsedPanel, BorderLayout.EAST);
+		add(lettersAndWordsUsedInGame, BorderLayout.EAST);
 		add(gamePanel, BorderLayout.CENTER);
 		add(toolbar, BorderLayout.NORTH);
 		add(submitPanel, BorderLayout.SOUTH);
@@ -60,11 +60,7 @@ public class GameFrame extends JFrame
 		setMinimumSize(new Dimension(1400, 500));
 		
 //******Sets the colors for the panels **************//
-		userNamePanel.setBackground(Color.lightGray);
-		toolbar.setBackground(Color.lightGray);
-		lettersUsedPanel.setBackground(Color.lightGray);
-		gamePanel.setBackground(Color.DARK_GRAY);
-		submitPanel.setBackground(Color.lightGray);
+		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);										
 		setVisible(true);
