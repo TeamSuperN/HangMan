@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.awt.Color;
 
 public class HangManPicturePanel extends JPanel
 {
@@ -15,6 +16,7 @@ public class HangManPicturePanel extends JPanel
 	
 	public HangManPicturePanel() throws IOException
 	{
+		setBackground(new Color(0, 0, 0));
 		String imageFileName = "HangManPicture.jpg";
 		
 		// this uses the local path in the repo for the picture  //

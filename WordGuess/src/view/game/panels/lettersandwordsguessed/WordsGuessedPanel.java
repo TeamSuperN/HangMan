@@ -31,7 +31,7 @@ public class WordsGuessedPanel extends JPanel
 		Dimension dim = getPreferredSize();	
 		dim.width = 300; 
 		dim.height = 300;
-		setPreferredSize(new Dimension(304, 255));
+		setPreferredSize(new Dimension(304, 243));
 		/////////////////////////
 		
 		/* ********************************************

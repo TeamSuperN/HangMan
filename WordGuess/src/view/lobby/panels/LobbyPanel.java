@@ -21,6 +21,7 @@ import controller.Actions;
 import tools.GameIDGenerator;
 import tools.UserInteraction;
 import view.lobby.frame.LobbyFrame;
+import java.awt.Color;
 
 public class LobbyPanel extends JPanel
 {
@@ -33,6 +34,7 @@ public class LobbyPanel extends JPanel
 	//https://image.shutterstock.com/image-vector/hangman-game-600w-623194223.jpg
 	public LobbyPanel()
 	{
+		setBackground(new Color(112, 128, 144));
 		/*
 		 * This sets the dimension that the MainFrame
 		 *  sees the UserNamePanel to look like
@@ -41,7 +43,7 @@ public class LobbyPanel extends JPanel
 		dim.width = 150; 
 		
 		
-		setPreferredSize(dim);
+		setPreferredSize(new Dimension(120, 348));
 		//////////////////////////
 		
 		String imageExitButton = "cancelButtonImage.jpg";
