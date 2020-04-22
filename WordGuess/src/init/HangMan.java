@@ -6,7 +6,6 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import tools.UserInteraction;
 import view.game.frame.GameFrame;
 import view.lobby.frame.LobbyFrame;
 
@@ -17,18 +16,18 @@ public class HangMan
 	
 	public static void main(String args[])
 	{
-		addLookAndFeel();
-		initStartGameFrame();
+		initLobbyFrame();
 	}
 	
 
 	
-	private static void initStartGameFrame() 
+	private static void initLobbyFrame() 
 	{
 		SwingUtilities.invokeLater(new Runnable()
 		{
 			public void run() 
 			{
+				addLookAndFeel();
 				lobbyFrame = new LobbyFrame();
 				userName = lobbyFrame.getUserName();
 				lobbyFrame.addWindowListener(new WindowListener()
@@ -51,10 +50,6 @@ public class HangMan
 				});
 			}
 		});
-		
-		
-
-
 	}
 	
 	public static void initGameFrame()
@@ -67,48 +62,6 @@ public class HangMan
 			}
 		});	
 	}
-
-	/*
-	 * I can't figure this out. I wanted to make the GameFrame dispose when Quit GameButton Pushed
-	 */
-	
-	/*
-	public static void disposeGameFrame()
-	{
-		gameFrame = new GameFrame();
-		userName = startGameFrame.getUserName();
-		gameFrame.addWindowListener(new WindowListener()
-		{
-			public void windowClosing(WindowEvent e) 
-			{
-				gameFrame.dispose();
-				initStartGameFrame();				
-			}
-			public void windowIconified(WindowEvent e) {}
-			public void windowDeiconified(WindowEvent e) {}
-			public void windowActivated(WindowEvent e) {}
-			public void windowDeactivated(WindowEvent e) {}
-			public void windowClosed(WindowEvent e) {}
-			public void windowOpened(WindowEvent e) {}
-		});
-	}
-	*/
-	
-	/*
-	private void windowClosing(java.awt.event.WindowEvent evt) 
-	{                                   
-	    int confirmed = JOptionPane.showConfirmDialog(null, "Exit Program?","EXIT",JOptionPane.YES_NO_OPTION);
-	    if(confirmed == JOptionPane.YES_OPTION)
-	    {
-	        startGameFrame.dispose();
-	    }
-	 
-		else 
-		{
-			startGameFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		}
-	}
-	*/
 	
 	private static void addLookAndFeel() {
 		// ******Could use any of these look and feels*********************//

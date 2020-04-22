@@ -68,7 +68,6 @@ public class GameFrame extends JFrame
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);										
 		setVisible(true);
-		toFront();
 	}
 }
 

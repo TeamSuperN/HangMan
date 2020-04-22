@@ -6,9 +6,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import controller.Actions;
+import model.RemainingLetterList;
 import tools.GameIDGenerator;
 import tools.UserInteraction;
 import view.game.panels.menubar.GameMenu;
@@ -123,10 +125,23 @@ public class ToolbarPanel extends JPanel
 			}
 			
 		});
+		
+		//Button for testing purposes
+		RemainingLetterList rll = new RemainingLetterList();
+		JButton test = new JButton("Test");
+		add(test);
+		test.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				String letter = JOptionPane.showInputDialog(
+						"Current letter list: " + "\n" +
+								rll + "\n" +
+						"Enter a letter to remove from the letter list:");
+				rll.remove(letter);
+				JOptionPane.showMessageDialog(new JPanel(), 
+						"New letter list: " + "\n" +
+								rll);
+			}
+		});
 	}
-	
-	
-	
-	
-	
 }
