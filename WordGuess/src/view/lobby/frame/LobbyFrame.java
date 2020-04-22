@@ -1,6 +1,7 @@
 package view.lobby.frame;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.io.IOException;
@@ -12,6 +13,7 @@ import javax.swing.JOptionPane;
 import tools.UserInteraction;
 import view.lobby.panels.HangManPicturePanel;
 import view.lobby.panels.LobbyPanel;
+import view.lobby.panels.WelcomeToHangManPanel;
 
 /*
  * 	In the Future we could find a way to put a 
@@ -21,7 +23,7 @@ public class LobbyFrame extends JFrame
 {
 	private HangManPicturePanel hangManPicturePanel;
 	private LobbyPanel lobbyPanel;
-	private JLabel welcomeToHangMan;
+	private WelcomeToHangManPanel welcomeToHangManPanel;
 	private String userName;
 	//private IMAGE hangManImage;
 	
@@ -29,11 +31,9 @@ public class LobbyFrame extends JFrame
 	{
 		super ("Hang Man");
 	
-		
+		setBackground(new Color(112, 128, 144));
 		setLayout(new BorderLayout());
-		welcomeToHangMan = new JLabel("                               "
-				+ "                                                   "
-				+ "WELCOME TO THE NEW AND IMPROVED HANGMAN!!!!");
+		welcomeToHangManPanel = new WelcomeToHangManPanel();
 		
 		try {
 			hangManPicturePanel = new HangManPicturePanel();
@@ -44,14 +44,11 @@ public class LobbyFrame extends JFrame
     
 		lobbyPanel = new LobbyPanel();
 		
-		Dimension dim = getPreferredSize();	
-		dim.height = 50; 
 		
-		welcomeToHangMan.setPreferredSize(dim);
 		
 		add(lobbyPanel, BorderLayout.WEST);
 		add(hangManPicturePanel, BorderLayout.CENTER);
-		add(welcomeToHangMan, BorderLayout.SOUTH);
+		add(welcomeToHangManPanel, BorderLayout.SOUTH);
 		
 		//Set The Frame In The Center Of The Screen
 		pack();
