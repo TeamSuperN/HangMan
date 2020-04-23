@@ -10,6 +10,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import java.awt.Color;
 import javax.swing.border.EtchedBorder;
+
+import model.Player;
+import view.game.panels.usernamepanel.GameTable;
+
 import java.awt.Component;
 
 
@@ -17,7 +21,7 @@ import java.awt.Component;
 public class UserNamePanel extends JPanel
 {
 //**** initializes the components*****//
-	private JTable userTableData;
+	private GameTable playerTable;
 		
 	/*
 	 * 	This is temporarily holding these user labels and 
@@ -28,7 +32,7 @@ public class UserNamePanel extends JPanel
 	 *  will hide this panel.
 	 */
 	@SuppressWarnings("deprecation")	//Don't know what this does?
-	public UserNamePanel()
+	public UserNamePanel(Player player)
 	{
 		setBackground(new Color(112, 128, 144));
 		/*
@@ -42,23 +46,9 @@ public class UserNamePanel extends JPanel
 		setPreferredSize(new Dimension(545, 495));
 		//////////////////////////
 				
-		/* ********************************************
-		 * 		creates all the new JLabels and
-		 * 		TextFields to input the usernames
-		 *		in their log in order of the user then 
-		 * 		finally create the buttons
-		 ******************************************** */
-		String[] columnNames = {"User", "Host Name", "Points"};
-		Object[][] usersStored = {{"Host", "Host Name", "HostPoints"},
-				{"User 2", "User 2 Name", "User 2 Points"},
-				{"User 3", "User 3 Name", "User 3 Points"},
-				{"User 4", "User 4 Name", "User 4 Points"},
-				{"User 5", "User 5 Name", "User 5 Points"},
-		};
-				
-		userTableData = new JTable(usersStored, columnNames);			//Initializes the table
-		userTableData.setBackground(new Color(255, 255, 255));
-		JScrollPane scrollPane = new JScrollPane(userTableData);		//need for the title row
+		playerTable = new GameTable(player);
+		playerTable.setBackground(new Color(255, 255, 255));
+		JScrollPane scrollPane = new JScrollPane(playerTable);		//need for the title row
 		scrollPane.setViewportBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(240, 255, 255), new Color(240, 255, 255)));
 					
 		/* ********************************************
@@ -72,7 +62,7 @@ public class UserNamePanel extends JPanel
 		scrollPane.setSize(300,200);
 		setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));	//combines the two bits of border information
 				
-		userTableData.disable();
+		playerTable.disable();
 		add(scrollPane);	
 	}
 }
