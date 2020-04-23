@@ -43,16 +43,21 @@ public class ToolbarPanel extends JPanel
 		setBackground(Color.DARK_GRAY);
 		setForeground(new Color(176, 224, 230));
 //******creates a random buttom add a holding space here********//
-		newGame = new JButton("New Game");
-		newGame.setBackground(new Color(128, 128, 128));
+		newGame = new JButton("New Game");		
 		joinGame = new JButton("Join Game");
-		joinGame.setBackground(new Color(128, 128, 128));
 		quitGame = new JButton("Quit Game");
-		quitGame.setBackground(new Color(128, 128, 128));
 		exitGame = new JButton("Exit Game");
-		exitGame.setBackground(new Color(128, 128, 128));
 		guessWord = new JButton("Guess Word");
+		
+//******creates color format for the buttons********//
+		newGame.setBackground(new Color(128, 128, 128));
+		joinGame.setBackground(new Color(128, 128, 128));
+		quitGame.setBackground(new Color(128, 128, 128));
+		exitGame.setBackground(new Color(128, 128, 128));
 		guessWord.setBackground(new Color(128, 128, 128));
+		test.setBackground(new Color(128, 128, 128));
+		
+		
 		setLayout(new FlowLayout(FlowLayout.LEFT));	//makes a new flowlayout
 
 //******sets a popout trim for the tool bar ***************//
@@ -71,12 +76,10 @@ public class ToolbarPanel extends JPanel
 		 */
 		newGame.addActionListener(new ActionListener()
 		{
-
 			public void actionPerformed(ActionEvent e) 
 			{
 				GameIDGenerator.displayGameID(GameIDGenerator.generateGameID());			
 			}
-			
 		});
 		
 		/*
@@ -86,12 +89,10 @@ public class ToolbarPanel extends JPanel
 		 */
 		joinGame.addActionListener(new ActionListener()
 		{
-
 			public void actionPerformed(ActionEvent e) 
 			{
 				Actions.joinGame();			
-			}
-			
+			}			
 		});
 		
 		/*
@@ -100,12 +101,10 @@ public class ToolbarPanel extends JPanel
 		 */
 		quitGame.addActionListener(new ActionListener()
 		{
-
 			public void actionPerformed(ActionEvent e) 
 			{
 				UserInteraction.confirmQuitGame();
-			}
-			
+			}			
 		});
 		
 		/*
@@ -114,12 +113,10 @@ public class ToolbarPanel extends JPanel
 		 */
 		exitGame.addActionListener(new ActionListener()
 		{
-
 			public void actionPerformed(ActionEvent e) 
 			{
 				UserInteraction.confirmExitGame();		
-			}
-			
+			}			
 		});
 		
 		/*
@@ -128,12 +125,10 @@ public class ToolbarPanel extends JPanel
 		 */
 		guessWord.addActionListener(new ActionListener()
 		{
-
 			public void actionPerformed(ActionEvent e) 
 			{
 					
-			}
-			
+			}			
 		});
 		
 		//Button for testing remaining letters to guess

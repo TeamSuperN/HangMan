@@ -19,6 +19,8 @@ import javax.swing.border.TitledBorder;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import javax.swing.JLabel;
+import java.awt.Font;
 
 /*
  * 	This will be Were the 
@@ -59,9 +61,8 @@ public class GamePanel extends JPanel
 					new Color(255, 255, 255), new Color(160, 160, 160)), 
 					"Game Play: ", TitledBorder.LEADING,
 					TitledBorder.TOP, null, new Color(255, 255, 255))));		//combines the two bits of border information
-			
+          
 			setLayout(null);
-
 		}
 		
 		public void populateGuessWord(String guessWord) {

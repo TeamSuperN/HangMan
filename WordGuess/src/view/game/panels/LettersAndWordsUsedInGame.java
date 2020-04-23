@@ -7,9 +7,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.Border;
 
-import view.game.panels.lettersandwordsguessed.LettersGuessedPanel;
-import view.game.panels.lettersandwordsguessed.UsersHangManPicturePanel;
-import view.game.panels.lettersandwordsguessed.WordsGuessedPanel;
+import view.game.panels.lettersandwordsguessedPanel.LettersGuessedPanel;
+import view.game.panels.lettersandwordsguessedPanel.UsersHangManPicturePanel;
+import view.game.panels.lettersandwordsguessedPanel.WordsGuessedPanel;
 import view.lobby.panels.HangManPicturePanel;
 
 import javax.swing.GroupLayout;

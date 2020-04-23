@@ -1,4 +1,4 @@
-package view.game.panels.lettersandwordsguessed;
+package view.game.panels.lettersandwordsguessedPanel;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;

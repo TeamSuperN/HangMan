@@ -49,10 +49,12 @@ public class RemainingLetterList extends ArrayList<String>{
 	 * right type, false is returned indicating there wasn't a match
 	 * in the list.
 	 */
-	public boolean remove(Object o) {
+	public boolean remove(Object o) 
+	{
 		
 		//If the object is not a string, return false (notifying of error in removal)
-		if (!(o instanceof String)) {
+		if (!(o instanceof String)) 
+		{
 			return false;
 		}
 		
@@ -63,8 +65,10 @@ public class RemainingLetterList extends ArrayList<String>{
 		letter = letter.toUpperCase();
 		
 		//Loop through every letter left in the list
-		for(int i = 0; i < this.size(); i++) {
-			if (this.get(i).equals(letter)) {
+		for(int i = 0; i < this.size(); i++) 
+		{
+			if (this.get(i).equals(letter)) 
+			{
 				this.remove(i);
 			}
 		}
