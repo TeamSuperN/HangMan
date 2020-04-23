@@ -62,9 +62,6 @@ public class UserNamePanel extends JPanel
 				new Color(255, 255, 255), new Color(160, 160, 160)), 
 				"Players in Game: ", TitledBorder.LEADING,
 				TitledBorder.TOP, null, new Color(255, 255, 255))));		//combines the two bits of border information
-		
-		scrollPane.setSize(300,200);
-		setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));	//combines the two bits of border information
 				
 		gameTable.disable();
 		add(scrollPane);	
