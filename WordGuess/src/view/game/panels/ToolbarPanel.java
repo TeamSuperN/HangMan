@@ -16,6 +16,7 @@ import tools.UserInteraction;
 import view.game.panels.menubar.GameMenu;
 import view.lobby.frame.LobbyFrame;
 import java.awt.Color;
+import javax.swing.border.BevelBorder;
 
 /*
  * 	This i a holder for the tool bar and when the 
@@ -38,19 +39,23 @@ public class ToolbarPanel extends JPanel
 	 */
 	public ToolbarPanel()
 	{
-		setBackground(new Color(112, 128, 144));
+		setBackground(Color.DARK_GRAY);
 		setForeground(new Color(176, 224, 230));
 //******creates a random buttom add a holding space here********//
 		newGame = new JButton("New Game");
-		newGame.setBackground(new Color(240, 255, 255));
+		newGame.setBackground(new Color(128, 128, 128));
 		joinGame = new JButton("Join Game");
+		joinGame.setBackground(new Color(128, 128, 128));
 		quitGame = new JButton("Quit Game");
+		quitGame.setBackground(new Color(128, 128, 128));
 		exitGame = new JButton("Exit Game");
+		exitGame.setBackground(new Color(128, 128, 128));
 		guessWord = new JButton("Guess Word");
+		guessWord.setBackground(new Color(128, 128, 128));
 		setLayout(new FlowLayout(FlowLayout.LEFT));	//makes a new flowlayout
 
 //******sets a popout trim for the tool bar ***************//
-		setBorder(BorderFactory.createRaisedBevelBorder());
+		setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		add(newGame);							//adds hellobutton to toolbar
 		add(joinGame);
 		add(quitGame);
@@ -133,6 +138,7 @@ public class ToolbarPanel extends JPanel
 		//Button for testing purposes
 		RemainingLetterList rll = new RemainingLetterList();
 		JButton test = new JButton("Test");
+		test.setBackground(new Color(128, 128, 128));
 		add(test);
 		test.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
@@ -147,5 +153,6 @@ public class ToolbarPanel extends JPanel
 								rll);
 			}
 		});
+		
 	}
 }

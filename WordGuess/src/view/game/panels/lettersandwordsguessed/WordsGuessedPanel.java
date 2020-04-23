@@ -7,6 +7,11 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+
 import java.awt.Color;
 
 public class WordsGuessedPanel extends JPanel 
@@ -15,12 +20,13 @@ public class WordsGuessedPanel extends JPanel
 	
 	public WordsGuessedPanel()
 	{
-		setBackground(new Color(112, 128, 144));
+		setForeground(new Color(255, 255, 255));
+		setBackground(Color.DARK_GRAY);
 		setLayout(new BorderLayout());
 		
 		wordsGuessed = new JTextArea("These Words Were Guessed::           " + "\n"
 				+ "                                                        " + "\n");
-		wordsGuessed.setBackground(new Color(192, 192, 192));
+		wordsGuessed.setBackground(new Color(128, 128, 128));
 		
 		wordsGuessed.setEditable(false);
 		
@@ -39,10 +45,11 @@ public class WordsGuessedPanel extends JPanel
 		 * with labels and make the border uniform on *
 		 * all four sides.							  *
 		 ******************************************** */
-		Border innerBorder = BorderFactory.createTitledBorder("Words Used This Game: ");		//creates the title
-		Border outerBorder = BorderFactory.createEmptyBorder(5,5,5,5);				//creates the exterior dimensions
-		
-		setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));	//combines the two bits of border information
+		setBorder(new CompoundBorder(new EmptyBorder(5, 5, 5, 5), 
+				new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, 
+				new Color(255, 255, 255), new Color(160, 160, 160)), 
+				"Words Used This Game: ", TitledBorder.LEADING,
+				TitledBorder.TOP, null, new Color(255, 255, 255))));		//combines the two bits of border information
 		
 		add(wordsGuessed);
 	}

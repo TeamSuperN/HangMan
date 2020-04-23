@@ -8,6 +8,11 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+
 import java.awt.Color;
 
 /*
@@ -25,7 +30,7 @@ public class GamePanel extends JPanel
 		public GamePanel()
 		{
 			setForeground(new Color(255, 255, 255));
-			setBackground(new Color(119, 136, 153));
+			setBackground(Color.GRAY);
 			/*
 			 * This sets the dimension that the MainFrame
 			 *  sees the GamePanel to look like
@@ -39,8 +44,11 @@ public class GamePanel extends JPanel
 			textArea.setEditable(true);
 			
 	//*****Creates the Border layout around the GamePanel Components*************//
-			Border innerBorder = BorderFactory.createTitledBorder("Game Play: ");		//creates the title
-			Border outerBorder = BorderFactory.createEmptyBorder(5,5,5,5);
-			setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
+			setBorder(new CompoundBorder(new EmptyBorder(5, 5, 5, 5), 
+					new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, 
+					new Color(255, 255, 255), new Color(160, 160, 160)), 
+					"Game Play: ", TitledBorder.LEADING,
+					TitledBorder.TOP, null, new Color(255, 255, 255))));		//combines the two bits of border information
+
 		}
 }

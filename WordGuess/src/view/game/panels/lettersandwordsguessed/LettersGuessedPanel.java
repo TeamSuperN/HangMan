@@ -8,9 +8,13 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+
 import java.awt.Color;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 
 public class LettersGuessedPanel extends JPanel {
 	
@@ -18,7 +22,7 @@ public class LettersGuessedPanel extends JPanel {
 	
 	public LettersGuessedPanel()
 	{
-		setBackground(new Color(112, 128, 144));	
+		setBackground(Color.DARK_GRAY);	
 			setLayout(new BorderLayout());
 			/*
 			 * This sets the dimension that the MainFrame
@@ -44,7 +48,7 @@ public class LettersGuessedPanel extends JPanel {
 			//******Creates the table with both the data and title of the columns***********//
 			lettersUsedInGame = new JTable(lettersStored, columnNames);
 			lettersUsedInGame.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-			lettersUsedInGame.setBackground(new Color(192, 192, 192));
+			lettersUsedInGame.setBackground(new Color(128, 128, 128));
 			JScrollPane scrollPane = new JScrollPane(lettersUsedInGame);
 			scrollPane.setViewportBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(240, 255, 255), new Color(240, 255, 255)));
 			
@@ -56,10 +60,11 @@ public class LettersGuessedPanel extends JPanel {
 			 * with labels and make the border uniform on *
 			 * all four sides.							  *
 			 ******************************************** */
-			Border innerBorder = BorderFactory.createTitledBorder("Letters Used This Game: ");		//creates the title
-			Border outerBorder = BorderFactory.createEmptyBorder(5,5,5,5);				//creates the exterior dimensions
-			
-			setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));	//combines the two bits of border information
+			setBorder(new CompoundBorder(new EmptyBorder(5, 5, 5, 5), 
+					new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, 
+					new Color(255, 255, 255), new Color(160, 160, 160)), 
+					"Letters Used This Game: ", TitledBorder.LEADING,
+					TitledBorder.TOP, null, new Color(255, 255, 255))));		//combines the two bits of border information
 			
 			add(scrollPane);	//need scroll pane to have title on table
 	}

@@ -11,6 +11,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 import java.awt.Color;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.border.EtchedBorder;
 
 public class UsersHangManPicturePanel extends JPanel
 {
@@ -18,8 +22,8 @@ public class UsersHangManPicturePanel extends JPanel
 	
 	public UsersHangManPicturePanel() throws IOException
 	{
-		setBackground(new Color(112, 128, 144));
-		String imageFileName = "HangManPicture.jpg";
+		setBackground(Color.DARK_GRAY);
+		String imageFileName = "HangManPictureDark.jpg";
 		
 		// this uses the local path in the repo for the picture  //
 		Path relativeCurrentPath = Paths.get("");
@@ -32,10 +36,11 @@ public class UsersHangManPicturePanel extends JPanel
 		ImageIcon imageIcon = new ImageIcon(imagePath);
 		usersHangManLabel.setIcon(new ImageIcon(new ImageIcon(imagePath).getImage().getScaledInstance(515, 395, Image.SCALE_SMOOTH)));
 		
-		Border innerBorder = BorderFactory.createTitledBorder("Progression Of Users Hangman: ");		//creates the title
-		Border outerBorder = BorderFactory.createEmptyBorder(5,5,5,5);				//creates the exterior dimensions
-		
-		setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));	//combines the two bits of border information
+		setBorder(new CompoundBorder(new EmptyBorder(5, 5, 5, 5), 
+						new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, 
+						new Color(255, 255, 255), new Color(160, 160, 160)), 
+						"Progression Of Users Hangman: ", TitledBorder.LEADING,
+						TitledBorder.TOP, null, new Color(255, 255, 255))));		//combines the two bits of border information
 		
         add(usersHangManLabel);
 	}
