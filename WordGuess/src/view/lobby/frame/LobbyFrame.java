@@ -24,7 +24,6 @@ public class LobbyFrame extends JFrame
 	private HangManPicturePanel hangManPicturePanel;
 	private LobbyPanel lobbyPanel;
 	private WelcomeToHangManPanel welcomeToHangManPanel;
-	private String userName;
 	//private IMAGE hangManImage;
 	
 	public LobbyFrame()
@@ -60,18 +59,15 @@ public class LobbyFrame extends JFrame
 		setLocationRelativeTo(null);
 		setVisible(true);
 		
-		userName = UserInteraction.queryUserName();
-		
 		repaint();
 	}
 	
-	public String getUserName() 
-	{
-		return userName;
+	public boolean newGameChosen() {
+		return lobbyPanel.newGameChosen();
 	}
 	
-	public boolean newOrJoinGameChosen() {
-		return lobbyPanel.newOrJoinGameChosen();
+	public boolean joinGameChosen() {
+		return lobbyPanel.joinGameChosen();
 	}
 	
 	/*

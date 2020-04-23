@@ -6,13 +6,12 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import tools.UserInteraction;
 import view.game.frame.GameFrame;
 import view.lobby.frame.LobbyFrame;
 
 public class HangMan  
 {
-	private static LobbyFrame lobbyFrame;
-	private static String userName;
 	
 	public static void main(String args[])
 	{
@@ -28,14 +27,19 @@ public class HangMan
 			public void run() 
 			{
 				addLookAndFeel();
-				lobbyFrame = new LobbyFrame();
-				userName = lobbyFrame.getUserName();
+				LobbyFrame lobbyFrame = new LobbyFrame();
+				String userName = UserInteraction.queryUserName();
 				lobbyFrame.addWindowListener(new WindowListener()
 				{
 					public void windowClosing(WindowEvent e) {
-						if (lobbyFrame.newOrJoinGameChosen() == true) {
+						
+						if (lobbyFrame.newGameChosen() == true) {
 							lobbyFrame.dispose();
-							initGameFrame();
+							new GameFrame(userName, "New");
+						}
+						else if (lobbyFrame.joinGameChosen() == true) {
+							lobbyFrame.dispose();
+							new GameFrame(userName, "Join");
 						}
 						else {
 							System.exit(0);
@@ -50,17 +54,6 @@ public class HangMan
 				});
 			}
 		});
-	}
-	
-	public static void initGameFrame()
-	{
-		SwingUtilities.invokeLater(new Runnable()
-		{
-			public void run() 
-			{
-				new GameFrame(userName);
-			}
-		});	
 	}
 	
 	private static void addLookAndFeel() {

@@ -1,7 +1,8 @@
 package view.game.panels;
 
-
 import java.awt.Dimension;
+import java.awt.Component;
+import java.awt.Color;
 
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
@@ -10,18 +11,17 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import java.awt.Color;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
-import java.awt.Component;
-
+import model.Player;
+import view.game.panels.usernamepanel.GameTable;
 
 @SuppressWarnings("serial")
 public class UserNamePanel extends JPanel
 {
 //**** initializes the components*****//
-	private JTable userTableData;
+	private GameTable gameTable;
 		
 	/*
 	 * 	This is temporarily holding these user labels and 
@@ -32,7 +32,7 @@ public class UserNamePanel extends JPanel
 	 *  will hide this panel.
 	 */
 	@SuppressWarnings("deprecation")	//Don't know what this does?
-	public UserNamePanel()
+	public UserNamePanel(Player player)
 	{
 		setBackground(Color.DARK_GRAY);
 		/*
@@ -46,23 +46,9 @@ public class UserNamePanel extends JPanel
 		setPreferredSize(new Dimension(545, 495));
 		//////////////////////////
 				
-		/* ********************************************
-		 * 		creates all the new JLabels and
-		 * 		TextFields to input the usernames
-		 *		in their log in order of the user then 
-		 * 		finally create the buttons
-		 ******************************************** */
-		String[] columnNames = {"User", "Host Name", "Points"};
-		Object[][] usersStored = {{"Host", "Host Name", "HostPoints"},
-				{"User 2", "User 2 Name", "User 2 Points"},
-				{"User 3", "User 3 Name", "User 3 Points"},
-				{"User 4", "User 4 Name", "User 4 Points"},
-				{"User 5", "User 5 Name", "User 5 Points"},
-		};
-				
-		userTableData = new JTable(usersStored, columnNames);			//Initializes the table
-		userTableData.setBackground(new Color(128, 128, 128));
-		JScrollPane scrollPane = new JScrollPane(userTableData);		//need for the title row
+		gameTable = new GameTable(player);
+		gameTable.setBackground(new Color(128, 128, 128));
+		JScrollPane scrollPane = new JScrollPane(gameTable);		//need for the title row
 		scrollPane.setViewportBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(240, 255, 255), new Color(240, 255, 255)));
 		scrollPane.setSize(300,200);
 		
@@ -77,7 +63,10 @@ public class UserNamePanel extends JPanel
 				"Players in Game: ", TitledBorder.LEADING,
 				TitledBorder.TOP, null, new Color(255, 255, 255))));		//combines the two bits of border information
 		
-		userTableData.disable();
+		scrollPane.setSize(300,200);
+		setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));	//combines the two bits of border information
+				
+		gameTable.disable();
 		add(scrollPane);	
 		
 		
