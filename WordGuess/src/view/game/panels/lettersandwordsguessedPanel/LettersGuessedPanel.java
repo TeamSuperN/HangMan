@@ -1,4 +1,4 @@
-package view.game.panels.lettersandwordsguessed;
+package view.game.panels.lettersandwordsguessedPanel;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -73,11 +73,9 @@ public class LettersGuessedPanel extends JPanel {
 			gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 			gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 			
-			
-			
 			setLayout(gridBagLayout);
 			
-
+	//*************Sets Button preferred Size**********************//
 	//*************Creation Of The Letters Buttons*****************//
 			btnA = new JButton("     A     ");			
 			btnB = new JButton("     B     ");
@@ -107,6 +105,37 @@ public class LettersGuessedPanel extends JPanel {
 			btnZ = new JButton("     Z     ");
 			
 			
+	//*************Sets Button preferred Size**********************//
+			
+			/* DIDN'T WORK
+			btnA.setPreferredSize(new Dimension(65, 28));
+			btnB.setPreferredSize(new Dimension(65, 28));
+			btnC.setPreferredSize(new Dimension(65, 28));
+			btnD.setPreferredSize(new Dimension(65, 28));
+			btnE.setPreferredSize(new Dimension(65, 28));
+			btnF.setPreferredSize(new Dimension(65, 28));
+			btnG.setPreferredSize(new Dimension(65, 28));
+			btnH.setPreferredSize(new Dimension(65, 28));
+			btnI.setPreferredSize(new Dimension(65, 28));
+			btnJ.setPreferredSize(new Dimension(65, 28));
+			btnK.setPreferredSize(new Dimension(65, 28));
+			btnL.setPreferredSize(new Dimension(65, 28));
+			btnM.setPreferredSize(new Dimension(65, 28));
+			btnN.setPreferredSize(new Dimension(65, 28));
+			btnO.setPreferredSize(new Dimension(65, 28));
+			btnP.setPreferredSize(new Dimension(65, 28));
+			btnQ.setPreferredSize(new Dimension(65, 28));
+			btnR.setPreferredSize(new Dimension(65, 28));
+			btnS.setPreferredSize(new Dimension(65, 28));
+			btnT.setPreferredSize(new Dimension(65, 28));
+			btnU.setPreferredSize(new Dimension(65, 28));
+			btnV.setPreferredSize(new Dimension(65, 28));
+			btnW.setPreferredSize(new Dimension(65, 28));
+			btnX.setPreferredSize(new Dimension(65, 28));
+			btnY.setPreferredSize(new Dimension(65, 28));
+			btnZ.setPreferredSize(new Dimension(65, 28));
+			*/
+			
 	//*************Formats the letters Labels**********************//			
 			letterClickedLabel = new JLabel("Letter Used:");
 			letterClickedLabel.setForeground(new Color(255, 0, 0));
@@ -126,7 +155,9 @@ public class LettersGuessedPanel extends JPanel {
 	}
 	
 	
-	
+	/*
+	 * This is the action listeners for the buttons
+	 */
 	public void lettersButtonsActionListener()
 	{
 		
@@ -137,6 +168,7 @@ public class LettersGuessedPanel extends JPanel {
 			{
 				changeLetterClicked.setText("  A  ");
 				btnA.setEnabled(false);
+				//lettercalled = new String ("A");
 				
 			}			
 		});
@@ -551,5 +583,8 @@ public class LettersGuessedPanel extends JPanel {
 		gbc.gridx = 5;
 		gbc.gridy = 4;
 		add(changeLetterClicked, gbc);
+		System.out.println(btnZ.getPreferredSize());
+		
+			
 	}
 }

@@ -1,4 +1,4 @@
-package view.game.panels.lettersandwordsguessed;
+package view.game.panels.lettersandwordsguessedPanel;
 
 import java.awt.Image;
 import java.io.IOException;
