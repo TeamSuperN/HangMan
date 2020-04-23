@@ -22,6 +22,8 @@ import tools.GameIDGenerator;
 import tools.UserInteraction;
 import view.lobby.frame.LobbyFrame;
 import java.awt.Color;
+import javax.swing.SwingConstants;
+import java.awt.SystemColor;
 
 public class LobbyPanel extends JPanel
 {
@@ -31,11 +33,12 @@ public class LobbyPanel extends JPanel
 	private JButton exitGame;
 	private boolean newGameChosen = false;
 	private boolean joinGameChosen = false;
+  private JLabel lblNewLabel;
 	
 	//https://image.shutterstock.com/image-vector/hangman-game-600w-623194223.jpg
 	public LobbyPanel()
 	{
-		setBackground(new Color(112, 128, 144));
+		setBackground(Color.DARK_GRAY);
 		/*
 		 * This sets the dimension that the MainFrame
 		 *  sees the UserNamePanel to look like
@@ -55,19 +58,26 @@ public class LobbyPanel extends JPanel
 		String imageExitIconPath = absoluteCurrentPath + "/images/" + imageExitButton;
 		
 		Icon exitIcon = new ImageIcon(imageExitIconPath);
-		
-		//******creates a random buttom add a holding space here********//
-				userNameLabel = new JButton("User Name");
 				newGame = new JButton("New Game");
+				newGame.setForeground(SystemColor.desktop);
+				newGame.setBackground(new Color(128, 128, 128));
 				joinGame = new JButton("Join Game");
+				joinGame.setForeground(SystemColor.desktop);
+				joinGame.setBackground(new Color(128, 128, 128));
 				exitGame = new JButton("Exit Game");
+				exitGame.setBackground(new Color(128, 128, 128));
+				exitGame.setForeground(SystemColor.desktop);
 				exitGame.setText("Exit Game");
 				//BoxLayout boxlayout = new BoxLayout(startGamePanel, BoxLayout.Y_AXIS);
 				setLayout(new GridLayout(5,1, 15, 15));	//makes a new flowlayout
 				
 				//******sets a popout trim for the tool bar ***************//
 				setBorder(BorderFactory.createRaisedBevelBorder());
-				add(userNameLabel, BorderLayout.EAST);
+				
+				lblNewLabel = new JLabel("New label");
+				lblNewLabel.setForeground(SystemColor.window);
+				lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+				add(lblNewLabel);
 				add(newGame);							//adds hellobutton to toolbar
 				add(joinGame);
 			

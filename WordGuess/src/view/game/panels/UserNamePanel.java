@@ -1,21 +1,21 @@
 package view.game.panels;
 
-
 import java.awt.Dimension;
+import java.awt.Component;
+import java.awt.Color;
 
 import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import java.awt.Color;
 import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 
 import model.Player;
 import view.game.panels.usernamepanel.GameTable;
-
-import java.awt.Component;
-
 
 @SuppressWarnings("serial")
 public class UserNamePanel extends JPanel
@@ -34,7 +34,7 @@ public class UserNamePanel extends JPanel
 	@SuppressWarnings("deprecation")	//Don't know what this does?
 	public UserNamePanel(Player player)
 	{
-		setBackground(new Color(112, 128, 144));
+		setBackground(Color.DARK_GRAY);
 		/*
 		 * This sets the dimension that the MainFrame
 		 *  sees the UserNamePanel to look like
@@ -47,22 +47,28 @@ public class UserNamePanel extends JPanel
 		//////////////////////////
 				
 		gameTable = new GameTable(player);
-		gameTable.setBackground(new Color(255, 255, 255));
+		gameTable.setBackground(new Color(128, 128, 128));
 		JScrollPane scrollPane = new JScrollPane(gameTable);		//need for the title row
 		scrollPane.setViewportBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(240, 255, 255), new Color(240, 255, 255)));
-					
+		scrollPane.setSize(300,200);
+		
 		/* ********************************************
 		 * This area is how to create a custom border *
 		 * with labels and make the border uniform on *
 		 * all four sides.							  *
-		 ******************************************** */
-		Border innerBorder = BorderFactory.createTitledBorder("Players in Game: ");		//creates the title
-		Border outerBorder = BorderFactory.createEmptyBorder(5,5,5,5);				//creates the exterior dimensions
+		 ******************************************** */				
+		setBorder(new CompoundBorder(new EmptyBorder(5, 5, 5, 5), 
+				new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, 
+				new Color(255, 255, 255), new Color(160, 160, 160)), 
+				"Players in Game: ", TitledBorder.LEADING,
+				TitledBorder.TOP, null, new Color(255, 255, 255))));		//combines the two bits of border information
 		
 		scrollPane.setSize(300,200);
 		setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));	//combines the two bits of border information
 				
 		gameTable.disable();
 		add(scrollPane);	
+		
+		
 	}
 }

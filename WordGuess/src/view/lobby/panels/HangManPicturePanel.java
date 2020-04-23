@@ -9,6 +9,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.Color;
+import javax.swing.border.BevelBorder;
+import java.awt.SystemColor;
 
 public class HangManPicturePanel extends JPanel
 {
@@ -16,8 +18,10 @@ public class HangManPicturePanel extends JPanel
 	
 	public HangManPicturePanel() throws IOException
 	{
-		setBackground(new Color(0, 0, 0));
-		String imageFileName = "HangManPicture.jpg";
+		setBorder(new BevelBorder(BevelBorder.LOWERED, SystemColor.controlDkShadow, null, null, null));
+		
+		setBackground(Color.DARK_GRAY);
+		String imageFileName = "HangManPictureDark.jpg";
 		
 		// this uses the local path in the repo for the picture  //
 		Path relativeCurrentPath = Paths.get("");

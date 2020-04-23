@@ -11,7 +11,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+
 import java.awt.Color;
+import javax.swing.border.BevelBorder;
 
 /*
  * This is where the text input and 
@@ -31,15 +37,17 @@ public class SubmitPanel extends JPanel
 	 */
 	public SubmitPanel()
 	{
+		setForeground(Color.BLACK);
 
 		int labelLength = 10;
 		
 		//initialize components
-    setBackground(new Color(112, 128, 144));
+    setBackground(Color.DARK_GRAY);
 		answerLabel = new JLabel("Guess a letter or word:");
+		answerLabel.setForeground(Color.WHITE);
 		textField = new JTextField(labelLength);
 		submitButton = new JButton("Submit Answer");
-    submitButton.setBackground(new Color(240, 255, 255));
+    submitButton.setBackground(new Color(128, 128, 128));
 		
 		/*
 		 * This sets the dimension that the MainFrame
@@ -60,8 +68,6 @@ public class SubmitPanel extends JPanel
 
 		
 //******creates a trim around the bottom panel*********************************//
-		Border innerBorder = BorderFactory.createTitledBorder("Submit Panel: ");		//creates the title
-		Border outerBorder = BorderFactory.createEmptyBorder(5,5,5,5);				//creates the exterior dimensions
-		setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));	//combines the two bits of border information
+		setBorder(new CompoundBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null), new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Submit Panel: ", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 255, 255))));		//combines the two bits of border information
 	}
 }
