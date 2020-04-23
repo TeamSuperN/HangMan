@@ -3,21 +3,18 @@ package view.game.panels;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Color;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.BevelBorder;
 
 import controller.Actions;
 import model.RemainingLetterList;
 import tools.GameIDGenerator;
 import tools.UserInteraction;
 import view.game.frame.GameFrame;
-import view.game.panels.menubar.GameMenu;
-import view.lobby.frame.LobbyFrame;
-import java.awt.Color;
-import javax.swing.border.BevelBorder;
 
 /*
  * 	This i a holder for the tool bar and when the 
@@ -55,7 +52,6 @@ public class ToolbarPanel extends JPanel
 		quitGame.setBackground(new Color(128, 128, 128));
 		exitGame.setBackground(new Color(128, 128, 128));
 		guessWord.setBackground(new Color(128, 128, 128));
-		test.setBackground(new Color(128, 128, 128));
 		
 		
 		setLayout(new FlowLayout(FlowLayout.LEFT));	//makes a new flowlayout
