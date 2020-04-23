@@ -14,6 +14,8 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 import java.awt.Color;
+import javax.swing.JLabel;
+import java.awt.Font;
 
 /*
  * 	This will be Were the 
@@ -49,6 +51,11 @@ public class GamePanel extends JPanel
 					new Color(255, 255, 255), new Color(160, 160, 160)), 
 					"Game Play: ", TitledBorder.LEADING,
 					TitledBorder.TOP, null, new Color(255, 255, 255))));		//combines the two bits of border information
+			
+			JLabel lblNewLabel = new JLabel("New label");
+			lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+			lblNewLabel.setForeground(new Color(255, 0, 0));
+			add(lblNewLabel);
 
 		}
 }
