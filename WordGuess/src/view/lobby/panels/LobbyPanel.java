@@ -25,12 +25,13 @@ import java.awt.Color;
 
 public class LobbyPanel extends JPanel
 {
-	private static Object userName;
 	private JButton userNameLabel;
 	private JButton newGame;
 	private JButton joinGame;
 	private JButton exitGame;
-	private boolean newOrJoinGameChosen = false;
+	private boolean newGameChosen = false;
+	private boolean joinGameChosen = false;
+	
 	//https://image.shutterstock.com/image-vector/hangman-game-600w-623194223.jpg
 	public LobbyPanel()
 	{
@@ -84,7 +85,7 @@ public class LobbyPanel extends JPanel
 					public void actionPerformed(ActionEvent e) 
 					{
 						GameIDGenerator.displayGameID(GameIDGenerator.generateGameID());
-						setNewOrJoinGameChosenFlag(true);
+						newGameChosen = true;
 						closeFrame(e);
 					}
 					
@@ -102,7 +103,7 @@ public class LobbyPanel extends JPanel
 					{
 						
 						if (Actions.joinGame() != null) {
-							setNewOrJoinGameChosenFlag(true);
+							joinGameChosen = true;
 							closeFrame(e);	
 						}
 					}
@@ -126,12 +127,12 @@ public class LobbyPanel extends JPanel
 				});
 		}
 	
-	public void setNewOrJoinGameChosenFlag(boolean flag) {
-		this.newOrJoinGameChosen = flag;
+	public boolean newGameChosen() {
+		return newGameChosen;
 	}
 	
-	public boolean newOrJoinGameChosen() {
-		return newOrJoinGameChosen;
+	public boolean joinGameChosen() {
+		return joinGameChosen;
 	}
 	
 	private void closeFrame(ActionEvent e) {

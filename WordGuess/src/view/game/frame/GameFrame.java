@@ -4,8 +4,11 @@ package view.game.frame;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.Vector;
+
 import javax.swing.JFrame;
 
+import model.Player;
 import view.game.panels.GamePanel;
 import view.game.panels.LettersAndWordsUsedInGame;
 import view.game.panels.MenuBar;
@@ -31,7 +34,10 @@ public class GameFrame extends JFrame
 	private LettersAndWordsUsedInGame lettersAndWordsUsedInGame;
 	private MenuBar mainMenuBar;
 	
-	public GameFrame(String userName)
+	//Variable here for testing purposes only. Remove after server app is implemented
+	private Vector<Player> playerList = new Vector<Player>();
+	
+	public GameFrame(String userName, String userChoice)
 	{
 		super ("HangMan!");
 		
@@ -39,11 +45,20 @@ public class GameFrame extends JFrame
 		
 //******Initialize all the panels*****//
 		toolbar = new ToolbarPanel();
-		userNamePanel = new UserNamePanel();
 		gamePanel = new GamePanel();
 		submitPanel = new SubmitPanel();
 		lettersAndWordsUsedInGame = new LettersAndWordsUsedInGame();
 		mainMenuBar = new MenuBar();
+		
+		Player player = new Player(userName);
+		playerList.add(player);
+		if (userChoice.equals("New")) {
+			userNamePanel = new UserNamePanel(player);
+		}
+		else {
+			userNamePanel = new UserNamePanel(player);
+		}
+		
 		
 //******add all panels to the MainFrame component*****//
 		add(userNamePanel, BorderLayout.WEST);
