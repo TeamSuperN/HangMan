@@ -28,7 +28,7 @@ public class GameFrame extends JFrame
 {
 //**create private classes to be used as components of the main frame***//
 	private UserNamePanel userNamePanel;
-	private ToolbarPanel toolbar;
+	private ToolbarPanel toolbarPanel;
 	private GamePanel gamePanel;
 	private SubmitPanel submitPanel;
 	private LettersAndWordsUsedInGame lettersAndWordsUsedInGame;
@@ -44,7 +44,7 @@ public class GameFrame extends JFrame
 		setLayout(new BorderLayout());
 		
 //******Initialize all the panels*****//
-		toolbar = new ToolbarPanel();
+		toolbarPanel = new ToolbarPanel();
 		gamePanel = new GamePanel();
 		submitPanel = new SubmitPanel();
 		lettersAndWordsUsedInGame = new LettersAndWordsUsedInGame();
@@ -64,7 +64,7 @@ public class GameFrame extends JFrame
 		add(userNamePanel, BorderLayout.WEST);
 		add(lettersAndWordsUsedInGame, BorderLayout.EAST);
 		add(gamePanel, BorderLayout.CENTER);
-		add(toolbar, BorderLayout.NORTH);
+		add(toolbarPanel, BorderLayout.NORTH);
 		add(submitPanel, BorderLayout.SOUTH);
 		setJMenuBar(mainMenuBar);
 		
@@ -79,6 +79,10 @@ public class GameFrame extends JFrame
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);										
 		setVisible(true);
+	}
+	
+	public GamePanel getGamePanel() {
+		return gamePanel;
 	}
 }
 
