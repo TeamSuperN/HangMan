@@ -21,7 +21,7 @@ import java.awt.Component;
 public class UserNamePanel extends JPanel
 {
 //**** initializes the components*****//
-	private GameTable playerTable;
+	private GameTable gameTable;
 		
 	/*
 	 * 	This is temporarily holding these user labels and 
@@ -46,9 +46,9 @@ public class UserNamePanel extends JPanel
 		setPreferredSize(new Dimension(545, 495));
 		//////////////////////////
 				
-		playerTable = new GameTable(player);
-		playerTable.setBackground(new Color(255, 255, 255));
-		JScrollPane scrollPane = new JScrollPane(playerTable);		//need for the title row
+		gameTable = new GameTable(player);
+		gameTable.setBackground(new Color(255, 255, 255));
+		JScrollPane scrollPane = new JScrollPane(gameTable);		//need for the title row
 		scrollPane.setViewportBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(240, 255, 255), new Color(240, 255, 255)));
 					
 		/* ********************************************
@@ -62,7 +62,7 @@ public class UserNamePanel extends JPanel
 		scrollPane.setSize(300,200);
 		setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));	//combines the two bits of border information
 				
-		playerTable.disable();
+		gameTable.disable();
 		add(scrollPane);	
 	}
 }
