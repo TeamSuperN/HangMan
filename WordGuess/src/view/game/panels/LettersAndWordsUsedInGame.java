@@ -3,17 +3,10 @@ package view.game.panels;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.border.Border;
 
 import view.game.panels.lettersandwordsguessedPanel.LettersGuessedPanel;
 import view.game.panels.lettersandwordsguessedPanel.UsersHangManPicturePanel;
 import view.game.panels.lettersandwordsguessedPanel.WordsGuessedPanel;
-import view.lobby.panels.HangManPicturePanel;
-
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
