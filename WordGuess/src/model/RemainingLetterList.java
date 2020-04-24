@@ -70,10 +70,35 @@ public class RemainingLetterList extends ArrayList<String>{
 			if (this.get(i).equals(letter)) 
 			{
 				this.remove(i);
+				return true;
 			}
 		}
 		
-		return true;
+		return false;
 	}
+	
+	@Override
+	public boolean contains(Object o) {
+		
+		//If the object is not a string, return false
+		if (!(o instanceof String)) 
+		{
+			return false;
+		}
+		
+		//Object must be a string, so convert it to a string
+		String letter = (String)o;
+		
+		//Loop through every letter left in the list
+		for(int i = 0; i < this.size(); i++) 
+		{
+			if (this.get(i).equals(letter)) 
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
 	
 }

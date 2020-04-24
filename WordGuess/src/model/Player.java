@@ -24,15 +24,20 @@ public class Player {
 		return incorrectGuesses;
 	}
 	
-	public void addPoints(int points) {
-		this.points += points;
+	public void correctLetterGuess() {
+		this.points += GuessResult.CORRECT_LETTER.getPoints();
 	}
 	
-	public void subtractPoints(int points) {
-		this.points -= points;
+	public void correctWordGuess() {
+		this.points += GuessResult.CORRECT_WORD.getPoints();
 	}
 	
-	public void incrementIncorrectGuesses() {
+	public void incorrectLetterGuess() {
+		this.points += GuessResult.INCORRECT_LETTER.getPoints();
 		incorrectGuesses += 1;
+	}
+	
+	public void incorrectWordGuess() {
+		this.points += GuessResult.INCORRECT_WORD.getPoints();
 	}
 }

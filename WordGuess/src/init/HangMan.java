@@ -6,12 +6,15 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import model.Model;
 import tools.UserInteraction;
 import view.game.frame.GameFrame;
 import view.lobby.frame.LobbyFrame;
 
 public class HangMan  
 {
+	public static Model model;
+	public static GameFrame gameFrame;
 	
 	public static void main(String args[])
 	{
@@ -33,13 +36,14 @@ public class HangMan
 				{
 					public void windowClosing(WindowEvent e) {
 						
+						model = new Model(userName);
 						if (lobbyFrame.newGameChosen() == true) {
 							lobbyFrame.dispose();
-							new GameFrame(userName, "New");
+							gameFrame = new GameFrame(model, "New");
 						}
 						else if (lobbyFrame.joinGameChosen() == true) {
 							lobbyFrame.dispose();
-							new GameFrame(userName, "Join");
+							gameFrame = new GameFrame(model, "Join");
 						}
 						else {
 							System.exit(0);

@@ -156,9 +156,12 @@ public class ToolbarPanel extends JPanel
 				String word = JOptionPane.showInputDialog(
 						"Enter a word to guess:");
 				
+				word = word.toUpperCase();
+				
 				JButton btn = (JButton)e.getSource();
 				GameFrame gf = (GameFrame)btn.getTopLevelAncestor();
-				gf.getGamePanel().populateGuessWord(word);
+				gf.getGamePanel().populateWordToSolve(word);
+				gf.model.game.curRound.newTurn(word);
 			}
 		});
 		

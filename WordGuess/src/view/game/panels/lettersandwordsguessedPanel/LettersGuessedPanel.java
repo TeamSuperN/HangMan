@@ -18,7 +18,11 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
+import model.Model;
+import model.Player;
 import model.RemainingLetterList;
+import model.Turn;
+import view.game.frame.GameFrame;
 
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
@@ -173,21 +177,29 @@ public class LettersGuessedPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) 
 	{
 		JButton button = (JButton) e.getSource();
-		changeLetterClicked.setText(button.getText());
-		changeLetterClicked.setPreferredSize(new Dimension(30, 28));
-		/*
-		if(e.getSource() == button)
-		{
-			button.enable(false);
-		}
-		else
-		{
-			
-		}
-		*/
+		String buttonChar = button.getText();
 		button.setEnabled(false);
-		//button.setVisible(false);
 		
+		GameFrame gf = (GameFrame)button.getTopLevelAncestor();
+		RemainingLetterList rll = gf.model.game.curRound.curTurn.rll;
 		
+		if (rll.contains(buttonChar)) {
+			rll.remove(buttonChar);
+			
+			Player player = gf.model.game.pList.get(0);
+			String wordToSolve = gf.model.game.curRound.curTurn.wordToSolve;
+			
+			if (wordToSolve.contains(buttonChar)) {
+				int charIndex = wordToSolve.indexOf(buttonChar);
+				gf.getGamePanel().populateLetter(buttonChar, charIndex);
+				player.correctLetterGuess();
+				
+			}
+			else {
+				player.incorrectLetterGuess();
+			}
+			
+			gf.getUserNamePanel().getGameTable().populatePlayerData(gf.model.game.pList);
+		}
 	}
 }
