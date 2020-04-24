@@ -185,7 +185,7 @@ public class LettersGuessedPanel extends JPanel implements ActionListener {
 			
 		}
 		*/
-		button.enable(false);
+		button.setEnabled(false);
 		//button.setVisible(false);
 		
 		
