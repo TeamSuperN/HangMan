@@ -8,6 +8,7 @@ import java.util.Vector;
 
 import javax.swing.JFrame;
 
+import model.Model;
 import model.Player;
 import view.game.panels.GamePanel;
 import view.game.panels.LettersAndWordsUsedInGame;
@@ -33,13 +34,16 @@ public class GameFrame extends JFrame
 	private SubmitPanel submitPanel;
 	private LettersAndWordsUsedInGame lettersAndWordsUsedInGame;
 	private MenuBar mainMenuBar;
+	public Model model;				//Temp model used for testing purposes. Removed once actual model is implemented in server app.
 	
 	//Variable here for testing purposes only. Remove after server app is implemented
 	private Vector<Player> playerList = new Vector<Player>();
 	
-	public GameFrame(String userName, String userChoice)
+	public GameFrame(Model model, String userChoice)
 	{
 		super ("HangMan!");
+		
+		this.model = model;
 		
 		setLayout(new BorderLayout());
 		
@@ -49,16 +53,7 @@ public class GameFrame extends JFrame
 		submitPanel = new SubmitPanel();
 		lettersAndWordsUsedInGame = new LettersAndWordsUsedInGame();
 		mainMenuBar = new MenuBar();
-		
-		Player player = new Player(userName);
-		playerList.add(player);
-		if (userChoice.equals("New")) {
-			userNamePanel = new UserNamePanel(player);
-		}
-		else {
-			userNamePanel = new UserNamePanel(player);
-		}
-		
+		userNamePanel = new UserNamePanel();
 		
 //******add all panels to the MainFrame component*****//
 		add(userNamePanel, BorderLayout.WEST);
@@ -79,10 +74,16 @@ public class GameFrame extends JFrame
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);										
 		setVisible(true);
+		
+		userNamePanel.getGameTable().populatePlayerData(model.game.pList);
 	}
 	
 	public GamePanel getGamePanel() {
 		return gamePanel;
+	}
+	
+	public UserNamePanel getUserNamePanel() {
+		return userNamePanel;
 	}
 }
 

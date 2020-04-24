@@ -65,7 +65,7 @@ public class GamePanel extends JPanel
 			setLayout(null);
 		}
 		
-		public void populateGuessWord(String guessWord) {
+		public void populateWordToSolve(String wordToSolve) {
 			int wordPanelHGap = 200;
 			int wordPanelWidth = this.getWidth()-wordPanelHGap;
 			int wordPanelHeight = 100;
@@ -77,7 +77,7 @@ public class GamePanel extends JPanel
 			wordPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 			this.add(wordPanel);
 			
-			for (int i = 0; i < guessWord.length(); i++) {
+			for (int i = 0; i < wordToSolve.length(); i++) {
 				int letterPadding = 8;
 				//Character letter = guessWord.charAt(i);
 				JLabel jLetter = new JLabel("_");
@@ -87,5 +87,13 @@ public class GamePanel extends JPanel
 				wordPanel.add(jLetter);
 			}
 			this.revalidate();
+		}
+		
+		public void populateLetter(String letter, int letterLocation) {
+			JPanel wordPanel = (JPanel)this.getComponent(0);
+			JLabel letterLabel = (JLabel)wordPanel.getComponent(letterLocation);
+			
+			letterLabel.setText(letter);
+			this.repaint();
 		}
 }

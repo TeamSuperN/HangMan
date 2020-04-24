@@ -8,13 +8,17 @@ import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.BorderFactory;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingUtilities;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 import model.Player;
+import model.PlayerList;
+import view.game.frame.GameFrame;
 import view.game.panels.usernamepanel.GameTable;
 
 @SuppressWarnings("serial")
@@ -31,8 +35,8 @@ public class UserNamePanel extends JPanel
 	 *  I have put a spot that is in the menu panel  that 
 	 *  will hide this panel.
 	 */
-	@SuppressWarnings("deprecation")	//Don't know what this does?
-	public UserNamePanel(Player player)
+	
+	public UserNamePanel()
 	{
 		setBackground(Color.DARK_GRAY);
 		/*
@@ -46,7 +50,7 @@ public class UserNamePanel extends JPanel
 		setPreferredSize(new Dimension(545, 495));
 		//////////////////////////
 				
-		gameTable = new GameTable(player);
+		gameTable = new GameTable();
 		gameTable.setBackground(new Color(128, 128, 128));
 		JScrollPane scrollPane = new JScrollPane(gameTable);		//need for the title row
 		scrollPane.setViewportBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(240, 255, 255), new Color(240, 255, 255)));
@@ -63,9 +67,11 @@ public class UserNamePanel extends JPanel
 				"Players in Game: ", TitledBorder.LEADING,
 				TitledBorder.TOP, null, new Color(255, 255, 255))));		//combines the two bits of border information
 				
-		gameTable.disable();
 		add(scrollPane);	
-		
-		
 	}
+	
+	public GameTable getGameTable() {
+		return gameTable;
+	}
+	
 }
