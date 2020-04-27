@@ -101,13 +101,19 @@ public class UserInteraction
 		
 		if(decideTheNumberOfRounds == null)
 		{
-			confirmQuitGame();
+			int quit = JOptionPane.showConfirmDialog(new JFrame(), "Are You Sure You Don't Want To Create A New Game?");
+			
+			if (quit == JOptionPane.YES_OPTION) 
+			{
+				// need to add the return to lobbyframe here
+				
+			}
+			else
+			{
+				determineNumberOfRounds();
+			}
 		}
-		else
-		{
-			//This is where we right that the game has to play for x<6 rounds
-		}
-		
+		return;
 	}
 	
 	/*
@@ -128,8 +134,18 @@ public class UserInteraction
 		}
 		else
 		{
-			confirmQuitGame();
+			int quit = JOptionPane.showConfirmDialog(new JFrame(), "Are You Sure You Don't Want To Create A New Game?");
+			
+			if (quit == JOptionPane.YES_OPTION) 
+			{
+				// need to add the return to lobbyframe here
+			}
+			else
+			{
+				determineNumberOfPlayers();
+			}
 		}
+		return;
 	}
 	
 	/*
@@ -146,7 +162,7 @@ public class UserInteraction
 			    JOptionPane.YES_NO_OPTION);
 		
 		
-		if (voteToStartGame == JOptionPane.YES_OPTION)
+		if (voteToStartGame != JOptionPane.YES_OPTION)
 		{
 			//wait for all users
 		}

@@ -20,6 +20,8 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 import java.awt.Color;
+import java.awt.Component;
+
 import javax.swing.border.BevelBorder;
 
 /*
@@ -106,13 +108,16 @@ public class SubmitPanel extends JPanel
 		}
 		else
 		{
-			return wordQuessedPopup();
+			pleaseTryAgain();
 		}
+		return wordGuessed;
+		
 	}
 	
-	public static void correctWordPopup()
+	public static void pleaseTryAgain()
 	{
-		
-		
+		Component frame = null;
+		JOptionPane.showMessageDialog(frame , "Please Try Entering A Word.");
+		wordQuessedPopup();
 	}
 }

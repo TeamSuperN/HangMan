@@ -1,24 +1,15 @@
 package view.game.panels;
 
 import java.awt.Dimension;
-import java.awt.Component;
 import java.awt.Color;
 
-import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
-import javax.swing.BorderFactory;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.SwingUtilities;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
-import model.Player;
-import model.PlayerList;
-import view.game.frame.GameFrame;
 import view.game.panels.usernamepanel.GameTable;
 
 @SuppressWarnings("serial")

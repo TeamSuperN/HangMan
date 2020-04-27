@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.Color;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
@@ -30,6 +31,8 @@ public class ToolbarPanel extends JPanel
 	private JButton quitGame;
 	private JButton exitGame;
 	private JButton guessWord;
+	private JLabel spacerLabel;
+	private JButton voteToStartGame;
 	
 	/*
 	 * Creates a tool Bar on 
@@ -45,6 +48,9 @@ public class ToolbarPanel extends JPanel
 		quitGame = new JButton("Quit Game");
 		exitGame = new JButton("Exit Game");
 		guessWord = new JButton("Guess Word");
+		voteToStartGame = new JButton("Vote To Start Game");
+		spacerLabel = new JLabel("                                       "
+				+ "                                                      ");
 		
 //******creates color format for the buttons********//
 		newGame.setBackground(new Color(128, 128, 128));
@@ -52,7 +58,7 @@ public class ToolbarPanel extends JPanel
 		quitGame.setBackground(new Color(128, 128, 128));
 		exitGame.setBackground(new Color(128, 128, 128));
 		guessWord.setBackground(new Color(128, 128, 128));
-		
+		voteToStartGame.setBackground(new Color(128, 128, 128));
 		
 		setLayout(new FlowLayout(FlowLayout.LEFT));	//makes a new flowlayout
 
@@ -63,6 +69,27 @@ public class ToolbarPanel extends JPanel
 		add(quitGame);
 		add(exitGame);
 		add(guessWord);
+		
+		//Button for testing populating game play panel w/ a word to guess
+				JButton testGamePanel = new JButton("Game Panel Test");
+				testGamePanel.setBackground(new Color(128, 128, 128));
+				add(testGamePanel);
+				testGamePanel.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) 
+					{
+						String word = JOptionPane.showInputDialog(
+								"Enter a word to guess:");
+						
+						word = word.toUpperCase();
+						
+						JButton btn = (JButton)e.getSource();
+						GameFrame gf = (GameFrame)btn.getTopLevelAncestor();
+						gf.getGamePanel().populateWordToSolve(word);
+						gf.model.game.curRound.newTurn(word);
+					}
+				});
+		add(spacerLabel);
+		add(voteToStartGame);
 		
 		/*
 		 * will generate a new game 
@@ -115,55 +142,20 @@ public class ToolbarPanel extends JPanel
 			}			
 		});
 		
+		
+		
+		
+		
+		
 		/*
-		 *  Game Play will end for 10 secs
-		 *  for user to input text
+		 * Vote to start game button
 		 */
-		guessWord.addActionListener(new ActionListener()
+		voteToStartGame.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-					
+				UserInteraction.voteToStartGame();		
 			}			
 		});
-		
-		//Button for testing remaining letters to guess
-		RemainingLetterList rll = new RemainingLetterList();
-		JButton testRLL = new JButton("Remaning Letters Test");
-		testRLL.setBackground(new Color(128, 128, 128));
-		add(testRLL);
-		testRLL.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) 
-			{
-				String letter = JOptionPane.showInputDialog(
-						"Current letter list: " + "\n" +
-								rll + "\n" +
-						"Enter a letter to remove from the letter list:");
-				rll.remove(letter);
-				JOptionPane.showMessageDialog(new JPanel(), 
-						"New letter list: " + "\n" +
-								rll);
-			}
-		});
-		
-		//Button for testing populating game play panel w/ a word to guess
-		JButton testGamePanel = new JButton("Game Panel Test");
-		testGamePanel.setBackground(new Color(128, 128, 128));
-		add(testGamePanel);
-		testGamePanel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) 
-			{
-				String word = JOptionPane.showInputDialog(
-						"Enter a word to guess:");
-				
-				word = word.toUpperCase();
-				
-				JButton btn = (JButton)e.getSource();
-				GameFrame gf = (GameFrame)btn.getTopLevelAncestor();
-				gf.getGamePanel().populateWordToSolve(word);
-				gf.model.game.curRound.newTurn(word);
-			}
-		});
-		
 	}
 }
