@@ -190,10 +190,12 @@ public class LettersGuessedPanel extends JPanel implements ActionListener {
 			String wordToSolve = gf.model.game.curRound.curTurn.wordToSolve;
 			
 			if (wordToSolve.contains(buttonChar)) {
-				int charIndex = wordToSolve.indexOf(buttonChar);
-				gf.getGamePanel().populateLetter(buttonChar, charIndex);
-				player.correctLetterGuess();
-				
+				for (int i = 0; i < wordToSolve.length(); i++) {
+					if (wordToSolve.substring(i, i+1).equals(buttonChar)) {
+						gf.getGamePanel().populateLetter(buttonChar, i);
+						player.correctLetterGuess();
+					}
+				}
 			}
 			else {
 				player.incorrectLetterGuess();
