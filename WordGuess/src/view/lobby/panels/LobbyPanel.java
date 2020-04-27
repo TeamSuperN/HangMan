@@ -1,6 +1,5 @@
 package view.lobby.panels;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Window;
@@ -27,7 +26,6 @@ import java.awt.SystemColor;
 
 public class LobbyPanel extends JPanel
 {
-	private JButton userNameLabel;
 	private JButton newGame;
 	private JButton joinGame;
 	private JButton exitGame;
