@@ -49,10 +49,11 @@ public class GamePanel extends JPanel
 			textArea.setEditable(true);
 			
 	//*****Creates the Border layout around the GamePanel Components*************//
-			setBorder(new CompoundBorder(new EmptyBorder(5, 5, 5, 5), new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Game Play: ", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0))));		//combines the two bits of border information
-			
+			setBorder(new CompoundBorder(new EmptyBorder(5, 5, 5, 5),
+					new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, 
+					new Color(255, 255, 255), new Color(160, 160, 160)), "Game Play: ",
+					TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0))));		//combines the two bits of border information
 			setBackground(new Color(128, 128, 128));
-          
 			setLayout(null);
 		}
 		
