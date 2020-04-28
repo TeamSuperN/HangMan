@@ -9,6 +9,7 @@ import java.awt.event.FocusListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -18,6 +19,10 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
+
+import model.Player;
+import tools.UserInteraction;
+import view.game.frame.GameFrame;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -33,7 +38,7 @@ import javax.swing.border.BevelBorder;
 public class SubmitPanel extends JPanel
 {
 	
-	private JButton submitButton;
+	private JButton guessWordButton;
 	
 	
 	/*
@@ -50,8 +55,8 @@ public class SubmitPanel extends JPanel
     setBackground(Color.DARK_GRAY);
 		
 		
-		submitButton = new JButton("Guess a word");
-		submitButton.setBackground(new Color(128, 128, 128));
+		guessWordButton = new JButton("Guess a word");
+		guessWordButton.setBackground(new Color(128, 128, 128));
 		
 		/*
 		 * This sets the dimension that the MainFrame
@@ -65,16 +70,38 @@ public class SubmitPanel extends JPanel
 		
 //******sets the layout for the panel***************//
 		setLayout(new FlowLayout(FlowLayout.CENTER));
-		add(submitButton);
+		add(guessWordButton);
 		
 		
-		submitButton.addActionListener(new ActionListener()
+		guessWordButton.addActionListener(new ActionListener()
 		{
 			
 			public void actionPerformed(ActionEvent e) 
 			{
 				
-				wordQuessedPopup();
+				String wordGuessed = UserInteraction.queryGuessWord();
+				
+				//If user uses cancel option or closes the popup window
+				if (wordGuessed == null) {
+					//Do nothing and go back to game
+				}
+				else {
+					wordGuessed = wordGuessed.toUpperCase();
+					JButton btn = (JButton)e.getSource();
+					GameFrame gFrame = (GameFrame)btn.getTopLevelAncestor();
+					String wordToSolve = gFrame.model.game.curRound.curTurn.wordToSolve;
+					Player player = gFrame.model.game.pList.get(0);			//Current player will not always be at index 0. Will need to modify later
+					if (wordToSolve.equals(wordGuessed)) {
+						player.correctWordGuess();
+						gFrame.getGamePanel().clear();
+						gFrame.getRightPanel().getWordsGuessedPanel().clear();
+					}
+					else {
+						player.incorrectWordGuess();
+						gFrame.getRightPanel().getWordsGuessedPanel().addWord(wordGuessed);
+					}
+					gFrame.getUserNamePanel().getGameTable().refresh();
+				}
 			}			
 		});
 		
@@ -82,42 +109,22 @@ public class SubmitPanel extends JPanel
 		setBorder(new CompoundBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null), new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Submit Panel: ", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 255, 255))));		//combines the two bits of border information
 	}
 	
-	public static Object wordQuessedPopup()
+	public static String guessWord()
 	{
 		String wordGuessed = "";
-		wordGuessed = JOptionPane.showInputDialog("Enter The Word You Wish To Guess:  ");
 		
+		do {
+			wordGuessed = JOptionPane.showInputDialog("Enter The Word You Wish To Guess:  ");
+			if (wordGuessed.isEmpty()) {
+				int confirm = JOptionPane.showConfirmDialog(new JFrame(), "Are you sure you want to submit a blank word?" + "\n" +
+																		"You will lose points for submitting a blank word.");
+				if (confirm == JOptionPane.CANCEL_OPTION || confirm == JOptionPane.CLOSED_OPTION) {
+					break;
+				}
+			}
+		}
+		while (wordGuessed.isEmpty());
 		
-		if(wordGuessed != null)
-		{
-			int correctWord = JOptionPane.showConfirmDialog(new JPanel(),
-				"Is The Word Spelled Correct?" +
-				"\n" + "\"" + wordGuessed +  "\"" + "\n",					// We need to make the username get called here in the blanks
-				"Word Guessed",
-				JOptionPane.YES_NO_OPTION);
-			
-			if(correctWord == JOptionPane.YES_OPTION)
-			{
-				return correctWord;
-			}
-			else
-			{
-				return wordQuessedPopup();
-			}
-			
-		}
-		else
-		{
-			pleaseTryAgain();
-		}
 		return wordGuessed;
-		
-	}
-	
-	public static void pleaseTryAgain()
-	{
-		Component frame = null;
-		JOptionPane.showMessageDialog(frame , "Please Try Entering A Word.");
-		wordQuessedPopup();
 	}
 }

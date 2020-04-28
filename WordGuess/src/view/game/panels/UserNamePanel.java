@@ -42,9 +42,10 @@ public class UserNamePanel extends JPanel
 		//////////////////////////
 				
 		gameTable = new GameTable();
-		gameTable.setBackground(new Color(128, 128, 128));
 		JScrollPane scrollPane = new JScrollPane(gameTable);		//need for the title row
-		scrollPane.setViewportBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(240, 255, 255), new Color(240, 255, 255)));
+		//scrollPane.setViewportBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(240, 255, 255), new Color(240, 255, 255)));
+		//scrollPane.setViewportBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(128, 128, 128), new Color(128, 128, 128)));
+		scrollPane.setViewportBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.DARK_GRAY, Color.DARK_GRAY));
 		scrollPane.setSize(300,200);
 		
 		/* ********************************************

@@ -61,6 +61,8 @@ public class GamePanel extends JPanel
 					new Color(255, 255, 255), new Color(160, 160, 160)), 
 					"Game Play: ", TitledBorder.LEADING,
 					TitledBorder.TOP, null, new Color(255, 255, 255))));		//combines the two bits of border information
+			
+			setBackground(Color.DARK_GRAY);
           
 			setLayout(null);
 		}
@@ -94,6 +96,11 @@ public class GamePanel extends JPanel
 			JLabel letterLabel = (JLabel)wordPanel.getComponent(letterLocation);
 			
 			letterLabel.setText(letter);
+			this.repaint();
+		}
+		
+		public void clear() {
+			this.removeAll();
 			this.repaint();
 		}
 }

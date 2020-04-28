@@ -1,10 +1,13 @@
-package view.game.panels.lettersandwordsguessedPanel;
+package view.game.panels.rightpanel;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
@@ -16,19 +19,20 @@ import java.awt.Color;
 
 public class WordsGuessedPanel extends JPanel 
 {
-	private JTextArea wordsGuessed;
+	private DefaultListModel<String> listModel;
 	
 	public WordsGuessedPanel()
 	{
-		setForeground(new Color(255, 255, 255));
+		//setForeground(new Color(255, 255, 255));
 		setBackground(Color.DARK_GRAY);
 		setLayout(new BorderLayout());
 		
-		wordsGuessed = new JTextArea("These Words Were Guessed::           " + "\n"
-				+ "                                                        " + "\n");
-		wordsGuessed.setBackground(new Color(128, 128, 128));
-		
-		wordsGuessed.setEditable(false);
+		listModel = new DefaultListModel<String>();
+		JList<String> jWordList = new JList<String>(listModel);
+		JScrollPane jspWordList = new JScrollPane(jWordList);
+		jspWordList.setForeground(Color.BLACK);
+		jspWordList.setBackground(new Color(128, 128, 128));
+		jWordList.setEnabled(false);
 		
 		/*
 		 * This sets the dimension that the MainFrame
@@ -48,10 +52,18 @@ public class WordsGuessedPanel extends JPanel
 		setBorder(new CompoundBorder(new EmptyBorder(5, 5, 5, 5), 
 				new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, 
 				new Color(255, 255, 255), new Color(160, 160, 160)), 
-				"Words Used This Game: ", TitledBorder.LEADING,
+				"Incorrect Word Guesses This Turn: ", TitledBorder.LEADING,
 				TitledBorder.TOP, null, new Color(255, 255, 255))));		//combines the two bits of border information
 		
-		add(wordsGuessed);
+		add(jspWordList);
+	}
+	
+	public void addWord(String incorrectWordGuess) {
+		listModel.addElement(incorrectWordGuess);
+	}
+	
+	public void clear() {
+		listModel.clear();
 	}
 
 }

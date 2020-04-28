@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 import model.Model;
 import model.Player;
 import view.game.panels.GamePanel;
-import view.game.panels.LettersAndWordsUsedInGame;
+import view.game.panels.RightPanel;
 import view.game.panels.MenuBar;
 import view.game.panels.SubmitPanel;
 import view.game.panels.ToolbarPanel;
@@ -32,7 +32,7 @@ public class GameFrame extends JFrame
 	private ToolbarPanel toolbarPanel;
 	private GamePanel gamePanel;
 	private SubmitPanel submitPanel;
-	private LettersAndWordsUsedInGame lettersAndWordsUsedInGame;
+	private RightPanel rightPanel;
 	private MenuBar mainMenuBar;
 	public Model model;				//Temp model used for testing purposes. Removed once actual model is implemented in server app.
 	
@@ -51,13 +51,13 @@ public class GameFrame extends JFrame
 		toolbarPanel = new ToolbarPanel();
 		gamePanel = new GamePanel();
 		submitPanel = new SubmitPanel();
-		lettersAndWordsUsedInGame = new LettersAndWordsUsedInGame();
+		rightPanel = new RightPanel();
 		mainMenuBar = new MenuBar();
 		userNamePanel = new UserNamePanel();
 		
 //******add all panels to the MainFrame component*****//
 		add(userNamePanel, BorderLayout.WEST);
-		add(lettersAndWordsUsedInGame, BorderLayout.EAST);
+		add(rightPanel, BorderLayout.EAST);
 		add(gamePanel, BorderLayout.CENTER);
 		add(toolbarPanel, BorderLayout.NORTH);
 		add(submitPanel, BorderLayout.SOUTH);
@@ -75,7 +75,7 @@ public class GameFrame extends JFrame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);										
 		setVisible(true);
 		
-		userNamePanel.getGameTable().populatePlayerData(model.game.pList);
+		userNamePanel.getGameTable().refresh();
 	}
 	
 	public GamePanel getGamePanel() {
@@ -84,6 +84,10 @@ public class GameFrame extends JFrame
 	
 	public UserNamePanel getUserNamePanel() {
 		return userNamePanel;
+	}
+	
+	public RightPanel getRightPanel() {
+		return rightPanel;
 	}
 }
 

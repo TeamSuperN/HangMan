@@ -1,4 +1,4 @@
-package view.game.panels.lettersandwordsguessedPanel;
+package view.game.panels.rightpanel;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -201,7 +201,7 @@ public class LettersGuessedPanel extends JPanel implements ActionListener {
 				player.incorrectLetterGuess();
 			}
 			
-			gf.getUserNamePanel().getGameTable().populatePlayerData(gf.model.game.pList);
+			gf.getUserNamePanel().getGameTable().refresh();
 		}
 	}
 }
