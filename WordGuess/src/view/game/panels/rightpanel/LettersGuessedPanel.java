@@ -1,27 +1,19 @@
 package view.game.panels.rightpanel;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextArea;
-import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 
 import java.awt.Color;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
-import model.Model;
 import model.Player;
 import model.RemainingLetterList;
-import model.Turn;
 import view.game.frame.GameFrame;
 
 import java.awt.GridBagLayout;
@@ -31,7 +23,6 @@ import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class LettersGuessedPanel extends JPanel implements ActionListener {
@@ -100,17 +91,17 @@ public class LettersGuessedPanel extends JPanel implements ActionListener {
 				lettersButton = new JButton(remainingLetterList.get(i));
 				String letters = remainingLetterList.get(i);
 				lettersButton.addActionListener(this);
-				/*
+				
 				this.lettersButton.addActionListener(new ActionListener() 
 				{
 					public void actionPerformed(ActionEvent e) 
 					{
 						changeLetterClicked.setText(letters);
-						lettersButton.setEnabled(false);
+						
 						
 					}
 				});
-				*/
+				
 				for (int j = 0; j < 5; j++)
 				{
 					for(int k = 0; k < 4; k ++)
