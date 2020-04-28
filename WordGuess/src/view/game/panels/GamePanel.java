@@ -29,6 +29,10 @@ public class GamePanel extends JPanel
 	private static final int SIZE_X = 515;
 	private int SIZE_Y = 381;
 	
+	/*
+	 * This is a test to see if this commit gets sent
+	 * 
+	 */
 		public GamePanel()
 		{
 			//setForeground(new Color(255, 255, 255));
