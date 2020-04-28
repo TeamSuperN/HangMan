@@ -100,6 +100,12 @@ public class LettersGuessedPanel extends JPanel implements ActionListener {
 				lettersButton = new JButton(remainingLetterList.get(i));
 				String letters = remainingLetterList.get(i);
 				lettersButton.addActionListener(this);
+				
+	//**************Disabling Button at the beginning***************//
+				lettersButton.setEnabled(false);
+				
+	//****************************************************************//
+		        //lettersButton.setEnabled(true);
 				/*
 				this.lettersButton.addActionListener(new ActionListener() 
 				{
