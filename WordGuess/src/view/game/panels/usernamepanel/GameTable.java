@@ -1,5 +1,6 @@
 package view.game.panels.usernamepanel;
 
+import java.awt.Color;
 import java.util.Vector;
 
 import javax.swing.JTable;
@@ -26,7 +27,9 @@ public class GameTable extends JTable{
 		super(gameData, TABLE_HEADER);
 	}
 	
-	public void populatePlayerData(PlayerList pList) {
+	public void refresh() {
+		GameFrame gFrame = (GameFrame)this.getTopLevelAncestor();
+		PlayerList pList = gFrame.model.game.pList;
 		for (int i = 0; i < dtm.getRowCount(); i++) {
 			dtm.removeRow(i);
 		}

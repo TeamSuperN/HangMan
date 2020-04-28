@@ -4,9 +4,9 @@ package view.game.panels;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-import view.game.panels.lettersandwordsguessedPanel.LettersGuessedPanel;
-import view.game.panels.lettersandwordsguessedPanel.UsersHangManPicturePanel;
-import view.game.panels.lettersandwordsguessedPanel.WordsGuessedPanel;
+import view.game.panels.rightpanel.LettersGuessedPanel;
+import view.game.panels.rightpanel.UsersHangManPicturePanel;
+import view.game.panels.rightpanel.WordsGuessedPanel;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -14,14 +14,14 @@ import java.awt.GridLayout;
 import java.io.IOException;
 
 @SuppressWarnings("serial")
-public class LettersAndWordsUsedInGame extends JPanel
+public class RightPanel extends JPanel
 {
 //****initializes the variable in the LettersUsedInGamePanel*****//
 	private LettersGuessedPanel lettersGuessedPanel;
 	private UsersHangManPicturePanel usersHangManPicturePanel;
 	private WordsGuessedPanel wordsGuessedPanel;
 	
-	public LettersAndWordsUsedInGame()
+	public RightPanel()
 	{
 		
 		
@@ -53,6 +53,10 @@ public class LettersAndWordsUsedInGame extends JPanel
 		add(usersHangManPicturePanel, BorderLayout.CENTER);
 		add(wordsGuessedPanel, BorderLayout.SOUTH);
 		wordsGuessedPanel.setLayout(new GridLayout(1, 0, 0, 0));
+	}
+	
+	public WordsGuessedPanel getWordsGuessedPanel() {
+		return wordsGuessedPanel;
 	}
 }
 

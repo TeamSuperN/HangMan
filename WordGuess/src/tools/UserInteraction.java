@@ -172,4 +172,25 @@ public class UserInteraction
 			
 		}
 	}
+	
+	public static String queryGuessWord() {
+		String wordGuessed = "";
+		
+		do {
+			wordGuessed = JOptionPane.showInputDialog("Enter The Word You Wish To Guess:  ");
+			if (wordGuessed == null) {
+				return null;
+			}
+			else if (wordGuessed.isEmpty()) {
+				int confirm = JOptionPane.showConfirmDialog(new JFrame(), "Are you sure you want to submit a blank word?" + "\n" +
+																		"You will lose points for submitting a blank word.");
+				if (confirm == JOptionPane.YES_OPTION) {
+					return "";
+				}
+			}
+		}
+		while (wordGuessed.isEmpty());
+		
+		return wordGuessed;
+	}
 }
