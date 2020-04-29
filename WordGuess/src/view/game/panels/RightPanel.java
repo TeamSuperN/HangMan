@@ -59,6 +59,10 @@ public class RightPanel extends JPanel
 	public WordsGuessedPanel getWordsGuessedPanel() {
 		return wordsGuessedPanel;
 	}
+	
+	public LettersGuessedPanel getLettersGuessedPanel() {
+		return lettersGuessedPanel;
+	}
 }
 
 

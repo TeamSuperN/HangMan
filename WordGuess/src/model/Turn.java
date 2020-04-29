@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Turn {
 	
 	public String wordToSolve;
+	public int correctLetterCount;
 	public RemainingLetterList rll;
 	public ArrayList<String> incorrectWordGuesses;
 	
@@ -24,5 +25,9 @@ public class Turn {
 	
 	public boolean matchesGuess(String attemptedWordGuess) {
 		return wordToSolve.equals(attemptedWordGuess);
+	}
+	
+	public void incrementCorrectLetterCount() {
+		correctLetterCount += 1;
 	}
 }

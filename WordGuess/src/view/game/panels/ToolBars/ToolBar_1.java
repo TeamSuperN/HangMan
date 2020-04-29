@@ -82,6 +82,7 @@ public class ToolBar_1 extends JToolBar
 							GameFrame gf = (GameFrame)btn.getTopLevelAncestor();
 							gf.getGamePanel().populateWordToSolve(word);
 							gf.model.game.curRound.newTurn(word);
+							gf.getRightPanel().getLettersGuessedPanel().enableButtons();
 						}
 					});
 			
