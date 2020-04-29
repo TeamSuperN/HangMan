@@ -99,6 +99,17 @@ public class GamePanel extends JPanel
 			this.repaint();
 		}
 		
+		public void displayAnswer(String solvedWord) {
+			JPanel wordPanel = (JPanel)this.getComponent(0);
+			
+			for (int i = 0; i < wordPanel.getComponentCount(); i++) {
+				JLabel letterLabel = (JLabel)wordPanel.getComponent(i);
+				
+				letterLabel.setText(solvedWord.substring(i, i+1));
+			}
+			this.repaint();
+		}
+		
 		public void clear() {
 			this.removeAll();
 			this.repaint();
