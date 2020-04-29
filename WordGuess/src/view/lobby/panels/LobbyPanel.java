@@ -66,19 +66,17 @@ public class LobbyPanel extends JPanel
 				exitGame.setBackground(new Color(128, 128, 128));
 				exitGame.setForeground(SystemColor.desktop);
 				exitGame.setText("Exit Game");
-				//BoxLayout boxlayout = new BoxLayout(startGamePanel, BoxLayout.Y_AXIS);
 				setLayout(new GridLayout(5,1, 15, 15));	//makes a new flowlayout
 				
 				//******sets a popout trim for the tool bar ***************//
 				setBorder(BorderFactory.createRaisedBevelBorder());
 				
-				lblNewLabel = new JLabel("New label");
+				lblNewLabel = new JLabel("User Name");
 				lblNewLabel.setForeground(SystemColor.window);
 				lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 				add(lblNewLabel);
 				add(newGame);							//adds hellobutton to toolbar
 				add(joinGame);
-			
 				add(exitGame);
 
 				/*
@@ -89,14 +87,12 @@ public class LobbyPanel extends JPanel
 				 */
 				newGame.addActionListener(new ActionListener()
 				{
-
 					public void actionPerformed(ActionEvent e) 
 					{
 						GameIDGenerator.displayGameID(GameIDGenerator.generateGameID());
 						newGameChosen = true;
 						closeFrame(e);
 					}
-					
 				});
 				
 				/*
@@ -106,16 +102,14 @@ public class LobbyPanel extends JPanel
 				 */
 				joinGame.addActionListener(new ActionListener()
 				{
-
 					public void actionPerformed(ActionEvent e) 
 					{
-						
-						if (Actions.joinGame() != null) {
+						if (Actions.joinGame() != null) 
+						{
 							joinGameChosen = true;
 							closeFrame(e);	
 						}
-					}
-					
+					}					
 				});
 				
 				
@@ -126,37 +120,36 @@ public class LobbyPanel extends JPanel
 				 */
 				exitGame.addActionListener(new ActionListener()
 				{
-
 					public void actionPerformed(ActionEvent e) 
 					{
 						UserInteraction.confirmExitGame();		
-					}
-					
+					}					
 				});
 		}
 	
-	public boolean newGameChosen() {
+	public boolean newGameChosen() 
+	{
 		return newGameChosen;
 	}
 	
-	public boolean joinGameChosen() {
+	public boolean joinGameChosen() 
+	{
 		return joinGameChosen;
 	}
 	
-	private void closeFrame(ActionEvent e) {
+	private void closeFrame(ActionEvent e) 
+	{
 		JButton thisBTN = (JButton)e.getSource();
 		LobbyFrame thisFrame = (LobbyFrame)thisBTN.getTopLevelAncestor();
 		thisFrame.dispatchEvent(new WindowEvent(thisFrame, WindowEvent.WINDOW_CLOSING));
 	}
 	
-	private class NewGameEvent extends WindowEvent {
-		
-		
-
-		public NewGameEvent(Window source, int id) {
+	private class NewGameEvent extends WindowEvent
+	{
+		public NewGameEvent(Window source, int id) 
+		{
 			super(source, id);
-		}
-		
+		}		
 	}
 }
 

@@ -1,26 +1,19 @@
 package view.game.panels;
 
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import javax.swing.JLabel;
-import java.awt.Font;
 
 /*
  * 	This will be Were the 
@@ -36,6 +29,10 @@ public class GamePanel extends JPanel
 	private static final int SIZE_X = 515;
 	private int SIZE_Y = 381;
 	
+	/*
+	 * This is a test to see if this commit gets sent
+	 * 
+	 */
 		public GamePanel()
 		{
 			//setForeground(new Color(255, 255, 255));
@@ -56,14 +53,11 @@ public class GamePanel extends JPanel
 			textArea.setEditable(true);
 			
 	//*****Creates the Border layout around the GamePanel Components*************//
-			setBorder(new CompoundBorder(new EmptyBorder(5, 5, 5, 5), 
+			setBorder(new CompoundBorder(new EmptyBorder(5, 5, 5, 5),
 					new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, 
-					new Color(255, 255, 255), new Color(160, 160, 160)), 
-					"Game Play: ", TitledBorder.LEADING,
-					TitledBorder.TOP, null, new Color(255, 255, 255))));		//combines the two bits of border information
-			
-			setBackground(Color.DARK_GRAY);
-          
+					new Color(255, 255, 255), new Color(160, 160, 160)), "Game Play: ",
+					TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0))));		//combines the two bits of border information
+			setBackground(new Color(128, 128, 128));
 			setLayout(null);
 		}
 		
@@ -77,6 +71,9 @@ public class GamePanel extends JPanel
 			JPanel wordPanel = new JPanel();
 			wordPanel.setBounds(wordPanelHGap/2, (this.getHeight()/2)-(wordPanelHeight/2), wordPanelWidth, wordPanelHeight);
 			wordPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+			wordPanel.setBackground(new Color(128, 128, 128));
+			
+			
 			this.add(wordPanel);
 			
 			for (int i = 0; i < wordToSolve.length(); i++) {
@@ -94,7 +91,7 @@ public class GamePanel extends JPanel
 		public void populateLetter(String letter, int letterLocation) {
 			JPanel wordPanel = (JPanel)this.getComponent(0);
 			JLabel letterLabel = (JLabel)wordPanel.getComponent(letterLocation);
-			
+			wordPanel.setBackground(new Color(128, 128, 128));
 			letterLabel.setText(letter);
 			this.repaint();
 		}

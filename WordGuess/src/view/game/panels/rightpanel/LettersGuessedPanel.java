@@ -1,27 +1,19 @@
 package view.game.panels.rightpanel;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextArea;
-import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 
 import java.awt.Color;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
-import model.Model;
 import model.Player;
 import model.RemainingLetterList;
-import model.Turn;
 import view.game.frame.GameFrame;
 
 import java.awt.GridBagLayout;
@@ -33,7 +25,6 @@ import javax.swing.JOptionPane;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class LettersGuessedPanel extends JPanel implements ActionListener {
@@ -84,13 +75,8 @@ public class LettersGuessedPanel extends JPanel implements ActionListener {
 			gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
 			gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 			gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-			
 			gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-			
-			
-			
-			
-			
+						
 			GridBagConstraints gbc = new GridBagConstraints();
 			
 			
@@ -105,19 +91,15 @@ public class LettersGuessedPanel extends JPanel implements ActionListener {
 	//**************Disabling Button at the beginning***************//
 				lettersButton.setEnabled(false);
 				
-	//****************************************************************//
-		        //lettersButton.setEnabled(true);
-				/*
 				this.lettersButton.addActionListener(new ActionListener() 
 				{
 					public void actionPerformed(ActionEvent e) 
 					{
 						changeLetterClicked.setText(letters);
-						lettersButton.setEnabled(false);
 						
 					}
 				});
-				*/
+				
 				for (int j = 0; j < 5; j++)
 				{
 					for(int k = 0; k < 4; k ++)
@@ -168,11 +150,12 @@ public class LettersGuessedPanel extends JPanel implements ActionListener {
 			
 			
 			changeLetterClicked.setBackground(new Color(128, 128, 128));
+			changeLetterClicked.setPreferredSize(new Dimension(25, 30));
 			gbc.insets = new Insets(0, 0, 0, 5);
 			gbc.gridx = 5;
 			gbc.gridy = 4;
 			add(changeLetterClicked, gbc);
-			//System.out.println(btnZ.getPreferredSize());
+			//System.out.println(changeLetterClicked.getPreferredSize());
 			
 	
 	}

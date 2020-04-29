@@ -49,9 +49,9 @@ public class RightPanel extends JPanel
 		
 		setBorder(BorderFactory.createBevelBorder(5));
 		
-		add(lettersGuessedPanel, BorderLayout.NORTH);
+		add(lettersGuessedPanel, BorderLayout.SOUTH);
 		add(usersHangManPicturePanel, BorderLayout.CENTER);
-		add(wordsGuessedPanel, BorderLayout.SOUTH);
+		add(wordsGuessedPanel, BorderLayout.NORTH);
 		wordsGuessedPanel.setLayout(new GridLayout(1, 0, 0, 0));
 	}
 	
