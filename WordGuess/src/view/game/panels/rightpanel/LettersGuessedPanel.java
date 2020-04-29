@@ -225,7 +225,7 @@ public class LettersGuessedPanel extends JPanel implements ActionListener {
 																"Use the guess word button to receive extra bonus points in the future.");
 					gFrame.getGamePanel().clear();
 					gFrame.getRightPanel().getWordsGuessedPanel().clear();
-					gFrame.getRightPanel().getLettersGuessedPanel().enableButtons();
+					gFrame.getRightPanel().getLettersGuessedPanel().disableButtons();
 				}
 				
 			}

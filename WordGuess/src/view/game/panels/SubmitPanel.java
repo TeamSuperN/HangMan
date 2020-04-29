@@ -98,7 +98,7 @@ public class SubmitPanel extends JPanel
 						player.correctWordGuess();
 						gFrame.getGamePanel().clear();
 						gFrame.getRightPanel().getWordsGuessedPanel().clear();
-						gFrame.getRightPanel().getLettersGuessedPanel().enableButtons();
+						gFrame.getRightPanel().getLettersGuessedPanel().disableButtons();
 					}
 					else {
 						player.incorrectWordGuess();
