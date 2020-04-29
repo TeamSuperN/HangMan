@@ -92,6 +92,7 @@ public class ToolbarPanel extends JPanel
 						GameFrame gf = (GameFrame)btn.getTopLevelAncestor();
 						gf.getGamePanel().populateWordToSolve(word);
 						gf.model.game.curRound.newTurn(word);
+						gf.getRightPanel().getLettersGuessedPanel().enableButtons();
 					}
 				});
 		add(spacerLabel);
