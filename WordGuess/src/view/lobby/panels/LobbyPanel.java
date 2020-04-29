@@ -24,6 +24,7 @@ import java.awt.Color;
 import javax.swing.SwingConstants;
 import java.awt.SystemColor;
 
+
 public class LobbyPanel extends JPanel
 {
 	private JButton newGame;
