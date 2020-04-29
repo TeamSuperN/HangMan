@@ -26,7 +26,9 @@ import view.game.frame.GameFrame;
 
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -50,7 +52,6 @@ public class LettersGuessedPanel extends JPanel implements ActionListener {
 		//lettersPanel = new JPanel();
 		remainingLetterList = new RemainingLetterList();
 		
-		System.out.println(remainingLetterList);
 		setBackground(Color.DARK_GRAY);
 			/*
 			 * This sets the dimension that the MainFrame
@@ -170,6 +171,18 @@ public class LettersGuessedPanel extends JPanel implements ActionListener {
 	
 	}
 	
+	public void disableButtons() {
+		for (int i = 0; i < this.getComponentCount(); i++) {
+			this.getComponent(i).setEnabled(false);
+		}
+	}
+	
+	public void enableButtons() {
+		for (int i = 0; i < this.getComponentCount(); i++) {
+			this.getComponent(i).setEnabled(true);
+		}
+	}
+	
 	@Override
 	/*
 	 * This is the action listeners for the buttons
@@ -180,28 +193,41 @@ public class LettersGuessedPanel extends JPanel implements ActionListener {
 		String buttonChar = button.getText();
 		button.setEnabled(false);
 		
-		GameFrame gf = (GameFrame)button.getTopLevelAncestor();
-		RemainingLetterList rll = gf.model.game.curRound.curTurn.rll;
+		GameFrame gFrame = (GameFrame)button.getTopLevelAncestor();
+		RemainingLetterList rll = gFrame.model.game.curRound.curTurn.rll;
 		
 		if (rll.contains(buttonChar)) {
 			rll.remove(buttonChar);
 			
-			Player player = gf.model.game.pList.get(0);
-			String wordToSolve = gf.model.game.curRound.curTurn.wordToSolve;
+			Player player = gFrame.model.game.pList.get(0);
+			String wordToSolve = gFrame.model.game.curRound.curTurn.wordToSolve;
 			
 			if (wordToSolve.contains(buttonChar)) {
+				Turn turn = gFrame.model.game.curRound.curTurn;
 				for (int i = 0; i < wordToSolve.length(); i++) {
 					if (wordToSolve.substring(i, i+1).equals(buttonChar)) {
-						gf.getGamePanel().populateLetter(buttonChar, i);
+						gFrame.getGamePanel().populateLetter(buttonChar, i);
+						turn.incrementCorrectLetterCount();
 						player.correctLetterGuess();
 					}
 				}
+				
+				if (turn.correctLetterCount == wordToSolve.length()) {
+					JOptionPane.showMessageDialog(new JFrame(), "You solved the word with a letter guess! \n" + 
+																"Points for the correct letter guess were awarded, \n" +
+																"however, no bonus points for solving the word were awarded. \n" +
+																"Use the guess word button to receive extra bonus points in the future.");
+					gFrame.getGamePanel().clear();
+					gFrame.getRightPanel().getWordsGuessedPanel().clear();
+					gFrame.getRightPanel().getLettersGuessedPanel().enableButtons();
+				}
+				
 			}
 			else {
 				player.incorrectLetterGuess();
 			}
 			
-			gf.getUserNamePanel().getGameTable().refresh();
+			gFrame.getUserNamePanel().getGameTable().refresh();
 		}
 	}
 }

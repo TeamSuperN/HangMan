@@ -92,9 +92,13 @@ public class SubmitPanel extends JPanel
 					String wordToSolve = gFrame.model.game.curRound.curTurn.wordToSolve;
 					Player player = gFrame.model.game.pList.get(0);			//Current player will not always be at index 0. Will need to modify later
 					if (wordToSolve.equals(wordGuessed)) {
+						gFrame.getGamePanel().displayAnswer(wordGuessed);
+						JOptionPane.showMessageDialog(new JFrame(), "You solved the word! Good job! \n" + 
+																	"You win 100 bonus points!");
 						player.correctWordGuess();
 						gFrame.getGamePanel().clear();
 						gFrame.getRightPanel().getWordsGuessedPanel().clear();
+						gFrame.getRightPanel().getLettersGuessedPanel().enableButtons();
 					}
 					else {
 						player.incorrectWordGuess();
