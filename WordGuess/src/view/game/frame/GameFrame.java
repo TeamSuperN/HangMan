@@ -14,7 +14,7 @@ import view.game.panels.GamePanel;
 import view.game.panels.RightPanel;
 import view.game.panels.MenuBar;
 import view.game.panels.SubmitPanel;
-import view.game.panels.ToolbarPanel;
+import view.game.panels.ToolBars.ToolbarPanel;
 import view.game.panels.UserNamePanel;
 
 /*
@@ -70,8 +70,6 @@ public class GameFrame extends JFrame
 		setMinimumSize(new Dimension(1400, 500));
 		
 //******Sets the colors for the panels **************//
-		
-		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);										
 		setVisible(true);
 		
