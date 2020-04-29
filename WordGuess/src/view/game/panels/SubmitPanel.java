@@ -52,7 +52,7 @@ public class SubmitPanel extends JPanel
 		int labelLength = 10;
 		
 		//initialize components
-    setBackground(Color.DARK_GRAY);
+		setBackground(Color.DARK_GRAY);
 		
 		
 		guessWordButton = new JButton("Guess a word");

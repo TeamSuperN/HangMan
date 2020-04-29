@@ -14,6 +14,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 import view.game.panels.usernamepanel.GameTable;
+import javax.swing.border.BevelBorder;
 
 @SuppressWarnings("serial")
 public class UserNamePanel extends JPanel
@@ -74,11 +75,7 @@ public class UserNamePanel extends JPanel
 		 * with labels and make the border uniform on *
 		 * all four sides.							  *
 		 ******************************************** */				
-		setBorder(new CompoundBorder(new EmptyBorder(5, 5, 5, 5), 
-				new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, 
-				new Color(255, 255, 255), new Color(160, 160, 160)), 
-				"Players in Game: ", TitledBorder.LEADING,
-				TitledBorder.TOP, null, new Color(255, 255, 255))));		//combines the two bits of border information
+		setBorder(new CompoundBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null), new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Players in Game: ", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 255, 255))));		//combines the two bits of border information
 				
 		add(scrollPane);	
 		

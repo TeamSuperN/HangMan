@@ -12,6 +12,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.io.IOException;
+import javax.swing.border.BevelBorder;
 
 @SuppressWarnings("serial")
 public class RightPanel extends JPanel
@@ -47,7 +48,7 @@ public class RightPanel extends JPanel
 		
 		setPreferredSize(new Dimension(555, 800));
 		
-		setBorder(BorderFactory.createBevelBorder(5));
+		setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		
 		add(lettersGuessedPanel, BorderLayout.SOUTH);
 		add(usersHangManPicturePanel, BorderLayout.CENTER);
