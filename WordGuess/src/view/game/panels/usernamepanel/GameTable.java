@@ -37,5 +37,4 @@ public class GameTable extends JTable{
 			dtm.addRow(new Object[] {pList.get(i).getName(), pList.get(i).getPoints()});
 		}
 	}
-	
 }

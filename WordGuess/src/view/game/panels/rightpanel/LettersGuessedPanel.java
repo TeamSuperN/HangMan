@@ -74,13 +74,8 @@ public class LettersGuessedPanel extends JPanel implements ActionListener {
 			gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
 			gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 			gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-			
 			gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-			
-			
-			
-			
-			
+						
 			GridBagConstraints gbc = new GridBagConstraints();
 			
 			
@@ -97,7 +92,6 @@ public class LettersGuessedPanel extends JPanel implements ActionListener {
 					public void actionPerformed(ActionEvent e) 
 					{
 						changeLetterClicked.setText(letters);
-						
 						
 					}
 				});
@@ -152,11 +146,12 @@ public class LettersGuessedPanel extends JPanel implements ActionListener {
 			
 			
 			changeLetterClicked.setBackground(new Color(128, 128, 128));
+			changeLetterClicked.setPreferredSize(new Dimension(25, 30));
 			gbc.insets = new Insets(0, 0, 0, 5);
 			gbc.gridx = 5;
 			gbc.gridy = 4;
 			add(changeLetterClicked, gbc);
-			//System.out.println(btnZ.getPreferredSize());
+			//System.out.println(changeLetterClicked.getPreferredSize());
 			
 	
 	}

@@ -50,7 +50,13 @@ public class ToolbarPanel extends JPanel
 		guessWord = new JButton("Guess Word");
 		voteToStartGame = new JButton("Vote To Start Game");
 		spacerLabel = new JLabel("                                       "
-				+ "                                                      ");
+				+ "                                                      "
+				+ "                                                      "
+				+ "                                                      "
+				+ "                                                      "
+				+ "                                                      "
+				+ "                                                      "
+				+ "                      ");
 		
 //******creates color format for the buttons********//
 		newGame.setBackground(new Color(128, 128, 128));
