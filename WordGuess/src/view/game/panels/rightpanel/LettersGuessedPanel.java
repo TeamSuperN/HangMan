@@ -14,6 +14,7 @@ import javax.swing.border.TitledBorder;
 
 import model.Player;
 import model.RemainingLetterList;
+import model.Turn;
 import view.game.frame.GameFrame;
 
 import java.awt.GridBagLayout;
