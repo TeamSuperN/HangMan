@@ -56,83 +56,79 @@ public class LobbyPanel extends JPanel
 		String imageNewGame = "/images/startGame.gif";
 		String imageJoinGame = "/images/joinGame.gif";
 		
+		newGame = new JButton("New Game");
+		newGame.setForeground(SystemColor.desktop);
+		newGame.setBackground(new Color(128, 128, 128));
+		newGame.setIcon(createIcon(imageNewGame));
+		joinGame = new JButton("Join Game");
+		joinGame.setForeground(SystemColor.desktop);
+		joinGame.setBackground(new Color(128, 128, 128));
+		joinGame.setIcon(createIcon(imageJoinGame));
+		exitGame = new JButton("Exit Game");
+		exitGame.setBackground(new Color(128, 128, 128));
+		exitGame.setForeground(SystemColor.desktop);
+		exitGame.setText("Exit Game");
+		exitGame.setIcon(createIcon(imageExit));
+		setLayout(new GridLayout(5,1, 15, 15));	//makes a new flowlayout
 		
+		//******sets a popout trim for the tool bar ***************//
+		setBorder(BorderFactory.createRaisedBevelBorder());
 		
-		
-		
-				newGame = new JButton("New Game");
-				newGame.setForeground(SystemColor.desktop);
-				newGame.setBackground(new Color(128, 128, 128));
-				newGame.setIcon(createIcon(imageNewGame));
-				joinGame = new JButton("Join Game");
-				joinGame.setForeground(SystemColor.desktop);
-				joinGame.setBackground(new Color(128, 128, 128));
-				joinGame.setIcon(createIcon(imageJoinGame));
-				exitGame = new JButton("Exit Game");
-				exitGame.setBackground(new Color(128, 128, 128));
-				exitGame.setForeground(SystemColor.desktop);
-				exitGame.setText("Exit Game");
-				exitGame.setIcon(createIcon(imageExit));
-				setLayout(new GridLayout(5,1, 15, 15));	//makes a new flowlayout
-				
-				//******sets a popout trim for the tool bar ***************//
-				setBorder(BorderFactory.createRaisedBevelBorder());
-				
-				lblNewLabel = new JLabel("User Name");
-				lblNewLabel.setForeground(SystemColor.window);
-				lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-				add(lblNewLabel);
-				add(newGame);							//adds hellobutton to toolbar
-				add(joinGame);
-				add(exitGame);
+		lblNewLabel = new JLabel("User Name");
+		lblNewLabel.setForeground(SystemColor.window);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		add(lblNewLabel);
+		add(newGame);							//adds hellobutton to toolbar
+		add(joinGame);
+		add(exitGame);
 
-				/*
-				 * will generate a new game 
-				 * Id that the user will 
-				 * send to users to join
-				 * game
-				 */
-				newGame.addActionListener(new ActionListener()
+		/*
+		 * will generate a new game 
+		 * Id that the user will 
+		 * send to users to join
+		 * game
+		 */
+		newGame.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				GameIDGenerator.displayGameID(GameIDGenerator.generateGameID());
+				newGameChosen = true;
+				closeFrame(e);
+			}
+		});
+		
+		/*
+		 * 	will display a popup that 
+		 * 	displays the Join game Id
+		 *  Inputer
+		 */
+		joinGame.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				if (Actions.joinGame() != null) 
 				{
-					public void actionPerformed(ActionEvent e) 
-					{
-						GameIDGenerator.displayGameID(GameIDGenerator.generateGameID());
-						newGameChosen = true;
-						closeFrame(e);
-					}
-				});
-				
-				/*
-				 * 	will display a popup that 
-				 * 	displays the Join game Id
-				 *  Inputer
-				 */
-				joinGame.addActionListener(new ActionListener()
-				{
-					public void actionPerformed(ActionEvent e) 
-					{
-						if (Actions.joinGame() != null) 
-						{
-							joinGameChosen = true;
-							closeFrame(e);	
-						}
-					}					
-				});
-				
-				
-				
-				/*
-				 * 	Will display a popup for 
-				 * 	Exiting the entire game
-				 */
-				exitGame.addActionListener(new ActionListener()
-				{
-					public void actionPerformed(ActionEvent e) 
-					{
-						UserInteraction.confirmExitGame();		
-					}					
-				});
-		}
+					joinGameChosen = true;
+					closeFrame(e);	
+				}
+			}					
+		});
+		
+		
+		
+		/*
+		 * 	Will display a popup for 
+		 * 	Exiting the entire game
+		 */
+		exitGame.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				UserInteraction.confirmExitGame();		
+			}					
+		});
+	}
 	
 	private ImageIcon createIcon(String path)
 	{
