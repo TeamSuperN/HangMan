@@ -1,9 +1,12 @@
 package view.game.panels.menubar;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.net.URL;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -28,9 +31,17 @@ public class GameMenu extends JMenu
 	JMenuItem guessWordButton;
 
 	public GameMenu(String title)
-	{
+	{	
 		//initialize game menu with title
 		super(title);
+		
+		String imageExit = "/images/warning-2.gif";
+		String imageNewGame = "/images/startGame.gif";
+		String imageJoinGame = "/images/joinGame.gif";
+		String imageQuitGame = "/images/delete.gif";
+		String imageVoteToQuit = "/images/trash.gif";
+		String imageQuess = "/images/add.gif";
+		
 		
 		//initialize game menu objects
 		newGame = new JMenuItem("New Game");	
@@ -40,7 +51,12 @@ public class GameMenu extends JMenu
 		exitItem = new JMenuItem("Exit");
 		guessWordButton = new JMenuItem("Quess The Word");
 		
-		
+		newGame.setIcon(createIcon(imageNewGame));
+		joinGame.setIcon(createIcon(imageJoinGame));
+		exitItem.setIcon(createIcon(imageExit));
+		quitGame.setIcon(createIcon(imageQuitGame));
+		guessWordButton.setIcon(createIcon(imageQuess));
+		voteToQuit.setIcon(createIcon(imageVoteToQuit));
 		
 		//add action listeners to the objects
 		addActionListeners();
@@ -199,5 +215,19 @@ public class GameMenu extends JMenu
 				 UserInteraction.confirmExitGame();
 			 }																				
 		});		
+	}
+	
+	private ImageIcon createIcon(String path)
+	{
+		
+		URL url = getClass().getResource(path);
+	
+		if (url == null)
+		{
+			System.out.println("Image not able to load: " + path);
+		}
+		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(25, 25, Image.SCALE_DEFAULT));
+		
+		return icon;
 	}
 }

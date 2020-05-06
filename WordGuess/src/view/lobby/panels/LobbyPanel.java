@@ -49,10 +49,10 @@ public class LobbyPanel extends JPanel
 		dim.width = 150; 
 		
 		
-		setPreferredSize(new Dimension(120, 348));
+		setPreferredSize(new Dimension(140, 348));
 		//////////////////////////
 		
-		String imageExit = "/images/delete.gif";
+		String imageExit = "/images/warning-2.gif";
 		String imageNewGame = "/images/startGame.gif";
 		String imageJoinGame = "/images/joinGame.gif";
 		
@@ -143,7 +143,7 @@ public class LobbyPanel extends JPanel
 		{
 			System.out.println("Image not able to load: " + path);
 		}
-		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(25,25, Image.SCALE_DEFAULT));
+		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
 		
 		return icon;
 	}

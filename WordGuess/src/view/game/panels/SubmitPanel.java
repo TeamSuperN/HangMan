@@ -2,12 +2,15 @@ package view.game.panels;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.net.URL;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -47,6 +50,9 @@ public class SubmitPanel extends JPanel
 	 */
 	public SubmitPanel()
 	{
+		
+		String imageQuess = "/images/add.gif";
+		
 		setForeground(Color.BLACK);
 
 		int labelLength = 10;
@@ -57,6 +63,7 @@ public class SubmitPanel extends JPanel
 		
 		guessWordButton = new JButton("Guess a word");
 		guessWordButton.setBackground(new Color(128, 128, 128));
+		guessWordButton.setIcon(createIcon(imageQuess));
 		
 		/*
 		 * This sets the dimension that the MainFrame
@@ -130,5 +137,19 @@ public class SubmitPanel extends JPanel
 		while (wordGuessed.isEmpty());
 		
 		return wordGuessed;
+	}
+	
+	private ImageIcon createIcon(String path)
+	{
+		
+		URL url = getClass().getResource(path);
+	
+		if (url == null)
+		{
+			System.out.println("Image not able to load: " + path);
+		}
+		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
+		
+		return icon;
 	}
 }

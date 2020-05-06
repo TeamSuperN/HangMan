@@ -116,6 +116,11 @@
 			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/folder.gif</location>
 		</link>
 		<link>
+			<name>src/images/joinGame.gif</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/joinGame.gif</location>
+		</link>
+		<link>
 			<name>src/images/menu-arrow.gif</name>
 			<type>1</type>
 			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/menu-arrow.gif</location>
@@ -124,6 +129,11 @@
 			<name>src/images/save-changes.gif</name>
 			<type>1</type>
 			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/save-changes.gif</location>
+		</link>
+		<link>
+			<name>src/images/startGame.gif</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/startGame.gif</location>
 		</link>
 		<link>
 			<name>src/images/style.jpg</name>

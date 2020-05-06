@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
 
+import view.game.panels.UserNamePanel;
+
 public class ShowMenuTab extends JMenu{
 	
 	private JCheckBoxMenuItem usersLoggedInPanel;
