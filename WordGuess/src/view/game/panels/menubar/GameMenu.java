@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -11,8 +12,10 @@ import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 import controller.Actions;
+import model.Player;
 import tools.GameIDGenerator;
 import tools.UserInteraction;
+import view.game.frame.GameFrame;
 import view.lobby.frame.LobbyFrame;
 
 public class GameMenu extends JMenu
@@ -22,6 +25,7 @@ public class GameMenu extends JMenu
 	JMenuItem quitGame;
 	JMenuItem voteToQuit;
 	JMenuItem exitItem;
+	JMenuItem guessWordButton;
 
 	public GameMenu(String title)
 	{
@@ -34,6 +38,9 @@ public class GameMenu extends JMenu
 		quitGame = new JMenuItem("Quit Game");
 		voteToQuit = new JMenuItem("Vote To Quit...");
 		exitItem = new JMenuItem("Exit");
+		guessWordButton = new JMenuItem("Quess The Word");
+		
+		
 		
 		//add action listeners to the objects
 		addActionListeners();
@@ -41,6 +48,8 @@ public class GameMenu extends JMenu
 		//******setMnemonicsKeys********//
 		exitItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, ActionEvent.CTRL_MASK));		//CTRL+X
 		voteToQuit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));	//ctlr+Q
+		guessWordButton.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, ActionEvent.CTRL_MASK));	//ctlr+W
+		
 		//passHost.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, ActionEvent.CTRL_MASK));		//ctrl+H
 											
 		//add them to game menu
@@ -49,6 +58,8 @@ public class GameMenu extends JMenu
 		addSeparator();
 		add(quitGame);
 		add(voteToQuit);
+		addSeparator();
+		add(guessWordButton);
 		addSeparator();
 		add(exitItem);
 		
@@ -137,6 +148,43 @@ public class GameMenu extends JMenu
 				 }																				//
 			});																					//
 			//////////////////////////////////////////////////////////////////////////////////////
+		
+		guessWordButton.addActionListener(new ActionListener()
+		{
+			
+			public void actionPerformed(ActionEvent e) 
+			{
+				
+				String wordGuessed = UserInteraction.queryGuessWord();
+				
+				//If user uses cancel option or closes the popup window
+				if (wordGuessed == null) {
+					//Do nothing and go back to game
+				}
+				else {
+					wordGuessed = wordGuessed.toUpperCase();
+					JButton btn = (JButton)e.getSource();
+					GameFrame gFrame = (GameFrame)btn.getTopLevelAncestor();
+					String wordToSolve = gFrame.model.game.curRound.curTurn.wordToSolve;
+					Player player = gFrame.model.game.pList.get(0);			//Current player will not always be at index 0. Will need to modify later
+				
+					if (wordToSolve.equals(wordGuessed)) {
+						gFrame.getGamePanel().displayAnswer(wordGuessed);
+						JOptionPane.showMessageDialog(new JFrame(), "You solved the word! Good job! \n" + 
+																	"You win 100 bonus points!");
+						player.correctWordGuess();
+						gFrame.getGamePanel().clear();
+						gFrame.getRightPanel().getWordsGuessedPanel().clear();
+						gFrame.getRightPanel().getLettersGuessedPanel().disableButtons();
+					}
+					else {
+						player.incorrectWordGuess();
+						gFrame.getRightPanel().getWordsGuessedPanel().addWord(wordGuessed);
+					}
+					gFrame.getUserNamePanel().getGameTable().refresh();
+				}
+			}			
+		});
 		
 		/* **************************
 		 * 	This is a built in Exit *

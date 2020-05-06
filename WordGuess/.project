@@ -14,4 +14,141 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>images/add.gif</name>
+			<type>1</type>
+			<location>C:/Users/cfick_9v0yl88/Downloads/add.gif</location>
+		</link>
+		<link>
+			<name>images/delete.gif</name>
+			<type>1</type>
+			<location>C:/Users/cfick_9v0yl88/Downloads/delete.gif</location>
+		</link>
+		<link>
+			<name>images/expand-window.gif</name>
+			<type>1</type>
+			<location>C:/Users/cfick_9v0yl88/Downloads/expand-window.gif</location>
+		</link>
+		<link>
+			<name>images/folder.gif</name>
+			<type>1</type>
+			<location>C:/Users/cfick_9v0yl88/Downloads/folder.gif</location>
+		</link>
+		<link>
+			<name>images/joinGame.gif</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/joinGame.gif</location>
+		</link>
+		<link>
+			<name>images/menu-arrow.gif</name>
+			<type>1</type>
+			<location>C:/Users/cfick_9v0yl88/Downloads/menu-arrow.gif</location>
+		</link>
+		<link>
+			<name>images/startGame.gif</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/startGame.gif</location>
+		</link>
+		<link>
+			<name>images/trash.gif</name>
+			<type>1</type>
+			<location>C:/Users/cfick_9v0yl88/Downloads/trash.gif</location>
+		</link>
+		<link>
+			<name>images/warning-2.gif</name>
+			<type>1</type>
+			<location>C:/Users/cfick_9v0yl88/Downloads/warning-2.gif</location>
+		</link>
+		<link>
+			<name>src/images/HangManPicture.jpg</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/HangManPicture.jpg</location>
+		</link>
+		<link>
+			<name>src/images/HangManPictureDark.jpg</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/HangManPictureDark.jpg</location>
+		</link>
+		<link>
+			<name>src/images/HangManPictureLight.jpg</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/HangManPictureLight.jpg</location>
+		</link>
+		<link>
+			<name>src/images/add.gif</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/add.gif</location>
+		</link>
+		<link>
+			<name>src/images/cancelButtonImage.jpg</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/cancelButtonImage.jpg</location>
+		</link>
+		<link>
+			<name>src/images/check.jpg</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/check.jpg</location>
+		</link>
+		<link>
+			<name>src/images/delete.gif</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/delete.gif</location>
+		</link>
+		<link>
+			<name>src/images/ellipses.jpg</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/ellipses.jpg</location>
+		</link>
+		<link>
+			<name>src/images/error.jpg</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/error.jpg</location>
+		</link>
+		<link>
+			<name>src/images/expand-window.gif</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/expand-window.gif</location>
+		</link>
+		<link>
+			<name>src/images/folder.gif</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/folder.gif</location>
+		</link>
+		<link>
+			<name>src/images/menu-arrow.gif</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/menu-arrow.gif</location>
+		</link>
+		<link>
+			<name>src/images/save-changes.gif</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/save-changes.gif</location>
+		</link>
+		<link>
+			<name>src/images/style.jpg</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/style.jpg</location>
+		</link>
+		<link>
+			<name>src/images/trash (1).gif</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/trash (1).gif</location>
+		</link>
+		<link>
+			<name>src/images/trash.gif</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/trash.gif</location>
+		</link>
+		<link>
+			<name>src/images/warning-2.gif</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/warning-2.gif</location>
+		</link>
+		<link>
+			<name>src/images/warning.jpg</name>
+			<type>1</type>
+			<location>C:/Computer Programming Software/Java/WorkSpaces/eclipse-workspace/JavaSwingTrainingPartTwo/src/images/warning.jpg</location>
+		</link>
+	</linkedResources>
 </projectDescription>

@@ -28,6 +28,8 @@ public class HangManPicturePanel extends JPanel
 		String absoluteCurrentPath = relativeCurrentPath.toAbsolutePath().toString();
 		String imagePath = absoluteCurrentPath + "/images/" + imageFileName;
 		
+		System.out.println(imagePath);
+		
 		
 		JLabel hangManLabel = new JLabel();
 		

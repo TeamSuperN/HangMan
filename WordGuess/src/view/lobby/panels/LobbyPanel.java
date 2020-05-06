@@ -1,11 +1,14 @@
 package view.lobby.panels;
 
 import java.awt.Dimension;
+
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -23,6 +26,7 @@ import view.lobby.frame.LobbyFrame;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import java.awt.SystemColor;
+import view.CreateIcon;
 
 public class LobbyPanel extends JPanel
 {
@@ -31,7 +35,7 @@ public class LobbyPanel extends JPanel
 	private JButton exitGame;
 	private boolean newGameChosen = false;
 	private boolean joinGameChosen = false;
-  private JLabel lblNewLabel;
+	private JLabel lblNewLabel;
 	
 	//https://image.shutterstock.com/image-vector/hangman-game-600w-623194223.jpg
 	public LobbyPanel()
@@ -48,24 +52,27 @@ public class LobbyPanel extends JPanel
 		setPreferredSize(new Dimension(120, 348));
 		//////////////////////////
 		
-		String imageExitButton = "cancelButtonImage.jpg";
+		String imageExit = "/images/delete.gif";
+		String imageNewGame = "/images/startGame.gif";
+		String imageJoinGame = "/images/joinGame.gif";
 		
-		// this uses the local path in the repo for the picture  //
-		Path relativeCurrentPath = Paths.get("");
-		String absoluteCurrentPath = relativeCurrentPath.toAbsolutePath().toString();
-		String imageExitIconPath = absoluteCurrentPath + "/images/" + imageExitButton;
 		
-		Icon exitIcon = new ImageIcon(imageExitIconPath);
+		
+		
+		
 				newGame = new JButton("New Game");
 				newGame.setForeground(SystemColor.desktop);
 				newGame.setBackground(new Color(128, 128, 128));
+				newGame.setIcon(createIcon(imageNewGame));
 				joinGame = new JButton("Join Game");
 				joinGame.setForeground(SystemColor.desktop);
 				joinGame.setBackground(new Color(128, 128, 128));
+				joinGame.setIcon(createIcon(imageJoinGame));
 				exitGame = new JButton("Exit Game");
 				exitGame.setBackground(new Color(128, 128, 128));
 				exitGame.setForeground(SystemColor.desktop);
 				exitGame.setText("Exit Game");
+				exitGame.setIcon(createIcon(imageExit));
 				setLayout(new GridLayout(5,1, 15, 15));	//makes a new flowlayout
 				
 				//******sets a popout trim for the tool bar ***************//
@@ -127,6 +134,21 @@ public class LobbyPanel extends JPanel
 				});
 		}
 	
+	private ImageIcon createIcon(String path)
+	{
+		
+		URL url = getClass().getResource(path);
+	
+		if (url == null)
+		{
+			System.out.println("Image not able to load: " + path);
+		}
+		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(25,25, Image.SCALE_DEFAULT));
+		
+		return icon;
+	}
+	
+
 	public boolean newGameChosen() 
 	{
 		return newGameChosen;
