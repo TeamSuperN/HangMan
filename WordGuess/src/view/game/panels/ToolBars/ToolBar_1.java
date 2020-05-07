@@ -43,11 +43,11 @@ public class ToolBar_1 extends JToolBar
 			//setBackground(Color.DARK_GRAY);
 			//setForeground(new Color(128, 128, 128));
 	//******creates a random buttom add a holding space here********//
-			newGame = new JButton("New Game");		
-			joinGame = new JButton("Join Game");
-			quitGame = new JButton("Quit Game");
-			exitGame = new JButton("Exit Game");
-			testGamePanel = new JButton("Game Panel Test");
+			newGame = new JButton();
+			joinGame = new JButton();
+			quitGame = new JButton();
+			exitGame = new JButton();
+			testGamePanel = new JButton();
 			
 			
 			newGame.setIcon(createIcon(imageNewGame));
@@ -55,7 +55,12 @@ public class ToolBar_1 extends JToolBar
 			exitGame.setIcon(createIcon(imageExit));
 			quitGame.setIcon(createIcon(imageQuitGame));
 			testGamePanel.setIcon(createIcon(imageTestGameFunction));
-					
+				
+			newGame.setToolTipText("Join Game");
+			joinGame.setToolTipText("New Game");
+			exitGame.setToolTipText("Quit Game");
+			quitGame.setToolTipText("Exit Game");
+			testGamePanel.setToolTipText("Game Panel Test");
 	//******creates color format for the buttons********//
 			newGame.setBackground(new Color(128, 128, 128));
 			joinGame.setBackground(new Color(128, 128, 128));

@@ -59,7 +59,7 @@ public class GameFrame extends JFrame
 		add(userNamePanel, BorderLayout.WEST);
 		add(rightPanel, BorderLayout.EAST);
 		add(gamePanel, BorderLayout.CENTER);
-		add(toolbarPanel, BorderLayout.NORTH);
+		add(toolbarPanel, BorderLayout.PAGE_START);
 		add(submitPanel, BorderLayout.SOUTH);
 		setJMenuBar(mainMenuBar);
 		
