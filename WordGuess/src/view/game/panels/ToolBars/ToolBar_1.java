@@ -32,6 +32,7 @@ public class ToolBar_1 extends JToolBar
 		 */
 		public ToolBar_1()
 		{
+			setFloatable(false);
 			String imageExit = "/images/warning-2.gif";
 			String imageNewGame = "/images/startGame.gif";
 			String imageJoinGame = "/images/joinGame.gif";
