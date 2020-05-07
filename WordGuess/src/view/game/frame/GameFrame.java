@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.util.Vector;
 
 import javax.swing.JFrame;
+import javax.swing.JSplitPane;
 
 import model.Model;
 import model.Player;
@@ -35,6 +36,8 @@ public class GameFrame extends JFrame
 	private RightPanel rightPanel;
 	private MenuBar mainMenuBar;
 	public Model model;				//Temp model used for testing purposes. Removed once actual model is implemented in server app.
+	private JSplitPane splitPaneGamePanelandRightPanel;
+	private JSplitPane splitPaneUserPanelAndGamePanel;
 	
 	//Variable here for testing purposes only. Remove after server app is implemented
 	private Vector<Player> playerList = new Vector<Player>();
@@ -54,12 +57,15 @@ public class GameFrame extends JFrame
 		rightPanel = new RightPanel();
 		mainMenuBar = new MenuBar();
 		userNamePanel = new UserNamePanel();
+		splitPaneUserPanelAndGamePanel = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, userNamePanel, gamePanel);
+		splitPaneUserPanelAndGamePanel.setOneTouchExpandable(true);
+		
 		
 //******add all panels to the MainFrame component*****//
-		add(userNamePanel, BorderLayout.WEST);
+		getContentPane().add(splitPaneUserPanelAndGamePanel, BorderLayout.CENTER);
 		add(rightPanel, BorderLayout.EAST);
-		add(gamePanel, BorderLayout.CENTER);
-		add(toolbarPanel, BorderLayout.NORTH);
+		
+		add(toolbarPanel, BorderLayout.PAGE_START);
 		add(submitPanel, BorderLayout.SOUTH);
 		setJMenuBar(mainMenuBar);
 		

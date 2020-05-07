@@ -54,7 +54,7 @@ public class LobbyFrame extends JFrame
 		
 		setVisible(true);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		setMinimumSize(new Dimension(500, 475));
+		setMinimumSize(new Dimension(550, 475));
 		//setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(true);
