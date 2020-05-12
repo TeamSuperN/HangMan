@@ -26,7 +26,7 @@ public class GamePanel extends JPanel
 {	
 //****initializes the variable in the GamePanel*****//
 	private JTextArea textArea;
-	private static final int SIZE_X = 515;
+	private static final int SIZE_X = 850;
 	private int SIZE_Y = 381;
 	
 	/*
@@ -45,7 +45,7 @@ public class GamePanel extends JPanel
 			 *  sees the GamePanel to look like
 			 */
 			Dimension dim = getPreferredSize();	
-			dim.width = 300; 
+			dim.width = 900; 
 			setPreferredSize(new Dimension(SIZE_X, SIZE_Y));
 			
 	//*****	Initializes the variables in the game area******//

@@ -51,7 +51,7 @@ public class UserNamePanel extends JPanel
 		dimScrollPane.height = 250;
 				
 		
-		setPreferredSize(new Dimension(300, 495));
+		setPreferredSize(new Dimension(150, 495));
 		//////////////////////////
 				
 		gameTable = new GameTable();
