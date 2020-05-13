@@ -21,6 +21,8 @@ public class RightPanel extends JPanel
 	private LettersGuessedPanel lettersGuessedPanel;
 	private UsersHangManPicturePanel usersHangManPicturePanel;
 	private WordsGuessedPanel wordsGuessedPanel;
+	private static final int SIZE_X = 250;
+	private int SIZE_Y = 381;
 	
 	public RightPanel()
 	{
@@ -46,7 +48,7 @@ public class RightPanel extends JPanel
 		Dimension dim = getPreferredSize();	
 		dim.width = 400; 
 		
-		setPreferredSize(new Dimension(555, 800));
+		setPreferredSize(new Dimension(SIZE_X, SIZE_Y));
 		
 		setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		

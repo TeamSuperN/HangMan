@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.util.Vector;
 
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 
 import model.Model;
@@ -57,13 +58,30 @@ public class GameFrame extends JFrame
 		rightPanel = new RightPanel();
 		mainMenuBar = new MenuBar();
 		userNamePanel = new UserNamePanel();
+		gamePanel.setSize(new Dimension(900, 800));
+		rightPanel.setSize(new Dimension(150, 800));
+		userNamePanel.setSize(new Dimension(150, 800));
+		
 		splitPaneUserPanelAndGamePanel = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, userNamePanel, gamePanel);
+		splitPaneGamePanelandRightPanel = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, 
+						splitPaneUserPanelAndGamePanel, new JScrollPane(rightPanel));
+		
+		
+		
+		splitPaneGamePanelandRightPanel.setOneTouchExpandable(true);
 		splitPaneUserPanelAndGamePanel.setOneTouchExpandable(true);
+		
+		splitPaneUserPanelAndGamePanel.setResizeWeight(.5);
+		splitPaneGamePanelandRightPanel.setResizeWeight(.5);
+		
+		
+		
+		//splitPaneUserPanelAndGamePanel.setResizeWeight(1.0);
 		
 		
 //******add all panels to the MainFrame component*****//
-		getContentPane().add(splitPaneUserPanelAndGamePanel, BorderLayout.CENTER);
-		add(rightPanel, BorderLayout.EAST);
+		//getContentPane().add(splitPaneGamePanelandRightPanel, BorderLayout.CENTER);
+		add(splitPaneGamePanelandRightPanel, BorderLayout.CENTER);
 		
 		add(toolbarPanel, BorderLayout.PAGE_START);
 		add(submitPanel, BorderLayout.SOUTH);

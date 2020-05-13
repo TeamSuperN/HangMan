@@ -34,7 +34,8 @@ public class UsersHangManPicturePanel extends JPanel
 		JLabel usersHangManLabel = new JLabel();
 		
 		ImageIcon imageIcon = new ImageIcon(imagePath);
-		usersHangManLabel.setIcon(new ImageIcon(new ImageIcon(imagePath).getImage().getScaledInstance(515, 370, Image.SCALE_SMOOTH)));
+		usersHangManLabel.setIcon(new ImageIcon(new ImageIcon(imagePath).getImage().getScaledInstance(500, 350, Image.SCALE_DEFAULT)));
+		
 		
 		setBorder(new CompoundBorder(new EmptyBorder(5, 5, 5, 5), 
 						new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, 
@@ -45,5 +46,13 @@ public class UsersHangManPicturePanel extends JPanel
         add(usersHangManLabel);
 	}
         
-	
+	 /**
+     * Resizes an image by a percentage of original size (proportional).
+     * @param inputImagePath Path of the original image
+     * @param outputImagePath Path to save the resized image
+     * @param percent a double number specifies percentage of the output image
+     * over the input image.
+     * @throws IOException
+     */
+    
 }
