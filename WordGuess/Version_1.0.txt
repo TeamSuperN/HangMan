@@ -1,0 +1,15 @@
+//*******************************              HANGMAN              *******************************//
+
+					This is the first operational version on the HangMan game.
+
+The purpose of this game to to make developers more familiar with the process of  Java Swing Software
+Development. This is just the first phase of the Game Implementation. The next phase of the game will
+require the team to develop a server built in C++ that will use UDP operations. They will develop the
+server in a Publisher Subscriber Architecture. This will also enhance the developers skills with more
+knowledge in regards to the C++ style architecture as well as how Publisher  Subscriber  Architecture
+works. 
+
+
+
+Christopher Fickess 
+Super N Team
